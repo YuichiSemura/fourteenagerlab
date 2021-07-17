@@ -1,0 +1,6 @@
+{
+    "name": "NpmDevContainer",
+    "image": "node:16-buster",
+    "extensions": [
+    ]
+}
