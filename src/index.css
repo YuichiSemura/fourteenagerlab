@@ -1,3 +1,13 @@
+#navbar {
+  padding: 0;
+  animation-delay: 3s;
+}
+
+#navbar nav {
+  opacity: 0.7;
+  background-color: rgb(0, 130, 153);
+}
+
 .nav-item {
   text-decoration: underline;
   padding: 0px 8px 0px 8px;
@@ -21,6 +31,20 @@
   font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN",
     "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
   font-weight: 600;
+}
+
+#carousel-top {
+  animation-delay: 3s;
+}
+
+#first-word {
+  z-index: 1;
+  animation-duration: 2.5s;
+}
+
+#lab-member {
+  background-color: rgba(0, 0, 0, 0.281);
+  animation-delay: 3s;
 }
 
 body {
