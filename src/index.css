@@ -8,16 +8,18 @@
 }
 
 .text-azure {
-  color: azure!important;
+  color: azure !important;
 }
 
 .mincho {
-  font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
+  font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN",
+    "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
   font-weight: 400;
 }
 
 .mincho-bold {
-  font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
+  font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN",
+    "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
   font-weight: 600;
 }
 
@@ -33,7 +35,7 @@ a:hover {
 }
 
 #header {
-  padding: 16px
+  padding: 16px;
 }
 
 #header p {
@@ -71,7 +73,7 @@ a:hover {
 }
 
 .row {
-  margin: 0
+  margin: 0;
 }
 
 .p5 {
@@ -110,7 +112,7 @@ a:hover {
   width: 100%; */
   height: 20px;
   color: #aaaaaa;
-  font-size: 12px
+  font-size: 12px;
 }
 
 p {
@@ -118,14 +120,14 @@ p {
 }
 
 .modal-content {
-  background-color: rgb(233, 233, 233)!important;
+  background-color: rgb(233, 233, 233) !important;
 }
 
 #carousel-top {
   max-width: 720px;
 }
 
-.rain>div {
+.rain > div {
   -webkit-animation: rain 500ms linear infinite;
   animation: rain 500ms linear infinite;
   background-color: rgba(255, 255, 255, 0.25);
@@ -138,7 +140,7 @@ p {
   transform-origin: center center;
 }
 
-.rain>div:nth-child(1) {
+.rain > div:nth-child(1) {
   -webkit-animation-delay: 100ms;
   animation-delay: 100ms;
   -webkit-animation-duration: 471ms;
@@ -146,7 +148,7 @@ p {
   left: 3vw;
 }
 
-.rain>div:nth-child(2) {
+.rain > div:nth-child(2) {
   -webkit-animation-delay: 200ms;
   animation-delay: 200ms;
   -webkit-animation-duration: 412ms;
@@ -154,7 +156,7 @@ p {
   left: 29vw;
 }
 
-.rain>div:nth-child(3) {
+.rain > div:nth-child(3) {
   -webkit-animation-delay: 300ms;
   animation-delay: 300ms;
   -webkit-animation-duration: 610ms;
@@ -162,7 +164,7 @@ p {
   left: 9vw;
 }
 
-.rain>div:nth-child(4) {
+.rain > div:nth-child(4) {
   -webkit-animation-delay: 400ms;
   animation-delay: 400ms;
   -webkit-animation-duration: 385ms;
@@ -170,7 +172,7 @@ p {
   left: 2vw;
 }
 
-.rain>div:nth-child(5) {
+.rain > div:nth-child(5) {
   -webkit-animation-delay: 500ms;
   animation-delay: 500ms;
   -webkit-animation-duration: 543ms;
@@ -178,7 +180,7 @@ p {
   left: 97vw;
 }
 
-.rain>div:nth-child(6) {
+.rain > div:nth-child(6) {
   -webkit-animation-delay: 600ms;
   animation-delay: 600ms;
   -webkit-animation-duration: 603ms;
@@ -186,7 +188,7 @@ p {
   left: 88vw;
 }
 
-.rain>div:nth-child(7) {
+.rain > div:nth-child(7) {
   -webkit-animation-delay: 700ms;
   animation-delay: 700ms;
   -webkit-animation-duration: 472ms;
@@ -194,7 +196,7 @@ p {
   left: 28vw;
 }
 
-.rain>div:nth-child(8) {
+.rain > div:nth-child(8) {
   -webkit-animation-delay: 800ms;
   animation-delay: 800ms;
   -webkit-animation-duration: 460ms;
@@ -202,7 +204,7 @@ p {
   left: 43vw;
 }
 
-.rain>div:nth-child(9) {
+.rain > div:nth-child(9) {
   -webkit-animation-delay: 900ms;
   animation-delay: 900ms;
   -webkit-animation-duration: 416ms;
@@ -210,14 +212,13 @@ p {
   left: 52vw;
 }
 
-.rain>div:nth-child(10) {
+.rain > div:nth-child(10) {
   -webkit-animation-delay: 1000ms;
   animation-delay: 1000ms;
   -webkit-animation-duration: 605ms;
   animation-duration: 605ms;
   left: 59vw;
 }
-
 
 /* 
 .rain>div:nth-child(11) {
