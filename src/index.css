@@ -47,10 +47,20 @@
   animation-delay: 3s;
 }
 
+#title {
+  margin: 0;
+}
+
+#contact {
+  text-align: right;
+}
+
+#contact a {
+  display: block;
+}
+
 body {
-  background-color: azure !important;
   overflow-x: hidden;
-  /* overflow: hidden; */
 }
 
 a:hover {
