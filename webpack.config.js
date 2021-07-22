@@ -1,6 +1,4 @@
 module.exports = {
-  // モード値を production に設定すると最適化された状態で、
-  // development に設定するとソースマップ有効でJSファイルが出力される
   mode: "development",
   module: {
     rules: [
@@ -11,6 +9,20 @@ module.exports = {
           {
             loader: "css-loader",
             options: { url: false },
+          },
+        ],
+      },
+      {
+        test: /\.scss/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: { url: false },
+          },
+          {
+            loader: "sass-loader",
+            options: {},
           },
         ],
       },

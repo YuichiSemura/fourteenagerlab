@@ -2,11 +2,12 @@
   "name": "NpmDevContainer",
   "image": "node:16-buster",
   "extensions": [
-    "oderwat.indent-rainbow",
-    "ecmel.vscode-html-css",
-    "eamodio.gitlens",
-    "esbenp.prettier-vscode"
-  ],
+	"oderwat.indent-rainbow",
+	"ecmel.vscode-html-css",
+	"eamodio.gitlens",
+	"esbenp.prettier-vscode",
+	"ritwickdey.live-sass"
+],
   "settings": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"

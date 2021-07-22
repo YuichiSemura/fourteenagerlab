@@ -8,7 +8,7 @@ import "@fortawesome/fontawesome-free/js/fontawesome";
 import "@fortawesome/fontawesome-free/js/solid";
 import "@fortawesome/fontawesome-free/js/regular";
 import "animate.css/animate.min.css";
-import "./index.css";
+import "./index.scss";
 
 const { WOW } = require("wowjs");
 window.WOW = require("wowjs");
