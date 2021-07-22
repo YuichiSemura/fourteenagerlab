@@ -157,17 +157,18 @@ a:hover {
   background-attachment: fixed;
   background-size: cover;
   background-image: url(./assets/back.jpg);
-  filter: blur(4px);
-  z-index: -2;
+  filter: blur(10px);
+  z-index: -3;
 }
 
-.parallax {
+.background2 {
+  background-color: rgba(45, 80, 97, 0.856);
   position: fixed;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(45, 80, 97, 0.856);
-  filter: blur(0.5px);
-  z-index: -1;
+  z-index: -2;
 }
 
 .footer {
@@ -194,12 +195,18 @@ p {
 .rain {
   $rain_drop_height: 20vh;
 
-  background-color: rgba(45, 80, 97, 0.856);
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  opacity: 0;
+  animation: rainall;
+  animation-delay: 3s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  filter: blur(0.5px);
+  z-index: -1;
 
   & > div {
     animation: rain 500ms linear infinite;
@@ -216,6 +223,15 @@ p {
       animation-delay: #{$i * 100}ms;
       animation-duration: random(250) + 375ms;
       left: random(100) + vw;
+    }
+  }
+
+  @keyframes rainall {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 
@@ -280,7 +296,7 @@ $waveTime: 2s;
 $dropR: 10px;
 
 .dos {
-  margin: 175px auto;
+  margin: 235px auto;
 }
 
 .drop {
