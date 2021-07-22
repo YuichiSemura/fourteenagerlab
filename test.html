@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>FOURTEENAGER Lab.</title>
+    <link rel="stylesheet" href="./loading.css" />
+  </head>
+
+  <body style="background-color: rgb(50, 105, 120)">
+    <!-- ローディング画面 -->
+    <div
+      id="loading"
+      style="
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        top: 0;
+        background-color: rgb(50, 105, 120);
+        transition: 1s;
+      "
+    >
+      <div class="loader">Loading...</div>
+    </div>
+    <script type="text/javascript">
+      window.onload = function () {
+        console.log("onload");
+        const spinner = document.getElementById("loading");
+        spinner.classList.add("loaded");
+      };
+    </script>
+
+    <!-- background -->
+    <div class="background"></div>
+    <!-- header (navbar) -->
+    <div class="parallax rain">
+      <!-- <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div> -->
+    </div>
+
+    <div class="dropdiv">
+      <div class="dos drop"></div>
+      <div class="dos wave">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </body>
+
+  <script src="./dist/main.js"></script>
+</html>
