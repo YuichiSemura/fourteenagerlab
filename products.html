@@ -1,0 +1,217 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Products & Articles - FOURTEENAGER Lab.</title>
+</head>
+
+<body style="background-color: rgb(50, 105, 120)">
+  <!-- ローディング画面 -->
+  <div id="loading" style="
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        top: 0;
+        background-color: rgb(155, 121, 0);
+        transition: 1s;
+      ">
+    <div class="loader"></div>
+  </div>
+  <script type="text/javascript">
+    window.onload = function () {
+      console.log("onload");
+      const spinner = document.getElementById("loading");
+      spinner.classList.add("loaded");
+    };
+  </script>
+
+  <!-- background -->
+  <div class="background"></div>
+  <div class="background2 background-orange"></div>
+
+  <div id="header" class="container-lg">
+    <div class="row">
+      <h4 id="title" class="col-6 text-azure text-left">
+        <a href="./index.html">FOURTEENAGER LAB.</a>
+      </h4>
+      <div id="contact" class="col-2 offset-4">
+        <p>
+          <a href="#" class="text-azure text-right">
+            Contact<i class="fas fa-paper-plane"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="navbar" class="container-fluid">
+    <nav class="navbar nav-orange navbar-expand-sm navbar-dark mb-1">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link text-white" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Biography</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Priscription</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="./products.html">Products & Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#gsp-modal">getSemPoem()</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- container start -->
+  <div class="container-lg">
+    <main>
+      <div class="row overflow-hidden px-3 p-md-5 m-md-2 text-center tiles-product tiles-product--white wow animate__animated animate__fadeIn">
+        <div class="p-lg-5 mx-auto my-5">
+          <h1 class="display-4 fw-normal">Products</h1>
+          <p class="lead fw-normal">GitHub上に公開しているものなどを紹介します。</p>
+          <p class="lead fw-normal">耳を塞ぎたくなるような解説もついてきます。</p>
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+      </div>
+
+      <div class="row w-100">
+        <div class="col-12 px-0 text-center overflow-hidden">
+          <div class="row m-2 p-5 tiles-product--black tiles-product wow animate__animated animate__fadeInLeft">
+            <div class="col-5">
+              <img src="assets/computer_screen_programming.png" width="350px">
+              <p class="lead">（アイコン準備中）</p>
+            </div>
+            <div class="col-7">
+              <h2 class="display-5 py-3">CCFinderSW</h2>
+              <p class="lead">About: a token-based code clone detection tool</p>
+              <p class="lead">Repository: <a href="https://github.com/YuichiSemura/CCFinderSW">YuichiSemura/CCFinderSW</a></p>
+              <div class="py-5">
+                <p class="lead">任意の言語のコードクローン検出が出来るツールです。（に、任意！？）</p>
+                <p class="lead">井上研究室時代にコツコツ作っていたものです。</p>
+                <p class="lead">偉大な CCFinder の名前を使って、後継機として出させてもらいました。</p>
+                <p class="lead">今の所保守は考えてませんが、気持ちを乗せていただければやります。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 px-0 text-center overflow-hidden">
+          <div class="row tiles-product--white m-2 p-5 tiles-product wow animate__animated animate__fadeInRight">
+            <div class="col-7">
+              <h2 class="display-5 py-3">BouYearFestival</h2>
+              <p class="lead">About: 忘年会の幹事～、板東は英二～</p>
+              <p class="lead">Repository: <a href="https://github.com/YuichiSemura/bouyearfestival">YuichiSemura/bouyearfestival</a></p>
+              <p class="lead">Link: <a href="https://bouyearfestival.herokuapp.com/">https://bouyearfestival.herokuapp.com/</a></p>
+              <div class="py-5">
+                <p class="lead">入社一年目に、会社の忘年会のために用意した余興用アプリです。</p>
+                <p class="lead">Heroku で公開するにあたって、マイナーチェンジを行いました。</p>
+                <p class="lead">主に見栄え・CSS 的な箇所、トップページ、しおりページ、</p>
+                <p class="lead">ストーリー・コント・世界観（笑）の作成を担当しました。</p>
+              </div>
+            </div>
+            <div class="col-5">
+              <img src="assets/bouyearfestival.png" width="350px">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 px-0 text-center overflow-hidden">
+          <div class="row tiles-product--black m-2 p-5 tiles-product wow animate__animated animate__fadeInLeft">
+            <div class="col-5">
+              <img src="assets/computer_screen_programming.png" width="350px">
+              <p class="lead">（アイコン準備中）</p>
+            </div>
+            <div class="col-7">
+              <h2 class="display-5 py-3">FOURTEENAGER Lab.</h2>
+              <p class="lead">About: 当たり障りしかないポートフォリオサイト（建設中）</p>
+              <p class="lead">Repository: <a href="https://github.com/YuichiSemura/fourteenagerlab">YuichiSemura/fourteenagerlab</a></p>
+              <p class="lead">Link: <a href="https://yuichisemura.github.io/fourteenagerlab/">https://yuichisemura.github.io/fourteenagerlab/</a></p>
+              <div class="py-5">
+                <p class="lead">まだまだ建設中です。</p>
+                <p class="lead">何かしらの当たり障りを感じていただけると幸いです（？）。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-12 px-0 text-center overflow-hidden">
+          <div class="row tiles-product--white m-2 p-5 tiles-product wow animate__animated animate__fadeInRight">
+            <div class="col-7">
+              <h2 class="display-5 py-3">ランチの候補がルーレット</h2>
+              <p class="lead">About: 陳麻婆豆腐に行きましょう。</p>
+              <p class="lead">Repository: <a href="https://github.com/YuichiSemura/lunchNoCohoGaRoulette">YuichiSemura/lunchNoCohoGaRoulette</a></p>
+              <p class="lead">Link: <a href="https://yuichisemura.github.io/lunchNoCohoGaRoulette/">https://yuichisemura.github.io/lunchNoCohoGaRoulette/</a></p>
+              <div class="py-5">
+                <p class="lead">「ランチ何にしようかな～」と悩んだときに使えるルーレットです。</p>
+                <p class="lead">three.js という 3D でごちゃごちゃ動かせるライブラリを使っています。</p>
+                <p class="lead">URL でランチリストを共有できたりして便利です。</p>
+              </div>
+            </div>
+            <div class="col-5">
+              <img src="assets/lunch.png" width="350px">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 px-0 text-center overflow-hidden">
+          <div class="row tiles-product--black m-2 p-5 tiles-product wow animate__animated animate__fadeInLeft">
+            <div class="col-5">
+              <img src="assets/samba.png" width="350px">
+            </div>
+            <div class="col-7">
+              <h2 class="display-5 py-3">sambadejaneiro</h2>
+              <p class="lead">About: サンバを踊るCSSです。</p>
+              <p class="lead">Repository: <a href="https://github.com/YuichiSemura/sambadejaneiro">YuichiSemura/sambadejaneiro</a></p>
+              <p class="lead">Link: <a href="https://yuichisemura.github.io/sambadejaneiro/">https://yuichisemura.github.io/sambadejaneiro/</a></p>
+              <p class="lead">Link2: <a href="https://qiita.com/ychNext9/items/0a56da4793e4c06b5d30">CSSの@keyframesを使ってサンバを踊る顔文字を作った</a></p>
+              <div class="py-5">
+                <p class="lead">サンバを踊るだけのCSSです。Qiita も書きました。</p>
+                <p class="lead">今は踊るのを見るだけなので、ゲーム機能を付けたいですね。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 px-0 text-center overflow-hidden">
+          <div class="row tiles-product--white m-2 p-5 tiles-product wow animate__animated animate__fadeInRight">
+            <div class="col-7">
+              <h2 class="display-5 py-3">JKTWR BATTLE!!</h2>
+              <p class="lead">About: あ、パクリとかじゃないですね。</p>
+              <p class="lead">Repository: <a href="https://github.com/YuichiSemura/jktwrbattle">YuichiSemura/jktwrbattle</a></p>
+              <p class="lead">Link: <a href="https://yuichisemura.github.io/jktwrbattle/">https://yuichisemura.github.io/lunchNoCohoGaRoulette/</a></p>
+              <div class="py-5">
+                <p class="lead">JavaScript でゲームが作りたかった！</p>
+                <p class="lead">未完成ですが、「あ、こいつやってんな……」感がそこそこ出てます。</p>
+              </div>
+            </div>
+            <div class="col-5">
+              <img src="assets/computer_screen_programming.png" width="350px">
+              <p class="lead">（アイコン準備中）</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+
+<script src="./dist/main.js"></script>
+
+</html>
