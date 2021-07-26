@@ -174,9 +174,26 @@
     &:visited,
     &:hover,
     &:active {
-      color: azure !important;
+      color: rgb(255, 255, 255) !important;
     }
   }
+}
+
+#nav-title {
+  margin: 0 auto 0 10;
+  a {
+    text-decoration: none;
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: rgb(255, 255, 255) !important;
+    }
+  }
+}
+
+#nav-toggle {
+  margin: 0 10 0 auto;
 }
 
 #contact {

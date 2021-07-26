@@ -37,59 +37,84 @@
     <div class="background"></div>
     <div class="background2 background-orange"></div>
 
-    <div id="header" class="container-lg">
+    <div id="header" class="container-lg p-xs-0 d-none d-sm-block">
       <div class="row">
-        <h4 id="title" class="col-6 text-azure text-left">
-          <a href="./index.html">FOURTEENAGER LAB.</a>
-        </h4>
-        <div id="contact" class="col-2 offset-4">
-          <p>
-            <a href="#" class="text-azure text-right">
-              Contact<i class="fas fa-paper-plane"></i>
-            </a>
-          </p>
+        <div class="col-9 col-sm-6">
+          <h4 id="title" class="text-azure text-left">
+            <a href="./index.html">FOURTEENAGER LAB.</a>
+          </h4>
+        </div>
+        <div
+          id="contact"
+          class="
+            col-3 col-sm-2
+            offset-sm-4
+            d-flex
+            align-items-center
+            justify-content-end
+          "
+        >
+          <a href="#" class="text-azure text-right">
+            <h5 class="d-none d-md-inline">Contact</h5>
+            <h5 class="d-inline"></h5>
+            <div class="fas fa-paper-plane d-inline"></div>
+          </a>
         </div>
       </div>
     </div>
     <div id="navbar" class="container-fluid">
       <nav class="navbar nav-orange navbar-expand-sm navbar-dark mb-1">
+        <h4 id="nav-title" class="text-azure text-left d-block d-sm-none">
+          <a href="./index.html">FOURTEENAGER LAB.</a>
+        </h4>
         <button
+          id="nav-toggle"
           class="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav4"
-          aria-controls="navbarNav4"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-14l"
+          aria-controls="navbar-14l"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link text-white" href="./index.html">Home</a>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbar-14l"
+        >
+          <ul class="navbar-nav flex-row flex-wrap">
+            <li class="nav-item col-6 col-sm-auto active">
+              <a class="nav-link text-white text-center" href="./index.html"
+                >Home</a
+              >
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">News</a>
+            <li class="nav-item col-6 col-sm-auto">
+              <a class="nav-link text-white text-center" href="#">News</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Biography</a>
+            <li class="nav-item col-6 col-sm-auto">
+              <a class="nav-link text-white text-center" href="#">Biography</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Priscription</a>
+            <li class="nav-item col-6 col-sm-auto">
+              <a class="nav-link text-white text-center" href="#"
+                >Priscription</a
+              >
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="./products.html"
+            <li class="nav-item col-6 col-sm-auto">
+              <a class="nav-link text-white text-center" href="./products.html"
                 >Products & Articles</a
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item col-6 col-sm-auto">
               <a
-                class="nav-link text-white"
+                class="nav-link text-white text-center"
                 data-bs-toggle="modal"
                 data-bs-target="#gsp-modal"
                 >getSemPoem()</a
               >
+            </li>
+            <li class="nav-item col-6 d-block d-sm-none">
+              <a class="nav-link text-white text-center" href="#">Contact</a>
             </li>
           </ul>
         </div>
@@ -105,9 +130,8 @@
               class="
                 row
                 overflow-hidden
-                px-3
-                p-md-5
-                m-md-2
+                p-3 p-sm-5
+                m-sm-2
                 text-center
                 tiles-product tiles-product--white
                 wow
@@ -116,12 +140,12 @@
             >
               <div class="p-lg-5 mx-auto my-5">
                 <h1 class="display-4 fw-normal">Products</h1>
-                <p class="lead fw-normal">
+                <h5 class="lead fw-normal">
                   GitHub上に公開しているものなどを紹介します。
-                </p>
-                <p class="lead fw-normal">
+                </h5>
+                <h5 class="lead fw-normal">
                   耳を塞ぎたくなるような解説もついてきます。
-                </p>
+                </h5>
                 <a
                   class="learn-more linkbutton-white m-3"
                   href="https://github.com/YuichiSemura"
@@ -148,15 +172,15 @@
             <div
               class="
                 row
-                m-2
-                p-5
+                p-3 p-sm-5
+                m-sm-2
                 tiles-product--black
                 tiles-product
                 wow
                 animate__animated animate__fadeInLeft
               "
             >
-              <div class="col-5">
+              <div class="col-sm-5 col-12">
                 <a
                   href="https://github.com/YuichiSemura/CCFinderSW"
                   target="_blank"
@@ -169,7 +193,7 @@
                 </a>
                 <p class="lead">（アイコン準備中）</p>
               </div>
-              <div class="col-7">
+              <div class="col-sm-7 col-12">
                 <h2 class="display-5 pt-3">CCFinderSW</h2>
                 <p class="lead">
                   About: a token-based code clone detection tool
@@ -202,14 +226,14 @@
               class="
                 row
                 tiles-product--white
-                m-2
-                p-5
+                p-3 p-sm-5
+                m-sm-2
                 tiles-product
                 wow
                 animate__animated animate__fadeInRight
               "
             >
-              <div class="col-7">
+              <div class="col-sm-7 col-12">
                 <h2 class="display-5 pt-3">BouYearFestival</h2>
                 <p class="lead">About: 忘年会の幹事～、板東は英二～</p>
                 <a
@@ -242,7 +266,7 @@
                   </p>
                 </div>
               </div>
-              <div class="col-5">
+              <div class="col-sm-5 col-12">
                 <a
                   href="https://bouyearfestival.herokuapp.com/"
                   target="_blank"
@@ -259,14 +283,14 @@
               class="
                 row
                 tiles-product--black
-                m-2
-                p-5
+                p-3 p-sm-5
+                m-sm-2
                 tiles-product
                 wow
                 animate__animated animate__fadeInLeft
               "
             >
-              <div class="col-5">
+              <div class="col-sm-5 col-12">
                 <a
                   href="https://yuichisemura.github.io/fourteenagerlab/"
                   target="_blank"
@@ -278,7 +302,7 @@
                 /></a>
                 <p class="lead">（アイコン準備中）</p>
               </div>
-              <div class="col-7">
+              <div class="col-sm-7 col-12">
                 <h2 class="display-5 pt-3">FOURTEENAGER Lab.</h2>
                 <p class="lead">
                   About: 当たり障りしかないポートフォリオサイト（建設中）
@@ -318,14 +342,14 @@
               class="
                 row
                 tiles-product--white
-                m-2
-                p-5
+                p-3 p-sm-5
+                m-sm-2
                 tiles-product
                 wow
                 animate__animated animate__fadeInRight
               "
             >
-              <div class="col-7">
+              <div class="col-sm-7 col-12">
                 <h2 class="display-5 pt-3">ランチの候補がルーレット</h2>
                 <p class="lead">About: 陳麻婆豆腐に行きましょう。</p>
                 <a
@@ -358,7 +382,7 @@
                   </p>
                 </div>
               </div>
-              <div class="col-5">
+              <div class="col-sm-5 col-12">
                 <a
                   href="https://yuichisemura.github.io/lunchNoCohoGaRoulette/"
                   target="_blank"
@@ -375,14 +399,14 @@
               class="
                 row
                 tiles-product--black
-                m-2
-                p-5
+                p-3 p-sm-5
+                m-sm-2
                 tiles-product
                 wow
                 animate__animated animate__fadeInLeft
               "
             >
-              <div class="col-5">
+              <div class="col-sm-5 col-12">
                 <a
                   href="https://yuichisemura.github.io/sambadejaneiro/"
                   target="_blank"
@@ -391,7 +415,7 @@
                   <img class="img-fluid" src="assets/samba.png"
                 /></a>
               </div>
-              <div class="col-7">
+              <div class="col-sm-7 col-12">
                 <h2 class="display-5 pt-3">sambadejaneiro</h2>
                 <p class="lead">About: サンバを踊るCSSです。</p>
                 <a
@@ -442,14 +466,14 @@
               class="
                 row
                 tiles-product--white
-                m-2
-                p-5
+                p-3 p-sm-5
+                m-sm-2
                 tiles-product
                 wow
                 animate__animated animate__fadeInRight
               "
             >
-              <div class="col-7">
+              <div class="col-sm-7 col-12">
                 <h2 class="display-5 pt-3">JKTWR BATTLE!!</h2>
                 <p class="lead">About: あ、パクリとかじゃないですね。</p>
                 <a
@@ -480,7 +504,7 @@
                   </p>
                 </div>
               </div>
-              <div class="col-5">
+              <div class="col-sm-5 col-12">
                 <a
                   href="https://yuichisemura.github.io/jktwrbattle/"
                   target="_blank"
