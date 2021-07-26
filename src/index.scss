@@ -67,7 +67,15 @@
     background-color: rgb(0, 130, 153);
   }
   .nav-orange {
-    background-color: #ffa600;
+    background-color: #ff8800;
+  }
+}
+
+#navbar,
+#header {
+  a:hover {
+    animation-name: rubberBand;
+    animation-duration: 1s;
   }
 }
 
@@ -133,7 +141,7 @@
 .tiles-product {
   animation-delay: 0.5s;
   &--white {
-    background-color: rgba(231, 231, 231, 0.75);
+    background-color: rgba(255, 255, 255, 0.75);
     color: rgb(0, 0, 0);
     a {
       &:link,
@@ -145,7 +153,7 @@
     }
   }
   &--black {
-    background-color: rgba(37, 37, 37, 0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     color: rgb(255, 255, 255);
     a {
       &:link,
@@ -180,11 +188,6 @@
 
 body {
   overflow-x: hidden;
-}
-
-a:hover {
-  animation-name: rubberBand;
-  animation-duration: 1s;
 }
 
 #header {
@@ -233,6 +236,114 @@ p {
   max-width: 720px;
 }
 
+// ボタン
+@import url("https://fonts.googleapis.com/css?family=Mukta:700");
+
+$white: #fff;
+$black: #000000;
+
+@mixin transition(
+  $property: all,
+  $duration: 0.45s,
+  $ease: cubic-bezier(0.65, 0, 0.076, 1)
+) {
+  transition: $property $duration $ease;
+}
+
+@mixin linkbutton($black, $white) {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  display: inline-block;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  &.learn-more {
+    width: 12rem;
+    height: 3rem;
+    .circle {
+      @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      width: 100%;
+      height: 3rem;
+      background: $black;
+      border-radius: 1.625rem;
+      .icon {
+        @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: $white;
+        &.arrow {
+          @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+          right: 1.5rem;
+          width: 1.125rem;
+          height: 0.125rem;
+          background: none;
+          &::before {
+            position: absolute;
+            content: "";
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid $white;
+            border-right: 0.125rem solid $white;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+    .button-text {
+      @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 1.85rem 0 0;
+      color: $white;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+  }
+  &:hover {
+    .circle {
+      width: 3rem;
+      .icon {
+        &.arrow {
+          background: $white;
+          transform: translate(0.625rem, 0);
+        }
+      }
+    }
+    .button-text {
+      color: $black;
+    }
+  }
+}
+
+.linkbutton-white {
+  @include linkbutton(#000, #fff);
+}
+
+.linkbutton-black {
+  @include linkbutton(#fff, #000);
+}
+
+// 雨
 .rain {
   $rain_drop_height: 20vh;
 
