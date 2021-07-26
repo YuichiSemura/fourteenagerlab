@@ -1,13 +1,17 @@
 <html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>FOURTEENAGER Lab.</title>
+  </head>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>FOURTEENAGER Lab.</title>
-</head>
-
-<body style="background-color: rgb(50, 105, 120)">
-  <!-- ローディング画面 -->
-  <div id="loading" style="
+  <body style="background-color: rgb(50, 105, 120)">
+    <!-- ローディング画面 -->
+    <div
+      id="loading"
+      style="
         width: 100vw;
         height: 100vh;
         z-index: 100;
@@ -17,97 +21,115 @@
         top: 0;
         background-color: rgb(50, 105, 120);
         transition: 1s;
-      ">
-    <div class="loader"></div>
-  </div>
-  <script type="text/javascript">
-    window.onload = function () {
-      console.log("onload");
-      const spinner = document.getElementById("loading");
-      spinner.classList.add("loaded");
-    };
-  </script>
+      "
+    >
+      <div class="loader"></div>
+    </div>
+    <script type="text/javascript">
+      window.onload = function () {
+        console.log("onload");
+        const spinner = document.getElementById("loading");
+        spinner.classList.add("loaded");
+      };
+    </script>
 
-  <!-- background -->
-  <div class="background"></div>
-  <div class="background2 background-blue"></div>
-  <!-- header (navbar) -->
-  <div class="rain">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <div class="dropdiv">
-    <div class="dos drop"></div>
-    <div class="dos wave">
+    <!-- background -->
+    <div class="background"></div>
+    <div class="background2 background-blue"></div>
+    <!-- header (navbar) -->
+    <div class="rain">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
       <div></div>
       <div></div>
       <div></div>
     </div>
-  </div>
 
-  <div id="header" class="container-lg">
-    <div class="row">
-      <h4 id="title" class="col-6 text-azure text-left">
-        <a href="./index.html">FOURTEENAGER LAB.</a>
-      </h4>
-      <div id="contact" class="col-2 offset-4">
-        <p>
-          <a href="#" class="text-azure text-right">
-            Contact<i class="fas fa-paper-plane"></i>
-          </a>
-        </p>
+    <div class="dropdiv">
+      <div class="dos drop"></div>
+      <div class="dos wave">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
-  </div>
-  <div id="navbar" class="container-fluid">
-    <nav class="navbar nav-blue navbar-expand-sm navbar-dark mb-1">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link text-azure" href="./index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-azure" href="#">News</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-azure" href="#">Biography</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-azure" href="#">Priscription</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-azure" href="./products.html">Products & Articles</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-azure" data-bs-toggle="modal" data-bs-target="#gsp-modal">getSemPoem()</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
 
-  <!-- container start -->
-  <div class="container-lg">
-    <!--  style="background-color: azure;" -->
-    <!-- carousel -->
-    <div id="carousel-top" class="
+    <div id="header" class="container-lg">
+      <div class="row">
+        <h4 id="title" class="col-6 text-azure text-left">
+          <a href="./index.html">FOURTEENAGER LAB.</a>
+        </h4>
+        <div id="contact" class="col-2 offset-4">
+          <p>
+            <a href="#" class="text-azure text-right">
+              Contact<i class="fas fa-paper-plane"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="navbar" class="container-fluid">
+      <nav class="navbar nav-blue navbar-expand-sm navbar-dark mb-1">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav4"
+          aria-controls="navbarNav4"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link text-azure" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-azure" href="#">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-azure" href="#">Biography</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-azure" href="#">Priscription</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-azure" href="./products.html"
+                >Products & Articles</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-azure"
+                data-bs-toggle="modal"
+                data-bs-target="#gsp-modal"
+                >getSemPoem()</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- container start -->
+    <div class="container-lg">
+      <!--  style="background-color: azure;" -->
+      <!-- carousel -->
+      <div
+        id="carousel-top"
+        class="
           carousel
           slide
           carousel-fade
@@ -115,166 +137,203 @@
           wow
           animate__animated animate__fadeIn
           p5
-        " data-interval="4000" data-pause="false" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-bs-target="#carousel-top" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#carousel-top" data-bs-slide-to="1"></li>
-        <li data-bs-target="#carousel-top" data-bs-slide-to="2"></li>
-        <li data-bs-target="#carousel-top" data-bs-slide-to="3"></li>
-        <li data-bs-target="#carousel-top" data-bs-slide-to="4"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="./assets/slider-1.jpg" alt="img1" class="img-fluid" />
-          <div class="carousel-caption mincho d-none d-md-block">
-            <h5>早く大人になりたがる人間と、</h5>
-            <h5>もう大人になってしまった人間。</h5>
+        "
+        data-interval="4000"
+        data-pause="false"
+        data-ride="carousel"
+      >
+        <ol class="carousel-indicators">
+          <li
+            data-bs-target="#carousel-top"
+            data-bs-slide-to="0"
+            class="active"
+          ></li>
+          <li data-bs-target="#carousel-top" data-bs-slide-to="1"></li>
+          <li data-bs-target="#carousel-top" data-bs-slide-to="2"></li>
+          <li data-bs-target="#carousel-top" data-bs-slide-to="3"></li>
+          <li data-bs-target="#carousel-top" data-bs-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/slider-1.jpg" alt="img1" class="img-fluid" />
+            <div class="carousel-caption mincho d-none d-md-block">
+              <h5>早く大人になりたがる人間と、</h5>
+              <h5>もう大人になってしまった人間。</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/slider-2.jpg" alt="img2" class="img-fluid" />
+            <div class="carousel-caption mincho d-none d-md-block">
+              <h5>そんな彼らを見ていると、</h5>
+              <h5>自分自身が怖くなるんだ。</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/slider-3.jpg" alt="img3" class="img-fluid" />
+            <div class="carousel-caption mincho d-none d-md-block">
+              <h5>一生ガキのままで居たいとか考える僕は、</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/slider-4.jpg" alt="img4" class="img-fluid" />
+            <div class="carousel-caption mincho d-none d-md-block">
+              <h5>どこかで道を踏み外してしまったのだろうか。</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/slider-5.jpg" alt="img5" class="img-fluid" />
+            <div class="carousel-caption mincho d-none d-md-block">
+              <h5>今でも、あの時のまま。僕はずっとここにいるよ。</h5>
+            </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="./assets/slider-2.jpg" alt="img2" class="img-fluid" />
-          <div class="carousel-caption mincho d-none d-md-block">
-            <h5>そんな彼らを見ていると、</h5>
-            <h5>自分自身が怖くなるんだ。</h5>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/slider-3.jpg" alt="img3" class="img-fluid" />
-          <div class="carousel-caption mincho d-none d-md-block">
-            <h5>一生ガキのままで居たいとか考える僕は、</h5>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/slider-4.jpg" alt="img4" class="img-fluid" />
-          <div class="carousel-caption mincho d-none d-md-block">
-            <h5>どこかで道を踏み外してしまったのだろうか。</h5>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/slider-5.jpg" alt="img5" class="img-fluid" />
-          <div class="carousel-caption mincho d-none d-md-block">
-            <h5>今でも、あの時のまま。僕はずっとここにいるよ。</h5>
-          </div>
-        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carousel-top"
+          role="button"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carousel-top"
+          role="button"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
       </div>
-      <a class="carousel-control-prev" href="#carousel-top" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carousel-top" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </a>
-    </div>
 
-    <!-- What's New? -->
-    <div id="first-word" class="row justify-content-center p10">
-      <h2 class="
+      <!-- What's New? -->
+      <div id="first-word" class="row justify-content-center p10">
+        <h2
+          class="
             mincho--bold
             text-center text-azure
             p5
             wow
             animate__animated animate__fadeInUp
-          ">
-        それは、青春を患った大人のための処方箋。
-      </h2>
-    </div>
-
-    <!-- person -->
-    <div id="lab-member" class="row mincho p10 wow animate__animated animate__fadeIn">
-      <!-- sem -->
-      <div class="col-12 justify-content-center">
-        <h4 class="text-center text-azure">研究員紹介</h4>
+          "
+        >
+          それは、青春を患った大人のための処方箋。
+        </h2>
       </div>
-      <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-6 p5">
-        <div class="
+
+      <!-- person -->
+      <div
+        id="lab-member"
+        class="row mincho p10 wow animate__animated animate__fadeIn"
+      >
+        <!-- sem -->
+        <div class="col-12 justify-content-center">
+          <h4 class="text-center text-azure">研究員紹介</h4>
+        </div>
+        <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-6 p5">
+          <div
+            class="
               tiles-top tiles-top--sem
               wow
               animate__animated animate__fadeInLeft
-            ">
-          <div class="row p5">
-            <!-- photo -->
-            <div class="col-sm-12 col-md-5 p5 text-center">
-              <img src="./assets/sem.jpg" alt="img1" class="img-fluid" />
-            </div>
-            <!-- bio -->
-            <div class="col-sm-12 col-md-7 p5">
-              <div class="row profile">
-                <div class="col-sm-12 justify-content-center">
-                  <h4 class="text-center text-azure">瀬村 雄一</h4>
-                </div>
-                <div class="col-sm-12">
-                  <p>
-                    　FOURTEENAGER
-                    LAB.の研究員であると同時に、中二病の患者。二六歳。本人曰く、中二病を治療するための「処方箋」を求めて研究を続けている痛い奴。文化祭の話に弱い。口癖は「アース」。
-                  </p>
+            "
+          >
+            <div class="row p5">
+              <!-- photo -->
+              <div class="col-sm-12 col-md-5 p5 text-center">
+                <img src="./assets/sem.jpg" alt="img1" class="img-fluid" />
+              </div>
+              <!-- bio -->
+              <div class="col-sm-12 col-md-7 p5">
+                <div class="row profile">
+                  <div class="col-sm-12 justify-content-center">
+                    <h4 class="text-center text-azure">瀬村 雄一</h4>
+                  </div>
+                  <div class="col-sm-12">
+                    <p>
+                      　FOURTEENAGER
+                      LAB.の研究員であると同時に、中二病の患者。二六歳。本人曰く、中二病を治療するための「処方箋」を求めて研究を続けている痛い奴。文化祭の話に弱い。口癖は「アース」。
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- new -->
-      <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-6 p5">
-        <div class="
+        <!-- new -->
+        <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-6 p5">
+          <div
+            class="
               tiles-top tiles-top--new
               wow
               animate__animated animate__fadeInRight
-            ">
-          <div class="row p5">
-            <!-- photo -->
-            <div class="col-sm-12 col-md-5 p5 text-center">
-              <img src="./assets/new.jpg" alt="img1" class="img-fluid" />
-            </div>
-            <!-- bio -->
-            <div class="col-sm-12 col-md-7 p5">
-              <div class="row profile">
-                <div class="col-sm-12 justify-content-center">
-                  <h4 class="text-center text-azure">新居 九重</h4>
-                </div>
-                <div class="col-sm-12">
-                  <p>
-                    　同じく、研究員兼患者。というか同一人物。自己愛の強いクソオタク。刺さる属性はCV:佐倉綾音と後輩キャラ。両方の属性が共存すると好きが爆発する。口癖は「殺してくれ」。
-                  </p>
+            "
+          >
+            <div class="row p5">
+              <!-- photo -->
+              <div class="col-sm-12 col-md-5 p5 text-center">
+                <img src="./assets/new.jpg" alt="img1" class="img-fluid" />
+              </div>
+              <!-- bio -->
+              <div class="col-sm-12 col-md-7 p5">
+                <div class="row profile">
+                  <div class="col-sm-12 justify-content-center">
+                    <h4 class="text-center text-azure">新居 九重</h4>
+                  </div>
+                  <div class="col-sm-12">
+                    <p>
+                      　同じく、研究員兼患者。というか同一人物。自己愛の強いクソオタク。刺さる属性はCV:佐倉綾音と後輩キャラ。両方の属性が共存すると好きが爆発する。口癖は「殺してくれ」。
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- container end -->
     </div>
-    <!-- container end -->
-  </div>
 
-  <!-- footer -->
-  <div class="footer gray">
-    <div class="container justify-content-center" style="text-align: center">
-      <p>Copyright © Yuichi Semura.</p>
+    <!-- footer -->
+    <div class="footer gray">
+      <div class="container justify-content-center" style="text-align: center">
+        <p>Copyright © 2020-2021 Yuichi Semura.</p>
+      </div>
     </div>
-  </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="gsp-modal" tabindex="-1" role="dialog" aria-labelledby="gsp-modal-label" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header justify-content-center">
-          <h5 class="modal-title mincho text-center">横井さんが寝ている。</h5>
-        </div>
-        <div class="modal-body mincho text-center">
-          吉川「寝ている横井さんもかわいいな」
-        </div>
-        <div class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            閉じる
-          </button>
-          <button type="button" class="btn btn-primary">getSemPoem()</button>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="gsp-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="gsp-modal-label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <h5 class="modal-title mincho text-center">横井さんが寝ている。</h5>
+          </div>
+          <div class="modal-body mincho text-center">
+            吉川「寝ている横井さんもかわいいな」
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              閉じる
+            </button>
+            <button type="button" class="btn btn-primary">getSemPoem()</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 
-<script src="./dist/main.js"></script>
-
+  <script src="./dist/main.js"></script>
 </html>
