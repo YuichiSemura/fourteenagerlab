@@ -55,67 +55,13 @@
       };
     </script>
 
-    <!-- background -->
-    <div class="background"></div>
-    <div class="background2 background-blue"></div>
     <!-- header (navbar) -->
-    <div class="rain">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
 
-    <div class="dropdiv">
-      <div class="dos drop"></div>
-      <div class="dos wave">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-
-    <div id="header" class="container-lg p-xs-0 d-none d-sm-block">
-      <div class="row">
-        <div class="col-9 col-sm-6">
-          <h4 id="title" class="text-azure text-left">
-            <a href="./index.html">FOURTEENAGER LAB.</a>
-          </h4>
-        </div>
-        <div
-          id="contact"
-          class="
-            col-3 col-sm-2
-            offset-sm-4
-            d-flex
-            align-items-center
-            justify-content-end
-          "
-        >
-          <a href="#" class="text-azure text-right">
-            <h5 class="d-none d-md-inline">Contact</h5>
-            <h5 class="d-inline"></h5>
-            <div class="fas fa-paper-plane d-inline"></div>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div id="navbar" class="container-fluid">
-      <nav class="navbar nav-blue navbar-expand-sm navbar-dark mb-1">
-        <h4 id="nav-title" class="text-azure text-left d-block d-sm-none">
+    <div id="navbar" class="p-0">
+      <nav class="navbar nav-blue navbar-expand-md navbar-dark mb-1 fixed-top">
+        <h2 id="nav-title" class="text-azure text-left">
           <a href="./index.html">FOURTEENAGER LAB.</a>
-        </h4>
+        </h2>
         <button
           id="nav-toggle"
           class="navbar-toggler"
@@ -129,32 +75,32 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div
-          class="collapse navbar-collapse justify-content-center"
+          class="collapse navbar-collapse justify-content-end"
           id="navbar-14l"
         >
           <ul class="navbar-nav flex-row flex-wrap">
-            <li class="nav-item col-6 col-sm-auto active">
+            <li class="nav-item col-6 col-md-auto active">
               <a class="nav-link text-white text-center" href="./index.html"
                 >Home</a
               >
             </li>
-            <li class="nav-item col-6 col-sm-auto">
+            <li class="nav-item col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="#">News</a>
             </li>
-            <li class="nav-item col-6 col-sm-auto">
+            <li class="nav-item col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="#">Biography</a>
             </li>
-            <li class="nav-item col-6 col-sm-auto">
+            <li class="nav-item col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="#"
                 >Priscription</a
               >
             </li>
-            <li class="nav-item col-6 col-sm-auto">
+            <li class="nav-item col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="./products.html"
-                >Products & Articles</a
+                >Products</a
               >
             </li>
-            <li class="nav-item col-6 col-sm-auto">
+            <li class="nav-item col-6 col-md-auto">
               <a
                 class="nav-link text-white text-center"
                 data-bs-toggle="modal"
@@ -162,18 +108,75 @@
                 >getSemPoem()</a
               >
             </li>
-            <li class="nav-item col-6 d-block d-sm-none">
-              <a class="nav-link text-white text-center" href="#">Contact</a>
+            <li class="nav-item col-6 col-md-auto">
+              <a class="nav-link text-white text-center" href="#"
+                >Contact<i class="fas fa-paper-plane d-inline"></i
+              ></a>
             </li>
           </ul>
         </div>
       </nav>
+
+      <!-- background -->
+      <div id="hero-header p-0 m-0">
+        <div class="background">
+          <div class="background2 background-blue">
+            <div class="rain">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+
+            <div class="dropdiv">
+              <div class="dos drop"></div>
+              <div class="dos wave">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+            <div id="first">
+              <div id="first-presents">
+                <div class="mincho--bold text-center">
+                  - YuichiSemura Presents -
+                </div>
+              </div>
+              <div id="first-title">
+                <div class="mincho--bold text-center text-azure">
+                  FOURTEENAGER Lab.
+                </div>
+              </div>
+              <div id="first-word">
+                <div class="mincho--bold text-center">
+                  それは、青春を患った大人のための処方箋。
+                </div>
+              </div>
+              <div id="scroll-icon">
+                <a href="#"
+                  ><span></span>
+                  <h5>Scroll</h5></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- container start -->
     <div class="container-lg">
-      <!--  style="background-color: azure;" -->
-      <!-- carousel -->
       <div
         id="carousel-top"
         class="
@@ -183,7 +186,6 @@
           mx-auto
           wow
           animate__animated animate__fadeIn
-          p5
         "
         data-interval="4000"
         data-pause="false"
@@ -202,33 +204,53 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="./assets/slider-1.jpg" alt="img1" class="img-fluid" />
+            <img
+              src="./assets/slider-1.jpg"
+              alt="img1"
+              class="carousel-img img-fluid"
+            />
             <div class="carousel-caption mincho d-none d-md-block">
               <h5>早く大人になりたがる人間と、</h5>
               <h5>もう大人になってしまった人間。</h5>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="./assets/slider-2.jpg" alt="img2" class="img-fluid" />
+            <img
+              src="./assets/slider-2.jpg"
+              alt="img2"
+              class="carousel-img img-fluid"
+            />
             <div class="carousel-caption mincho d-none d-md-block">
               <h5>そんな彼らを見ていると、</h5>
               <h5>自分自身が怖くなるんだ。</h5>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="./assets/slider-3.jpg" alt="img3" class="img-fluid" />
+            <img
+              src="./assets/slider-3.jpg"
+              alt="img3"
+              class="carousel-img img-fluid"
+            />
             <div class="carousel-caption mincho d-none d-md-block">
               <h5>一生ガキのままで居たいとか考える僕は、</h5>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="./assets/slider-4.jpg" alt="img4" class="img-fluid" />
+            <img
+              src="./assets/slider-4.jpg"
+              alt="img4"
+              class="carousel-img img-fluid"
+            />
             <div class="carousel-caption mincho d-none d-md-block">
               <h5>どこかで道を踏み外してしまったのだろうか。</h5>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="./assets/slider-5.jpg" alt="img5" class="img-fluid" />
+            <img
+              src="./assets/slider-5.jpg"
+              alt="img5"
+              class="carousel-img img-fluid"
+            />
             <div class="carousel-caption mincho d-none d-md-block">
               <h5>今でも、あの時のまま。僕はずっとここにいるよ。</h5>
             </div>
@@ -254,27 +276,10 @@
         </a>
       </div>
 
-      <!-- What's New? -->
-      <div id="first-word" class="row justify-content-center p10">
-        <h2
-          class="
-            mincho--bold
-            text-center text-azure
-            p5
-            wow
-            animate__animated animate__fadeInUp
-          "
-        >
-          それは、青春を患った大人のための処方箋。
-        </h2>
-      </div>
-
-      <!-- person -->
       <div
         id="lab-member"
         class="row mincho p10 wow animate__animated animate__fadeIn"
       >
-        <!-- sem -->
         <div class="col-12 justify-content-center">
           <h4 class="text-center text-azure">研究員紹介</h4>
         </div>
@@ -287,11 +292,9 @@
             "
           >
             <div class="row p5">
-              <!-- photo -->
               <div class="col-sm-12 col-md-5 p5 text-center">
                 <img src="./assets/sem.jpg" alt="sem" class="img-fluid" />
               </div>
-              <!-- bio -->
               <div class="col-sm-12 col-md-7 p5">
                 <div class="row profile">
                   <div class="col-sm-12 justify-content-center">
@@ -309,7 +312,6 @@
           </div>
         </div>
 
-        <!-- new -->
         <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-6 p5">
           <div
             class="
@@ -319,11 +321,9 @@
             "
           >
             <div class="row p5">
-              <!-- photo -->
               <div class="col-sm-12 col-md-5 p5 text-center">
                 <img src="./assets/new.jpg" alt="new" class="img-fluid" />
               </div>
-              <!-- bio -->
               <div class="col-sm-12 col-md-7 p5">
                 <div class="row profile">
                   <div class="col-sm-12 justify-content-center">
@@ -340,17 +340,14 @@
           </div>
         </div>
       </div>
-      <!-- container end -->
     </div>
 
-    <!-- footer -->
-    <div class="footer gray">
+    <div class="footer background-blue mt-2">
       <div class="container justify-content-center" style="text-align: center">
-        <p>Copyright © 2020-2021 Yuichi Semura.</p>
+        <h6 class="m-0 p-3">Copyright © 2020-2021 Yuichi Semura.</h6>
       </div>
     </div>
 
-    <!-- Modal -->
     <div
       class="modal fade"
       id="gsp-modal"
