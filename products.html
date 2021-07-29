@@ -36,7 +36,7 @@
       style="
         width: 100vw;
         height: 100vh;
-        z-index: 100;
+        z-index: 10000;
         margin: 0;
         padding: 0;
         position: fixed;
@@ -59,36 +59,11 @@
     <div class="background"></div>
     <div class="background2 background-orange"></div>
 
-    <div id="header" class="container-lg p-xs-0 d-none d-sm-block">
-      <div class="row">
-        <div class="col-9 col-sm-6">
-          <h4 id="title" class="text-azure text-left">
-            <a href="./index.html">FOURTEENAGER LAB.</a>
-          </h4>
-        </div>
-        <div
-          id="contact"
-          class="
-            col-3 col-sm-2
-            offset-sm-4
-            d-flex
-            align-items-center
-            justify-content-end
-          "
-        >
-          <a href="#" class="text-azure text-right">
-            <h5 class="d-none d-md-inline">Contact</h5>
-            <h5 class="d-inline"></h5>
-            <div class="fas fa-paper-plane d-inline"></div>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div id="navbar" class="container-fluid">
-      <nav class="navbar nav-orange navbar-expand-sm navbar-dark mb-1">
-        <h4 id="nav-title" class="text-azure text-left d-block d-sm-none">
+    <div id="navbar" class="containr-fluid p-0">
+      <nav class="navbar nav-orange navbar-expand-md navbar-dark mb-1">
+        <h2 id="nav-title" class="text-azure text-left">
           <a href="./index.html">FOURTEENAGER LAB.</a>
-        </h4>
+        </h2>
         <button
           id="nav-toggle"
           class="navbar-toggler"
@@ -102,32 +77,32 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div
-          class="collapse navbar-collapse justify-content-center"
+          class="collapse navbar-collapse justify-content-end"
           id="navbar-14l"
         >
           <ul class="navbar-nav flex-row flex-wrap">
-            <li class="nav-item col-6 col-sm-auto active">
+            <li class="nav-item col-6 col-md-auto active">
               <a class="nav-link text-white text-center" href="./index.html"
                 >Home</a
               >
             </li>
-            <li class="nav-item col-6 col-sm-auto">
+            <li class="nav-item col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="#">News</a>
             </li>
-            <li class="nav-item col-6 col-sm-auto">
+            <li class="nav-item col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="#">Biography</a>
             </li>
-            <li class="nav-item col-6 col-sm-auto">
+            <li class="nav-item col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="#"
                 >Priscription</a
               >
             </li>
-            <li class="nav-item col-6 col-sm-auto">
+            <li class="nav-item col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="./products.html"
                 >Products</a
               >
             </li>
-            <li class="nav-item col-6 col-sm-auto">
+            <li class="nav-item col-6 col-md-auto">
               <a
                 class="nav-link text-white text-center"
                 data-bs-toggle="modal"
@@ -135,8 +110,10 @@
                 >getSemPoem()</a
               >
             </li>
-            <li class="nav-item col-6 d-block d-sm-none">
-              <a class="nav-link text-white text-center" href="#">Contact</a>
+            <li class="nav-item col-6 col-md-auto">
+              <a class="nav-link text-white text-center" href="#"
+                >Contact<i class="fas fa-paper-plane d-inline"></i
+              ></a>
             </li>
           </ul>
         </div>
@@ -555,9 +532,10 @@
       </main>
     </div>
     <!-- footer -->
-    <div class="footer gray">
+
+    <div class="footer nav-orange mt-2">
       <div class="container justify-content-center" style="text-align: center">
-        <p>Copyright © 2020-2021 Yuichi Semura.</p>
+        <h6 class="m-0 p-3">Copyright © 2020-2021 Yuichi Semura.</h6>
       </div>
     </div>
   </body>

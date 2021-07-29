@@ -27,20 +27,44 @@
   -ms-transform: $transform;
 }
 
-.background {
+.jumbotron {
   top: 0;
   left: 0;
   height: 101%;
   width: 101%;
   background-position: center bottom;
   background-repeat: no-repeat;
-  // background-attachment: fixed;
+  background-size: cover;
+  background-image: url(./assets/back.jpg);
+  z-index: -30;
+}
+
+.jumbotron2 {
+  height: 100%;
+  width: 100%;
+  z-index: -20;
+}
+
+.background {
+  top: 0;
+  left: 0;
+  height: 101%;
+  width: 101%;
+  position: fixed;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   background-image: url(./assets/back.jpg);
   z-index: -30;
 }
 
 .background2 {
+  top: 0;
+  left: 0;
+  height: 101%;
+  width: 101%;
+  position: fixed;
   height: 100%;
   width: 100%;
   z-index: -20;
@@ -281,6 +305,7 @@
     }
   }
   img {
+    width: 100%;
     max-width: 320px;
   }
 }
@@ -322,6 +347,7 @@
   }
 }
 
+html,
 body {
   overflow-x: hidden;
 }
@@ -501,7 +527,7 @@ $black: #000000;
     & > div:nth-child(#{$i}) {
       animation-delay: #{$i * 100}ms;
       animation-duration: random(250) + 375ms;
-      left: random(100) + vw;
+      left: random(90) + vw;
     }
   }
 
@@ -603,8 +629,8 @@ $dropR: 10px;
 }
 
 $waveTop: 150px;
-$waveWidth: 800px;
-$waveHeight: 240px;
+$waveWidth: 88vw;
+$waveHeight: 33vw;
 
 .wave {
   position: relative;
