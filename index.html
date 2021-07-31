@@ -27,6 +27,11 @@
     <meta property="og:site_name" content="FOURTEENAGER Lab." />
     <meta property="og:locale" content="ja_JP" />
     <title>FOURTEENAGER Lab.</title>
+    <style>
+      .opacity-0 {
+        opacity: 0;
+      }
+    </style>
   </head>
 
   <body style="background-color: rgb(50, 105, 120)">
@@ -58,8 +63,17 @@
     <!-- header (navbar) -->
 
     <div id="navbar" class="p-0">
-      <nav class="navbar nav-blue navbar-expand-md navbar-dark mb-1 fixed-top">
-        <h2 id="nav-title" class="text-azure text-left">
+      <nav
+        class="
+          navbar
+          nav-transparent
+          navbar-expand-md navbar-dark
+          mb-1
+          py-2
+          fixed-top
+        "
+      >
+        <h2 id="nav-title" class="text-azure text-left opacity-0">
           <a href="./index.html">FOURTEENAGER LAB.</a>
         </h2>
         <button
@@ -121,7 +135,7 @@
       <div id="hero-header p-0 m-0">
         <div class="jumbotron">
           <div class="jumbotron2 background-blue">
-            <div class="rain">
+            <!-- <div class="rain">
               <div></div>
               <div></div>
               <div></div>
@@ -137,7 +151,7 @@
               <div></div>
               <div></div>
               <div></div>
-            </div>
+            </div> -->
 
             <div class="dropdiv">
               <div class="dos drop"></div>

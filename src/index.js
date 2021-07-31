@@ -19,3 +19,35 @@ const wow = new WOW({
 });
 
 wow.init();
+
+window.isTransparentOfNavbar = true;
+
+const scrollEvent = function () {
+  // navbarのcolor
+  // navtitle の opacity
+  window.addEventListener("scroll", function () {
+    if (
+      window.pageYOffset < window.innerHeight &&
+      window.isTransparentOfNavbar
+    ) {
+      let navbar = document.querySelector(".navbar");
+      navbar.classList.add("nav-transparent", "py-2");
+      navbar.classList.remove("nav-blue", "py-1");
+      window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
+      let navTitle = document.querySelector("#nav-title");
+      navTitle.classList.add("opacity-0");
+    } else if (
+      window.pageYOffset >= window.innerHeight &&
+      !window.isTransparentOfNavbar
+    ) {
+      let navbar = document.querySelector(".navbar");
+      navbar.classList.add("nav-blue", "py-1");
+      navbar.classList.remove("nav-transparent", "py-2");
+      window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
+      let navTitle = document.querySelector("#nav-title");
+      navTitle.classList.remove("opacity-0");
+    }
+  });
+};
+
+scrollEvent();

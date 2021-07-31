@@ -27,6 +27,22 @@
   -ms-transform: $transform;
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-25 {
+  opacity: 0.25;
+}
+.opacity-50 {
+  opacity: 0.5;
+}
+.opacity-75 {
+  opacity: 0.75;
+}
+.opacity-100 {
+  opacity: 1;
+}
+
 .jumbotron {
   top: 0;
   left: 0;
@@ -210,8 +226,12 @@
   background-color: rgba(143, 143, 143, 0.856);
 }
 
+.nav-transparent {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .nav-blue {
-  background-color: rgba(0, 130, 153, 0.5);
+  background-color: rgba(0, 130, 153, 0.74);
 }
 .nav-orange {
   background-color: #ff8800;
@@ -223,6 +243,10 @@
     animation-name: rubberBand;
     animation-duration: 1s;
   }
+}
+
+.navbar {
+  transition: all 0.5s linear;
 }
 
 .nav-item {
@@ -325,6 +349,7 @@
 
 #nav-title {
   margin: 0 auto 0 10;
+  transition-duration: 1s;
   a {
     text-decoration: none;
     &:link,
