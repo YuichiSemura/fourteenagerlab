@@ -32,7 +32,7 @@ const scrollEvent = function () {
     ) {
       let navbar = document.querySelector(".navbar");
       navbar.classList.add("nav-transparent", "py-2");
-      navbar.classList.remove("nav-blue", "py-1");
+      navbar.classList.remove("nav-blue", "py-0");
       window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
       let navTitle = document.querySelector("#nav-title");
       navTitle.classList.add("opacity-0");
@@ -41,7 +41,7 @@ const scrollEvent = function () {
       !window.isTransparentOfNavbar
     ) {
       let navbar = document.querySelector(".navbar");
-      navbar.classList.add("nav-blue", "py-1");
+      navbar.classList.add("nav-blue", "py-0");
       navbar.classList.remove("nav-transparent", "py-2");
       window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
       let navTitle = document.querySelector("#nav-title");

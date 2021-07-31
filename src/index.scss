@@ -163,10 +163,15 @@
 
 #scroll-icon {
   position: absolute;
-  top: 97%;
+  top: 95%;
   left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 10;
+  opacity: 0;
+  @include animation(move-fadeup);
+  animation-duration: 1s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+
   a {
     padding-top: 60px;
     &:link,
@@ -237,16 +242,16 @@
   background-color: #ff8800;
 }
 
-#navbar,
-#header {
-  a:hover {
-    animation-name: rubberBand;
-    animation-duration: 1s;
-  }
+#navbar-index {
+  animation-delay: 3s;
 }
 
 .navbar {
   transition: all 0.5s linear;
+  a:hover {
+    animation-name: rubberBand;
+    animation-duration: 1s;
+  }
 }
 
 .nav-item {
@@ -347,7 +352,7 @@
   }
 }
 
-#nav-title {
+.nav-title {
   margin: 0 auto 0 10;
   transition-duration: 1s;
   a {
