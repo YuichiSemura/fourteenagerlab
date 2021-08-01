@@ -47,7 +47,7 @@
   top: 0;
   left: 0;
   height: 101%;
-  width: 101%;
+  width: 100%;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -78,93 +78,99 @@
 .background2 {
   top: 0;
   left: 0;
-  height: 101%;
-  width: 101%;
   position: fixed;
   height: 100%;
   width: 100%;
   z-index: -20;
 }
 
-#first {
+#hero-header-words {
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
   white-space: nowrap;
 }
 
-#first-presents {
-  position: absolute;
+#hero-header-words-margin {
+  height: 14%;
+}
+
+#hero-header-words-top {
+  top: 14%;
+  height: 72%;
+}
+
+#hero-header-words-bottom {
+  top: 86%;
+  height: 12%;
+}
+
+#hero-header-presents {
+  display: block;
   color: rgba(255, 255, 255, 0.856);
-  top: 44%;
-  left: 50%;
   opacity: 0;
-  transform: translate(-50%, -20%);
   @include animation(move-fadeup);
   animation-delay: 3s;
   animation-duration: 2.5s;
   animation-fill-mode: forwards;
 }
 
-#first-title {
-  position: absolute;
-  top: 50.5%;
-  left: 50%;
+#hero-header-title {
+  display: block;
   opacity: 0;
-  transform: translate(-50%, -20%);
   @include animation(move-fadeup);
   animation-delay: 3s;
   animation-duration: 2.5s;
   animation-fill-mode: forwards;
 }
 
-#first-word {
-  position: absolute;
+#hero-header-word {
+  display: block;
   color: rgba(255, 255, 255, 0.856);
-  top: 57%;
-  left: 50%;
-  transform: translate(-50%, -20%);
   @include animation(move-fadeup);
   animation-duration: 2.5s;
   animation-fill-mode: forwards;
 }
 
 @media (max-width: 768px) {
-  #first-presents {
+  #hero-header-presents {
     font-size: 1.1rem !important;
   }
-  #first-title div {
+  #hero-header-title div {
     font-size: 1.8rem !important;
   }
-  #first-word {
+  #hero-header-word {
     font-size: 0.9rem !important;
   }
 }
 
 @media (min-width: 768px) {
-  #first-word {
+  #hero-header-word {
     font-size: 20px !important;
   }
-  #first-title div {
+  #hero-header-title div {
     font-size: 56px !important;
   }
-  #first-word {
+  #hero-header-word {
     font-size: 24px !important;
   }
 }
 
 @include keyframes(move-fadeup) {
   0% {
-    transform: translate(-50%, -20%);
+    transform: translate(0%, 30%);
     opacity: 0;
   }
   100% {
-    transform: translate(-50%, -50%);
+    transform: translate(0%, 0%);
     opacity: 1;
   }
 }
 
 #scroll-icon {
-  position: absolute;
-  top: 95%;
-  left: 50%;
+  position: block;
   z-index: 10;
   opacity: 0;
   @include animation(move-fadeup);
@@ -173,7 +179,6 @@
   animation-fill-mode: forwards;
 
   a {
-    padding-top: 60px;
     &:link,
     &:visited,
     &:hover,
@@ -540,12 +545,11 @@ $black: #000000;
   animation-delay: 3s;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
-  filter: blur(0.5px);
   z-index: 300;
 
   & > div {
     animation: rain 500ms linear infinite;
-    background-color: rgba(#ffffff, 0.25);
+    background-color: rgba(255, 255, 255, 0.15);
     position: absolute;
     left: 0;
     top: -$rain_drop_height;
@@ -557,7 +561,7 @@ $black: #000000;
     & > div:nth-child(#{$i}) {
       animation-delay: #{$i * 100}ms;
       animation-duration: random(250) + 375ms;
-      left: random(90) + vw;
+      left: random(85) + vw;
     }
   }
 
@@ -572,10 +576,10 @@ $black: #000000;
 
   @keyframes rain {
     from {
-      transform: rotate(-5deg) translateY(-$rain_drop_height);
+      transform: rotate(-2deg) translateY(-$rain_drop_height);
     }
     to {
-      transform: rotate(-5deg) translateY(80vh + $rain_drop_height);
+      transform: rotate(-2deg) translateY(80vh + $rain_drop_height);
     }
   }
 }
@@ -611,23 +615,10 @@ $loadertranslate: -50%;
   }
 }
 
-.loaded {
-  opacity: 0;
-  visibility: hidden;
-  position: fixed;
-}
-
-.dropdiv {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: 3;
-  padding: 0;
-}
-
 // 水滴表現
 
 @mixin dropdiv(
+  $top,
   $dropTime,
   $waveTime,
   $dropR,
@@ -636,6 +627,14 @@ $loadertranslate: -50%;
   $waveWidth,
   $waveHeight
 ) {
+  .dropdiv {
+    position: absolute;
+    width: 100%;
+    height: $top;
+    z-index: 3;
+    padding: 0;
+  }
+
   .dos {
     margin: $dropM auto;
   }
@@ -644,7 +643,7 @@ $loadertranslate: -50%;
     position: relative;
     width: $dropR;
     height: $dropR;
-    top: -15px;
+    top: -10000px;
     margin: 0 auto;
     background: #fff;
     border-radius: $dropR;
@@ -718,7 +717,13 @@ $loadertranslate: -50%;
   }
 
   @keyframes drip {
-    to {
+    0% {
+      top: -10000px;
+    }
+    1% {
+      top: 0px;
+    }
+    100% {
       top: 340px;
     }
   }
@@ -739,8 +744,8 @@ $loadertranslate: -50%;
 // $waveHeightDevice: 17vw;
 
 @media (min-width: 768px) {
-  @include dropdiv(1.5s, 2s, 10px, 235px, 150px, 50vw, 10vw);
+  @include dropdiv(50%, 1.5s, 2s, 10px, 235px, 150px, 50vw, 10vw);
 }
 @media (max-width: 768px) {
-  @include dropdiv(1.5s, 2s, 10px, 235px, 110px, 85vw, 17vw);
+  @include dropdiv(40%, 1.5s, 2s, 10px, 235px, 90px, 85vw, 17vw);
 }
