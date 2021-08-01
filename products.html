@@ -27,24 +27,34 @@
     <meta property="og:site_name" content="FOURTEENAGER Lab." />
     <meta property="og:locale" content="ja_JP" />
     <title>Products - FOURTEENAGER Lab.</title>
-  </head>
-
-  <body style="background-color: rgb(155, 121, 0)">
-    <!-- ローディング画面 -->
-    <div
-      id="loading"
-      style="
+    <style>
+      .opacity-0 {
+        opacity: 0;
+      }
+      #loading {
         width: 100vw;
         height: 100vh;
         z-index: 10000;
         margin: 0;
         padding: 0;
         position: fixed;
-        top: 0;
         background-color: rgb(155, 121, 0);
         transition: 1s;
-      "
-    >
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .loaded {
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: rgb(155, 121, 0)">
+    <!-- ローディング画面 -->
+    <div id="loading">
       <div class="loader"></div>
     </div>
     <script type="text/javascript">
@@ -62,7 +72,7 @@
     <div id="navbar" class="containr-fluid p-0">
       <nav
         id="navbar-product"
-        class="navbar nav-orange navbar-expand-md navbar-dark mb-1"
+        class="navbar nav-orange navbar-expand-md fixed-top navbar-dark mb-1"
       >
         <h2 id="nav-title-product" class="nav-title text-azure text-left">
           <a href="./index.html">FOURTEENAGER LAB.</a>
@@ -127,13 +137,13 @@
     <div class="container-lg">
       <main>
         <div class="row w-100 tiles-content-parent">
-          <div class="col-12 px-0 text-center overflow-hidden">
+          <div class="col-12 px-0 mt-5 text-center overflow-hidden">
             <div
               class="
                 row
                 overflow-hidden
                 p-3 p-sm-5
-                my-2
+                mb-2
                 m-sm-2
                 text-center
                 tiles-product tiles-product--white
@@ -219,7 +229,7 @@
                   </a>
                 </div>
                 <div class="mt-1 py-2">
-                  <p>
+                  <p class="lead">
                     トークン単位のコードクローン検出が出来るツールです。
                     井上研究室時代にコツコツ作っていたものです。 偉大な CCFinder
                     の名前を使って、後継機として出させてもらいました。
@@ -270,7 +280,7 @@
                   </a>
                 </div>
                 <div class="mt-1 py-2">
-                  <p>
+                  <p class="lead">
                     入社一年目に、会社の忘年会のために用意した余興用アプリです。
                     Heroku で公開するにあたって、マイナーチェンジを行いました。
                     主に見栄え・CSS 的な箇所、トップページ、しおりページ、
@@ -347,7 +357,7 @@
                   </a>
                 </div>
                 <div class="mt-1 py-2">
-                  <p>
+                  <p class="lead">
                     まだまだ建設中です。何かしらの当たり障りを感じていただけると幸いです（？）。
                   </p>
                 </div>
@@ -395,7 +405,7 @@
                   </a>
                 </div>
                 <div class="mt-1 py-2">
-                  <p>
+                  <p class="lead">
                     「ランチ何にしようかな～」と悩んだときに使えるルーレットです。
                     three.js という 3D
                     でごちゃごちゃ動かせるライブラリを使っています。 URL
@@ -474,7 +484,7 @@
                   </a>
                 </div>
                 <div class="mt-1 py-2">
-                  <p>
+                  <p class="lead">
                     サンバを踊るだけのCSSです。Qiita も書きました。
                     今は踊るのを見るだけなので、ゲーム機能を付けたいですね。
                   </p>
@@ -523,7 +533,7 @@
                   </a>
                 </div>
                 <div class="mt-1 py-2">
-                  <p>
+                  <p class="lead">
                     JavaScript でゲームが作りたかった！
                     未完成ですが、「あ、こいつやってんな……」感がそこそこ出てます。
                   </p>

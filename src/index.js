@@ -30,22 +30,30 @@ const scrollEvent = function () {
       window.pageYOffset < window.innerHeight &&
       window.isTransparentOfNavbar
     ) {
-      let navbar = document.querySelector(".navbar");
-      navbar.classList.add("nav-transparent", "py-2");
-      navbar.classList.remove("nav-blue", "py-0");
+      let navbar = document.querySelector("#navbar-index");
+      if (navbar != null) {
+        navbar.classList.add("nav-transparent");
+        navbar.classList.remove("nav-blue");
+      }
       window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
       let navTitle = document.querySelector("#nav-title");
-      navTitle.classList.add("opacity-0");
+      if (navTitle != null) {
+        navTitle.classList.add("opacity-0");
+      }
     } else if (
       window.pageYOffset >= window.innerHeight &&
       !window.isTransparentOfNavbar
     ) {
-      let navbar = document.querySelector(".navbar");
-      navbar.classList.add("nav-blue", "py-0");
-      navbar.classList.remove("nav-transparent", "py-2");
+      let navbar = document.querySelector("#navbar-index");
+      if (navbar != null) {
+        navbar.classList.add("nav-blue");
+        navbar.classList.remove("nav-transparent");
+      }
       window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
       let navTitle = document.querySelector("#nav-title");
-      navTitle.classList.remove("opacity-0");
+      if (navTitle != null) {
+        navTitle.classList.remove("opacity-0");
+      }
     }
   });
 };
