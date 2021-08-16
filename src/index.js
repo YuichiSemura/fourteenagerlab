@@ -30,13 +30,13 @@ const scrollEvent = function () {
       window.pageYOffset < window.innerHeight &&
       window.isTransparentOfNavbar
     ) {
-      let navbar = document.querySelector("#navbar-index");
+      let navbar = document.querySelector(".navbar__index");
       if (navbar != null) {
-        navbar.classList.add("nav-transparent");
-        navbar.classList.remove("nav-blue");
+        navbar.classList.add("navbar__transparent");
+        navbar.classList.remove("navbar__blue");
       }
       window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
-      let navTitle = document.querySelector("#nav-title");
+      let navTitle = document.querySelector(".nav_title");
       if (navTitle != null) {
         navTitle.classList.add("opacity-0");
       }
@@ -44,13 +44,13 @@ const scrollEvent = function () {
       window.pageYOffset >= window.innerHeight &&
       !window.isTransparentOfNavbar
     ) {
-      let navbar = document.querySelector("#navbar-index");
+      let navbar = document.querySelector(".navbar__index");
       if (navbar != null) {
-        navbar.classList.add("nav-blue");
-        navbar.classList.remove("nav-transparent");
+        navbar.classList.add("navbar__blue");
+        navbar.classList.remove("navbar__transparent");
       }
       window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
-      let navTitle = document.querySelector("#nav-title");
+      let navTitle = document.querySelector(".nav_title");
       if (navTitle != null) {
         navTitle.classList.remove("opacity-0");
       }

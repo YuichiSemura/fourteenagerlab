@@ -31,7 +31,7 @@
       .opacity-0 {
         opacity: 0;
       }
-      #loading {
+      .bg_loader {
         width: 100vw;
         height: 100vh;
         z-index: 10000;
@@ -44,7 +44,7 @@
         align-items: center;
         justify-content: center;
       }
-      .loaded {
+      .bg_loader.bg_loader_spinner__loaded {
         opacity: 0;
         visibility: hidden;
         position: fixed;
@@ -54,27 +54,31 @@
 
   <body style="background-color: rgb(155, 121, 0)">
     <!-- ローディング画面 -->
-    <div id="loading">
-      <div class="loader"></div>
+    <div id="loader" class="bg_loader">
+      <div id="loader_spinner" class="bg_loader_spinner"></div>
     </div>
     <script type="text/javascript">
       window.onload = function () {
         console.log("onload");
-        const spinner = document.getElementById("loading");
-        spinner.classList.add("loaded");
+        const spinner = document.getElementById("loader");
+        spinner.classList.add("bg_loader_spinner__loaded");
       };
     </script>
 
     <!-- background -->
-    <div class="background"></div>
-    <div class="background2 background-orange"></div>
+    <div class="bg_img"></div>
+    <div class="bg_img_front bg-gray"></div>
 
-    <div id="navbar" class="containr-fluid p-0">
+    <div id="header_wrapper" class="containr-fluid p-0">
       <nav
-        id="navbar-product"
-        class="navbar nav-orange navbar-expand-md fixed-top navbar-dark mb-1"
+        class="
+          navbar navbar__index navbar__orange navbar-expand-md
+          fixed-top
+          navbar-dark
+          mb-1
+        "
       >
-        <h2 id="nav-title-product" class="nav-title text-azure text-left">
+        <h2 class="nav_title nav-title__index text-azure text-left">
           <a href="./index.html">FOURTEENAGER LAB.</a>
         </h2>
         <button
@@ -94,29 +98,29 @@
           id="navbar-14l"
         >
           <ul class="navbar-nav flex-row flex-wrap">
-            <li class="nav-item col-6 col-md-auto active">
+            <li class="nav-item nav-item_style col-6 col-md-auto active">
               <a class="nav-link text-white text-center" href="./index.html"
                 >Home</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="./biography.html"
                 >Biography</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="./products.html"
                 >Products</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a
                 class="nav-link text-white text-center"
                 href="./prescription.html"
                 >Priscription</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="#"
                 >Contact<i class="fas fa-paper-plane d-inline"></i
               ></a>
@@ -129,7 +133,7 @@
     <!-- container start -->
     <div class="container-lg">
       <main>
-        <div class="row w-100 tiles-content-parent">
+        <div class="row w-100">
           <div class="col-12 px-0 mt-5 text-center overflow-hidden">
             <div
               class="
@@ -139,7 +143,7 @@
                 mb-2
                 m-sm-2
                 text-center
-                tiles-product tiles-product--white
+                bl_product bl_product__white
                 wow
                 animate__animated animate__fadeIn
               "
@@ -183,8 +187,7 @@
                 p-3 p-sm-5
                 my-2
                 m-sm-2
-                tiles-product--black
-                tiles-product
+                bl_product bl_product__black
                 wow
                 animate__animated animate__fadeInLeft
               "
@@ -237,11 +240,10 @@
             <div
               class="
                 row
-                tiles-product--white
+                bl_product bl_product__white
                 p-3 p-sm-5
                 my-2
                 m-sm-2
-                tiles-product
                 wow
                 animate__animated animate__fadeInRight
               "
@@ -300,11 +302,10 @@
             <div
               class="
                 row
-                tiles-product--black
+                bl_product bl_product__black
                 p-3 p-sm-5
                 my-2
                 m-sm-2
-                tiles-product
                 wow
                 animate__animated animate__fadeInLeft
               "
@@ -362,11 +363,10 @@
             <div
               class="
                 row
-                tiles-product--white
+                bl_product bl_product__white
                 p-3 p-sm-5
                 my-2
                 m-sm-2
-                tiles-product
                 wow
                 animate__animated animate__fadeInRight
               "
@@ -422,11 +422,10 @@
             <div
               class="
                 row
-                tiles-product--black
+                bl_product bl_product__black
                 p-3 p-sm-5
                 my-2
                 m-sm-2
-                tiles-product
                 wow
                 animate__animated animate__fadeInLeft
               "
@@ -490,11 +489,10 @@
             <div
               class="
                 row
-                tiles-product--white
+                bl_product bl_product__white
                 p-3 p-sm-5
                 my-2
                 m-sm-2
-                tiles-product
                 wow
                 animate__animated animate__fadeInRight
               "
@@ -551,7 +549,7 @@
     </div>
     <!-- footer -->
 
-    <div class="footer nav-orange mt-2">
+    <div class="footer bg-orange mt-2">
       <div class="container justify-content-center" style="text-align: center">
         <h6 class="m-0 p-3">Copyright © 2020-2021 Yuichi Semura.</h6>
       </div>

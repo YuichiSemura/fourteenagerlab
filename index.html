@@ -31,7 +31,7 @@
       .opacity-0 {
         opacity: 0;
       }
-      #loading {
+      .bg_loader {
         width: 100vw;
         height: 100vh;
         z-index: 10000;
@@ -44,7 +44,7 @@
         align-items: center;
         justify-content: center;
       }
-      .loaded {
+      .bg_loader.bg_loader_spinner__loaded {
         opacity: 0;
         visibility: hidden;
         position: fixed;
@@ -54,38 +54,35 @@
 
   <body style="background-color: rgb(50, 105, 120)">
     <!-- ローディング画面 -->
-    <div id="loading">
-      <div class="loader"></div>
+    <div id="loader" class="bg_loader">
+      <div id="loader_spinner" class="bg_loader_spinner"></div>
     </div>
     <script type="text/javascript">
       window.onload = function () {
         console.log("onload");
-        const spinner = document.getElementById("loading");
-        spinner.classList.add("loaded");
+        const spinner = document.getElementById("loader");
+        spinner.classList.add("bg_loader_spinner__loaded");
       };
     </script>
 
     <!-- header (navbar) -->
 
-    <div id="top" class="p-0">
+    <div id="header_wrapper" class="p-0">
       <nav
-        id="navbar-index"
         class="
-          navbar
-          nav-transparent
-          navbar-expand-md navbar-dark
+          navbar navbar__index navbar__transparent navbar-expand-md navbar-dark
           mb-1
           py-2
           fixed-top
           animate__animated animate__flipInX
         "
       >
-        <h2 id="nav-title" class="nav-title text-azure text-left opacity-0">
+        <h2 class="nav_title nav-title__index text-azure text-left opacity-0">
           <a href="./index.html">FOURTEENAGER LAB.</a>
         </h2>
         <button
           id="nav-toggle"
-          class="navbar-toggler"
+          class="navbar-toggler navbar-toggler__index"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbar-14l"
@@ -100,29 +97,29 @@
           id="navbar-14l"
         >
           <ul class="navbar-nav flex-row flex-wrap">
-            <li class="nav-item col-6 col-md-auto active">
+            <li class="nav-item nav-item_style col-6 col-md-auto active">
               <a class="nav-link text-white text-center" href="./index.html"
                 >Home</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="./biography.html"
                 >Biography</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="./products.html"
                 >Products</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a
                 class="nav-link text-white text-center"
                 href="./prescription.html"
                 >Priscription</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="#"
                 >Contact<i class="fas fa-paper-plane d-inline"></i
               ></a>
@@ -132,9 +129,9 @@
       </nav>
 
       <!-- background -->
-      <div id="hero-header p-0 m-0">
-        <div class="jumbotron">
-          <div class="jumbotron2 background-blue">
+      <div class="heroHeader p-0 m-0">
+        <div class="heroHeader_img">
+          <div class="heroHeader_img_blue">
             <div class="rain">
               <div></div>
               <div></div>
@@ -166,35 +163,43 @@
               </div>
             </div>
           </div>
-          <div id="hero-header-words">
-            <div id="hero-header-words-margin"></div>
+          <div class="heroHeader_words">
+            <div class="heroHeader_words_topMargin"></div>
             <div
-              id="hero-header-words-top"
-              class="d-flex justify-content-center align-items-center"
+              class="
+                heroHeader_words_top
+                d-flex
+                justify-content-center
+                align-items-center
+              "
             >
               <div class="d-block">
-                <div id="hero-header-presents">
-                  <div class="mincho--bold text-center">
+                <div class="heroHeader_words_presents">
+                  <div class="mincho__bold text-center">
                     - YuichiSemura Presents -
                   </div>
                 </div>
-                <div id="hero-header-title">
-                  <div class="mincho--bold text-center text-azure">
+                <div class="heroHeader_words_title">
+                  <div class="mincho__bold text-center text-azure">
                     FOURTEENAGER Lab.
                   </div>
                 </div>
-                <div id="hero-header-word">
-                  <div class="mincho--bold text-center">
+                <div class="heroHeader_words_phrase">
+                  <div class="mincho__bold text-center">
                     それは、青春を患った大人のための処方箋。
                   </div>
                 </div>
               </div>
             </div>
             <div
-              id="hero-header-words-bottom"
-              class="d-flex justify-content-center align-items-end"
+              class="
+                heroHeader_words_bottom
+                d-flex
+                justify-content-center
+                align-items-end
+              "
             >
-              <div id="scroll-icon">
+              <div class="el_scrollIcon">
                 <a href="#"
                   ><span></span>
                   <h5>Scroll</h5></a
@@ -208,25 +213,32 @@
 
     <div class="container-lg">
       <div
-        id="lab-member"
-        class="row mincho p10 wow animate__animated animate__fadeIn m-2"
+        class="
+          bl_labMember
+          row
+          mincho
+          hp_p10
+          wow
+          animate__animated animate__fadeIn
+          m-2
+        "
       >
         <div class="col-12 justify-content-center">
           <h4 class="text-center text-azure">研究員紹介</h4>
         </div>
-        <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-6 p5">
+        <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-6 hp_p5">
           <div
             class="
-              tiles-top tiles-top--sem
+              bl_labMember_tiles bl_labMember_tiles__sem
               wow
               animate__animated animate__fadeIn
             "
           >
-            <div class="row p5">
-              <div class="col-sm-12 col-md-5 p5 text-center">
+            <div class="row hp_p5">
+              <div class="col-sm-12 col-md-5 hp_p5 text-center">
                 <img src="./assets/sem.jpg" alt="sem" class="img-fluid" />
               </div>
-              <div class="col-sm-12 col-md-7 p5">
+              <div class="col-sm-12 col-md-7 hp_p5">
                 <div class="row profile">
                   <div class="col-sm-12 justify-content-center">
                     <h4 class="text-center text-azure">瀬村 雄一</h4>
@@ -243,19 +255,19 @@
           </div>
         </div>
 
-        <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-6 p5">
+        <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-6 hp_p5">
           <div
             class="
-              tiles-top tiles-top--new
+              bl_labMember_tiles bl_labMember_tiles__new
               wow
               animate__animated animate__fadeIn
             "
           >
-            <div class="row p5">
-              <div class="col-sm-12 col-md-5 p5 text-center">
+            <div class="row hp_p5">
+              <div class="col-sm-12 col-md-5 hp_p5 text-center">
                 <img src="./assets/jktwr.png" alt="new" class="img-fluid" />
               </div>
-              <div class="col-sm-12 col-md-7 p5">
+              <div class="col-sm-12 col-md-7 hp_p5">
                 <div class="row profile">
                   <div class="col-sm-12 justify-content-center">
                     <h4 class="text-center text-azure">新居 九重</h4>
@@ -273,7 +285,7 @@
       </div>
     </div>
 
-    <div class="footer background-blue mt-2">
+    <div class="footer bg-blue mt-2">
       <div class="container justify-content-center" style="text-align: center">
         <h6 class="m-0 p-3">Copyright © 2020-2021 Yuichi Semura.</h6>
       </div>
