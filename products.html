@@ -28,10 +28,7 @@
     <meta property="og:locale" content="ja_JP" />
     <title>Products - FOURTEENAGER Lab.</title>
     <style>
-      .opacity-0 {
-        opacity: 0;
-      }
-      .bg_loader {
+      .el_loader {
         width: 100vw;
         height: 100vh;
         z-index: 10000;
@@ -44,7 +41,7 @@
         align-items: center;
         justify-content: center;
       }
-      .bg_loader.bg_loader_spinner__loaded {
+      .el_loader.el_loader_spinner__loaded {
         opacity: 0;
         visibility: hidden;
         position: fixed;
@@ -54,20 +51,20 @@
 
   <body style="background-color: rgb(155, 121, 0)">
     <!-- ローディング画面 -->
-    <div id="loader" class="bg_loader">
-      <div id="loader_spinner" class="bg_loader_spinner"></div>
+    <div id="loader" class="el_loader">
+      <div id="loader_spinner" class="el_loader_spinner"></div>
     </div>
     <script type="text/javascript">
       window.onload = function () {
         console.log("onload");
         const spinner = document.getElementById("loader");
-        spinner.classList.add("bg_loader_spinner__loaded");
+        spinner.classList.add("el_loader_spinner__loaded");
       };
     </script>
 
     <!-- background -->
-    <div class="bg_img"></div>
-    <div class="bg_img_front bg-gray"></div>
+    <div class="el_bgImg"></div>
+    <div class="el_bgImg_cover bg-gray"></div>
 
     <div id="header_wrapper" class="containr-fluid p-0">
       <nav

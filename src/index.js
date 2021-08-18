@@ -26,22 +26,20 @@ const scrollEvent = function () {
   // navbarのcolor
   // navtitle の opacity
   window.addEventListener("scroll", function () {
-    if (
-      window.pageYOffset < window.innerHeight &&
-      window.isTransparentOfNavbar
-    ) {
+    let threshold = window.innerHeight * 0.65;
+    if (window.pageYOffset < threshold && window.isTransparentOfNavbar) {
       let navbar = document.querySelector(".navbar__index");
       if (navbar != null) {
         navbar.classList.add("navbar__transparent");
         navbar.classList.remove("navbar__blue");
       }
       window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
-      let navTitle = document.querySelector(".nav_title");
+      let navTitle = document.querySelector(".nav_title__index");
       if (navTitle != null) {
         navTitle.classList.add("opacity-0");
       }
     } else if (
-      window.pageYOffset >= window.innerHeight &&
+      window.pageYOffset >= threshold &&
       !window.isTransparentOfNavbar
     ) {
       let navbar = document.querySelector(".navbar__index");
@@ -50,7 +48,7 @@ const scrollEvent = function () {
         navbar.classList.remove("navbar__transparent");
       }
       window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
-      let navTitle = document.querySelector(".nav_title");
+      let navTitle = document.querySelector(".nav_title__index");
       if (navTitle != null) {
         navTitle.classList.remove("opacity-0");
       }
