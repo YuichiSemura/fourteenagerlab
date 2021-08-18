@@ -52,7 +52,10 @@ https://yuichisemura.github.io/fourteenagerlab/
 - Biography
   - [こちら](https://yuichisemura.github.io/) よりも長めの自己紹介をするページ
   - コンテンツ
-    - 略歴、技術、資格、研究テーマ、趣味、関連キーワード、座右の銘
+    - Biography（略歴）
+    - Skill（技術・資格・研究テーマ）
+    - Keywords（趣味・関連キーワード）
+    - Links
 - Priscription
   - 世界観に関わる本命ページ
   - コンテンツ
