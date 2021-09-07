@@ -29,32 +29,33 @@ const scrollEventIndex = function () {
   // navbarのcolor
   // navtitle の opacity
   window.addEventListener("scroll", function () {
-    let threshold = window.innerHeight * 1;
-    if (window.pageYOffset < threshold && window.isTransparentOfNavbar) {
-      let navbar = document.querySelector(".navbar__index");
-      if (navbar != null) {
-        navbar.classList.add("navbar__transparent");
-        navbar.classList.remove("navbar__blue");
+    let threshold = window.innerHeight * 0.65;
+    if (window.pageYOffset < threshold) {
+      if (!window.isTransparentOfNavbar) {
+        let navbar = document.querySelector(".navbar__index");
+        if (navbar != null) {
+          navbar.classList.add("navbar__transparent");
+          navbar.classList.remove("navbar__blue");
+        }
+        let navTitle = document.querySelector(".nav_title__index");
+        if (navTitle != null) {
+          navTitle.classList.add("opacity-0");
+        }
       }
-      let navTitle = document.querySelector(".nav_title__index");
-      if (navTitle != null) {
-        navTitle.classList.add("opacity-0");
+      window.isTransparentOfNavbar = true;
+    } else if (window.pageYOffset >= threshold) {
+      if (window.isTransparentOfNavbar) {
+        let navbar = document.querySelector(".navbar__index");
+        if (navbar != null) {
+          navbar.classList.add("navbar__blue");
+          navbar.classList.remove("navbar__transparent");
+        }
+        let navTitle = document.querySelector(".nav_title__index");
+        if (navTitle != null) {
+          navTitle.classList.remove("opacity-0");
+        }
       }
-      window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
-    } else if (
-      window.pageYOffset >= threshold &&
-      !window.isTransparentOfNavbar
-    ) {
-      let navbar = document.querySelector(".navbar__index");
-      if (navbar != null) {
-        navbar.classList.add("navbar__blue");
-        navbar.classList.remove("navbar__transparent");
-      }
-      let navTitle = document.querySelector(".nav_title__index");
-      if (navTitle != null) {
-        navTitle.classList.remove("opacity-0");
-      }
-      window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
+      window.isTransparentOfNavbar = false;
     }
   });
 };
@@ -65,23 +66,24 @@ const scrollEventBiography = function () {
   // navtitle の opacity
   window.addEventListener("scroll", function () {
     let threshold = window.innerHeight * 0.65;
-    if (window.pageYOffset < threshold && window.isTransparentOfNavbar) {
-      let navbar = document.querySelector(".navbar__bio");
-      if (navbar != null) {
-        navbar.classList.add("navbar__transparent");
-        navbar.classList.remove("navbar__orange");
+    if (window.pageYOffset < threshold) {
+      if (!window.isTransparentOfNavbar) {
+        let navbar = document.querySelector(".navbar__bio");
+        if (navbar != null) {
+          navbar.classList.add("navbar__transparent");
+          navbar.classList.remove("navbar__orange");
+        }
       }
-      window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
-    } else if (
-      window.pageYOffset >= threshold &&
-      !window.isTransparentOfNavbar
-    ) {
-      let navbar = document.querySelector(".navbar__bio");
-      if (navbar != null) {
-        navbar.classList.add("navbar__orange");
-        navbar.classList.remove("navbar__transparent");
+      window.isTransparentOfNavbar = true;
+    } else if (window.pageYOffset >= threshold) {
+      if (window.isTransparentOfNavbar) {
+        let navbar = document.querySelector(".navbar__bio");
+        if (navbar != null) {
+          navbar.classList.add("navbar__orange");
+          navbar.classList.remove("navbar__transparent");
+        }
       }
-      window.isTransparentOfNavbar = !window.isTransparentOfNavbar;
+      window.isTransparentOfNavbar = false;
     }
   });
 };

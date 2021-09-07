@@ -802,26 +802,32 @@ $loadertranslate: -50%;
     color: white;
   }
 
-  &_sentences p,
-  code,
-  li {
-    @media (min-width: 992px) {
-      font-size: 1vw;
+  &_sentences {
+    padding: 4vw 4vw 4vw 4vw;
+    p,
+    code,
+    li {
+      @media (min-width: 992px) {
+        font-size: 1.1vw;
+      }
+      @media (max-width: 992px) {
+        font-size: 2.2vw;
+      }
+      color: rgb(43, 43, 43);
+      font-family: "Noto Sans JP";
     }
-    @media (max-width: 992px) {
-      font-size: 2vw;
-    }
-    color: rgb(43, 43, 43);
-  }
 
-  &_sentences h5 {
-    @media (min-width: 992px) {
-      font-size: 1.2vw;
+    h5 {
+      @media (min-width: 992px) {
+        font-size: 1.3vw;
+      }
+      @media (max-width: 992px) {
+        font-size: 2.6vw;
+      }
+      color: rgb(43, 43, 43);
+      font-family: "Noto Sans JP";
+      font-weight: 600;
     }
-    @media (max-width: 992px) {
-      font-size: 2.4vw;
-    }
-    color: rgb(43, 43, 43);
   }
 }
 
@@ -916,9 +922,6 @@ $loadertranslate: -50%;
     height: 60%;
     border: solid 0.3rem #c9c9c9;
   }
-  &_content {
-    padding: 4vw 8vw 4vw 8vw;
-  }
 }
 
 .el_skl_words {
@@ -997,18 +1000,10 @@ $loadertranslate: -50%;
 
 .el_skl_sentences {
   position: relative;
-
-  &_content {
-    padding: 4vw 8vw 4vw 8vw;
-  }
 }
 
 .el_kw_sentences {
   position: relative;
-
-  &_content {
-    padding: 4vw 8vw 4vw 8vw;
-  }
 }
 
 .el_link_words {
