@@ -27,12 +27,18 @@
   -ms-transform: $transform;
 }
 
-$blue: rgba(45, 80, 97, 0.856);
-$gray: rgba(143, 143, 143, 0.856);
-$orange: rgba(255, 157, 0, 0.85);
+$blue: rgba(45, 80, 97, 0.774);
+$lightgray: #dddddd;
+$gray: rgba(143, 143, 143, 0.774);
+$orange: rgba(255, 157, 0, 0.664);
+$superlightorange: #f0e7d9;
 
 .bg-blue {
   background-color: $blue;
+}
+
+.bg-lightgray {
+  background-color: $lightgray;
 }
 
 .bg-gray {
@@ -43,7 +49,12 @@ $orange: rgba(255, 157, 0, 0.85);
   background-color: $orange;
 }
 
+.bg-superlightorange {
+  background-color: $superlightorange;
+}
+
 .heroHeader {
+  position: relative;
   &_img {
     top: 0;
     left: 0;
@@ -60,6 +71,12 @@ $orange: rgba(255, 157, 0, 0.85);
       z-index: -20;
       background-color: $blue;
     }
+    &_gray {
+      height: 100%;
+      width: 100%;
+      z-index: -20;
+      background-color: $gray;
+    }
   }
 
   &_words {
@@ -69,6 +86,7 @@ $orange: rgba(255, 157, 0, 0.85);
     height: 100%;
     width: 100%;
     white-space: nowrap;
+    z-index: 100;
 
     &_topMargin {
       height: 14%;
@@ -77,6 +95,14 @@ $orange: rgba(255, 157, 0, 0.85);
     &_top {
       top: 14%;
       height: 72%;
+      // & > div {
+      //   border: solid 0.8px rgba(255, 255, 255, 0.3);
+      //   background-color: #ffffff1e;
+      //   transition: all 1s ease-in-out;
+      //   &:hover {
+      //     background-color: #0000001e;
+      //   }
+      // }
     }
 
     &_bottom {
@@ -133,6 +159,23 @@ $orange: rgba(255, 157, 0, 0.85);
       &_phrase {
         font-size: 24px !important;
       }
+    }
+  }
+
+  &_particles {
+    background-color: #fff;
+    canvas {
+      top: 0;
+      left: 0;
+      height: 101%;
+      width: 100%;
+      opacity: 0;
+      position: absolute;
+      z-index: 0;
+      animation: opacity01;
+      animation-delay: 3s;
+      animation-duration: 2.5s;
+      animation-fill-mode: forwards;
     }
   }
 }
@@ -271,6 +314,14 @@ $orange: rgba(255, 157, 0, 0.85);
   &__bold {
     font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN",
       "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
+    font-weight: 600;
+  }
+}
+
+.mercellus {
+  font-family: "Mercellus";
+  &__bold {
+    font-family: "Mercellus";
     font-weight: 600;
   }
 }
@@ -513,7 +564,7 @@ $black: #000000;
   width: 100vw;
   height: 80vh;
   opacity: 0;
-  animation: rainall;
+  animation: opacity01;
   animation-delay: 3s;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
@@ -536,16 +587,6 @@ $black: #000000;
       left: random(85) + vw;
     }
   }
-
-  @keyframes rainall {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
   @keyframes rain {
     from {
       transform: rotate(-2deg) translateY(-$rain_drop_height);
@@ -556,15 +597,24 @@ $black: #000000;
   }
 }
 
-.bg_loader_spinner,
-.bg_loader_spinner:after {
+@keyframes opacity01 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.el_loader_spinner,
+.el_loader_spinner:after {
   border-radius: 50%;
   width: 10em;
   height: 10em;
 }
 
 $loadertranslate: -50%;
-.bg_loader_spinner {
+.el_loader_spinner {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -701,23 +751,340 @@ $loadertranslate: -50%;
   }
 }
 
-// PC版
-// $dropTime: 1.5s;
-// $waveTime: 2s;
-// $dropR: 10px;
-// $dropM: 235px;
-// $waveTop: 150px;
-// $waveWidth: 50vw;
-// $waveHeight: 10vw;
-
-// モバイル
-// $waveTopDevice: 100px;
-// $waveWidthDevice: 85vw;
-// $waveHeightDevice: 17vw;
-
 @media (min-width: 768px) {
   @include dropdiv(50%, 1.5s, 2s, 10px, 235px, 150px, 50vw, 10vw);
 }
 @media (max-width: 768px) {
   @include dropdiv(40%, 1.5s, 2s, 10px, 235px, 90px, 85vw, 17vw);
+}
+
+.bl_bio_wrapper {
+  position: relative;
+  &_sizing {
+    width: 100%;
+    & > div {
+      width: 100%;
+      & > div.row {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        & > div {
+          & > div {
+            display: flex;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &_title p {
+    display: inline-block;
+    @media (min-width: 992px) {
+      font-size: 3vw;
+    }
+    @media (max-width: 992px) {
+      font-size: 6vw;
+    }
+    color: white;
+  }
+
+  &_words p {
+    display: inline-block;
+    @media (min-width: 992px) {
+      font-size: 1vw;
+    }
+    @media (max-width: 992px) {
+      font-size: 2vw;
+    }
+    color: white;
+  }
+
+  &_sentences {
+    padding: 4vw 4vw 4vw 4vw;
+    p,
+    code,
+    li {
+      @media (min-width: 992px) {
+        font-size: 1.1vw;
+      }
+      @media (max-width: 992px) {
+        font-size: 2.2vw;
+      }
+      color: rgb(43, 43, 43);
+      font-family: "Noto Sans JP";
+    }
+
+    h5 {
+      @media (min-width: 992px) {
+        font-size: 1.3vw;
+      }
+      @media (max-width: 992px) {
+        font-size: 2.6vw;
+      }
+      color: rgb(43, 43, 43);
+      font-family: "Noto Sans JP";
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .bl_bio_wrapper {
+    &_sizing {
+      & > div {
+        padding-top: 180%;
+        & > div.row {
+          & > div {
+            height: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .bl_bio_wrapper {
+    &_sizing {
+      & > div {
+        padding-top: 45%;
+        & > div.row {
+          & > div {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.el_bio_words {
+  position: relative;
+  & > div {
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+  }
+  &_circle1 {
+    background-color: #c4c4c4;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    width: 41%;
+    height: 43%;
+    border-radius: 50%;
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
+  &_rect1 {
+    background-color: #a6a6a6;
+    position: absolute;
+    top: 61%;
+    left: 30%;
+    width: 74%;
+    height: 25%;
+    padding: 3%;
+    & > div {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      height: 100%;
+    }
+  }
+  &_rect2 {
+    background-color: #ffffff00;
+    position: absolute;
+    top: 7%;
+    left: 59%;
+    width: 26%;
+    height: 60%;
+    border: solid 0.3rem #ffffff;
+  }
+}
+
+.el_bio_sentences {
+  position: relative;
+  & > div {
+    // box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.1));
+  }
+  &_rect1 {
+    background-color: #ffffff00;
+    position: absolute;
+    top: 15%;
+    left: 95%;
+    width: 26%;
+    height: 60%;
+    border: solid 0.3rem #c9c9c9;
+  }
+}
+
+.el_skl_words {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  & > div {
+    // box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+  }
+  &_rect1 {
+    background-color: #a6a6a6;
+    position: absolute;
+    top: 12%;
+    left: -6%;
+    width: 98%;
+    height: 20%;
+    padding: 3% 11% 3% 6%;
+    & > div {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      height: 100%;
+      & > p {
+        text-align: right;
+      }
+    }
+  }
+  &_rect2 {
+    background-color: #6b6b6b;
+    position: absolute;
+    top: 0%;
+    left: 84%;
+    width: 4%;
+    height: 100%;
+  }
+  &_tri1 {
+    position: absolute;
+    top: 18%;
+    left: 20%;
+    & > div:nth-child(1) {
+      transform: rotate(40deg);
+      & > div {
+        @media (min-width: 992px) {
+          border-top: 11vw solid transparent;
+          border-right: 11vw solid #c4c4c4;
+          border-bottom: 11vw solid transparent;
+        }
+        @media (max-width: 992px) {
+          border-top: 22vw solid transparent;
+          border-right: 22vw solid #c4c4c4;
+          border-bottom: 22vw solid transparent;
+        }
+        transform: scaleX(2.5);
+      }
+    }
+    & > div:nth-child(2) {
+      position: absolute;
+      top: 52%;
+      left: 47%;
+    }
+  }
+}
+
+.el_kw_words {
+  position: relative;
+  canvas {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+  }
+}
+
+.el_skl_sentences {
+  position: relative;
+}
+
+.el_kw_sentences {
+  position: relative;
+}
+
+.el_link_words {
+  position: relative;
+  & > div {
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+  }
+  &_circle1 {
+    background-color: #bbacac;
+    position: absolute;
+    top: 23%;
+    left: 34%;
+    width: 36%;
+    height: 39.5%;
+    border-radius: 50%;
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
+  &_circle2 {
+    background-color: #7fa3bd;
+    position: absolute;
+    top: 74%;
+    left: 21%;
+    width: 21%;
+    height: 22.5%;
+    border-radius: 50%;
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
+  &_circle3 {
+    background-color: #ccc2b0;
+    position: absolute;
+    top: 9%;
+    left: 64%;
+    width: 29%;
+    height: 31%;
+    border-radius: 50%;
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
+  &_circle4 {
+    background-color: #9bb7c0;
+    position: absolute;
+    top: 37%;
+    left: -1%;
+    width: 41%;
+    height: 44%;
+    border-radius: 50%;
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
+  &_rect1 {
+    background-color: #d08000;
+    position: absolute;
+    top: 7%;
+    left: -12%;
+    width: 97%;
+    height: 3.5%;
+  }
+  &_rect2 {
+    background-color: #326978;
+    position: absolute;
+    top: 95%;
+    left: -90%;
+    width: 130%;
+    height: 2%;
+  }
 }

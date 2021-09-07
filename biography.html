@@ -28,10 +28,7 @@
     <meta property="og:locale" content="ja_JP" />
     <title>Biography - FOURTEENAGER Lab.</title>
     <style>
-      .opacity-0 {
-        opacity: 0;
-      }
-      #loading {
+      .el_loader {
         width: 100vw;
         height: 100vh;
         z-index: 10000;
@@ -44,7 +41,7 @@
         align-items: center;
         justify-content: center;
       }
-      .loaded {
+      .el_loader.el_loader_spinner__loaded {
         opacity: 0;
         visibility: hidden;
         position: fixed;
@@ -54,27 +51,24 @@
 
   <body style="background-color: rgb(155, 121, 0)">
     <!-- ローディング画面 -->
-    <div id="loading">
-      <div class="loader"></div>
+    <div id="loader" class="el_loader">
+      <div id="loader_spinner" class="el_loader_spinner"></div>
     </div>
-    <script type="text/javascript">
-      window.onload = function () {
-        console.log("onload");
-        const spinner = document.getElementById("loading");
-        spinner.classList.add("loaded");
-      };
-    </script>
 
     <!-- background -->
-    <div class="background"></div>
-    <div class="background2 background-orange"></div>
+    <!-- <div class="background"></div>
+    <div class="background2 background-orange"></div> -->
 
-    <div id="navbar" class="containr-fluid p-0">
+    <div id="header_wrapper" class="containr-fluid p-0">
       <nav
-        id="navbar-product"
-        class="navbar nav-orange navbar-expand-md fixed-top navbar-dark mb-1"
+        class="
+          navbar navbar__bio navbar__transparent navbar-expand-md
+          fixed-top
+          navbar-dark
+          mb-1
+        "
       >
-        <h2 id="nav-title-product" class="nav-title text-azure text-left">
+        <h2 class="nav_title nav_title__bio text-azure text-left">
           <a href="./index.html">FOURTEENAGER LAB.</a>
         </h2>
         <button
@@ -94,29 +88,29 @@
           id="navbar-14l"
         >
           <ul class="navbar-nav flex-row flex-wrap">
-            <li class="nav-item col-6 col-md-auto active">
+            <li class="nav-item nav-item_style col-6 col-md-auto active">
               <a class="nav-link text-white text-center" href="./index.html"
                 >Home</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="./biography.html"
                 >Biography</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="./products.html"
                 >Products</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a
                 class="nav-link text-white text-center"
                 href="./prescription.html"
                 >Priscription</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="#"
                 >Contact<i class="fas fa-paper-plane d-inline"></i
               ></a>
@@ -124,425 +118,294 @@
           </ul>
         </div>
       </nav>
+      <!-- background -->
+      <div class="heroHeader p-0 m-0">
+        <div id="heroHeader_particles" class="heroHeader_particles">
+          <!-- ue id="heroHeader_particles"  -->
+          <div class="heroHeader_img_gray"></div>
+          <div class="heroHeader_words">
+            <div class="heroHeader_words_topMargin"></div>
+            <div
+              class="
+                heroHeader_words_top
+                d-flex
+                justify-content-center
+                align-items-center
+              "
+            >
+              <div class="d-block p-5">
+                <div class="heroHeader_words_title">
+                  <div class="mincho__bold text-center text-azure">
+                    Biography
+                  </div>
+                </div>
+                <div class="heroHeader_words_phrase">
+                  <div class="mincho__bold text-center">
+                    「当たり障りのある僕のほうが良かったよ。」
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="
+                heroHeader_words_bottom
+                d-flex
+                justify-content-center
+                align-items-end
+              "
+            >
+              <div class="el_scrollIcon">
+                <a href="#"
+                  ><span></span>
+                  <h5>Scroll</h5></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- container start -->
-    <div class="container-lg">
+    <div class="p-0">
       <main>
-        <div class="row w-100 tiles-content-parent">
-          <div class="col-12 px-0 mt-5 text-center overflow-hidden">
-            <div
-              class="
-                row
-                overflow-hidden
-                p-3 p-sm-5
-                mb-2
-                m-sm-2
-                text-center
-                tiles-product tiles-product--white
-                wow
-                animate__animated animate__fadeIn
-              "
-            >
-              <div class="p-lg-5 mx-auto my-5">
-                <h1 class="display-4 fw-normal mb-2">Products</h1>
-                <h5 class="lead fw-normal">
-                  GitHub 上に公開しているものなどを紹介します。
-                </h5>
-                <h5 class="lead fw-normal">
-                  耳を塞ぎたくなるような解説もついてきます。
-                </h5>
-                <div class="my-3">
-                  <a
-                    class="learn-more linkbutton-white my-1 mx-3"
-                    href="https://github.com/YuichiSemura"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">GitHub</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
+        <!-- biography -->
+        <div class="bl_bio_wrapper bg-light p-0 m-0">
+          <div class="bl_bio_wrapper_sizing">
+            <div>
+              <div class="row">
+                <div class="col-12 col-lg-6 bg-lightgray">
+                  <div class="el_bio_words">
+                    <div class="el_bio_words_rect1">
+                      <div class="mincho bl_bio_wrapper_words">
+                        <p>
+                          『こんなページを作ってるくせに、君も意外と書くことがないんだ』<br />
+                          「そこに関しては何の反論もないね」 <br />
+                          『変わらないんだね』
+                        </p>
+                      </div>
                     </div>
-                  </a>
-                </div>
-              </div>
-              <div class="product-device shadow-sm d-none d-md-block"></div>
-              <div
-                class="
-                  product-device product-device-2
-                  shadow-sm
-                  d-none d-md-block
-                "
-              ></div>
-            </div>
-          </div>
-          <div class="col-12 px-0 text-center overflow-hidden">
-            <div
-              class="
-                row
-                p-3 p-sm-5
-                my-2
-                m-sm-2
-                tiles-product--black
-                tiles-product
-                wow
-                animate__animated animate__fadeInLeft
-              "
-            >
-              <div class="col-sm-5 col-12">
-                <a
-                  href="https://github.com/YuichiSemura/CCFinderSW"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    class="img-fluid"
-                    alt="computer.png"
-                    src="assets/computer_screen_programming.png"
-                  />
-                </a>
-                <p class="lead">（アイコン準備中）</p>
-              </div>
-              <div class="col-sm-7 col-12">
-                <h2 class="display-5 pt-1">CCFinderSW</h2>
-                <p class="lead">
-                  About: a token-based code clone detection tool
-                </p>
-                <div class="my-3">
-                  <a
-                    class="learn-more linkbutton-black"
-                    href="https://github.com/YuichiSemura/CCFinderSW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Repository</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
+                    <div class="el_bio_words_rect2"></div>
+                    <div class="el_bio_words_circle1">
+                      <div class="mincho__bold bl_bio_wrapper_title">
+                        <p>Biography</p>
+                      </div>
                     </div>
-                  </a>
+                  </div>
                 </div>
-                <div class="mt-1 py-2">
-                  <p class="lead">
-                    トークン単位のコードクローン検出が出来るツールです。
-                    井上研究室時代にコツコツ作っていたものです。 偉大な CCFinder
-                    の名前を使って、後継機として出させてもらいました。
-                    今の所保守は考えてませんが、気持ちを乗せていただければやります。
-                  </p>
+                <div class="col-12 col-lg-6 bg-light">
+                  <div class="el_bio_sentences">
+                    <div class="el_bio_sentences_rect1"></div>
+                    <div
+                      class="el_bio_sentences_content bl_bio_wrapper_sentences"
+                    >
+                      <h5 class="mb-2">略歴</h5>
+                      <ul class="mb-4 wow animate__animated animate__fadeIn">
+                        <li>2012年3月 兵庫県立長田高等学校 卒業</li>
+                        <li>2017年3月 大阪大学基礎工学部情報科学科 卒業</li>
+                        <li>
+                          2019年3月
+                          大阪大学大学院情報科学研究科コンピュータサイエンス専攻
+                          修了
+                        </li>
+                        <li>2019年4月 日鉄ソリューションズ株式会社 入社</li>
+                      </ul>
+                      <h5 class="mb-2">資格・研究テーマ</h5>
+                      <ul class="mb-4 wow animate__animated animate__fadeIn">
+                        <li>応用情報技術者</li>
+                        <li>ソフトウェア工学、コードクローン検出</li>
+                      </ul>
+                      <h5 class="mb-2">趣味</h5>
+                      <ul class="mb-4 wow animate__animated animate__fadeIn">
+                        <li>料理（初心者）</li>
+                        <li>カレー屋巡り</li>
+                        <li>プログラミング</li>
+                        <li>文章を書く</li>
+                        <li>中学受験算数、素因数分解覚える</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="col-12 px-0 text-center overflow-hidden">
-            <div
-              class="
-                row
-                tiles-product--white
-                p-3 p-sm-5
-                my-2
-                m-sm-2
-                tiles-product
-                wow
-                animate__animated animate__fadeInRight
-              "
-            >
-              <div class="col-sm-7 col-12 order-last order-sm-first">
-                <h2 class="display-5 pt-1">BouYearFestival</h2>
-                <p class="lead">About: 忘年会の幹事～、板東は英二～</p>
-                <div class="my-3">
-                  <a
-                    class="learn-more linkbutton-white my-1 mx-3"
-                    href="https://bouyearfestival.herokuapp.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Link</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
-                    </div> </a
-                  ><a
-                    class="learn-more linkbutton-white my-1 mx-3"
-                    href="https://github.com/YuichiSemura/bouyearfestival"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Repository</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
+        <!-- skills -->
+        <div class="bl_bio_wrapper bg-light p-0 m-0">
+          <div class="bl_bio_wrapper_sizing">
+            <div>
+              <div class="row">
+                <div class="col-12 col-lg-6 bg-light order-last order-lg-first">
+                  <div class="el_skl_sentences bl_bio_wrapper_sentences">
+                    <div class="el_skl_sentences_content">
+                      <h5 class="mb-2">- 理解度順 -</h5>
+                      <p class="mb-3">
+                        「やっぱり何もわからん」 &gt; 「正直わからん」 &gt;
+                        「何もわからん」
+                      </p>
+                      <h5 class="mb-2">やっぱり何もわからん</h5>
+                      <p>
+                        「何回も使ったことはあるけど、やっぱり何もわからん」
+                      </p>
+                      <ul class="wow animate__animated animate__fadeIn">
+                        <li>Java(Spring Framework)</li>
+                        <li>
+                          Web(HTML, SCSS, JavaScript, Bootstrap, three.js)
+                        </li>
+                        <li>Python</li>
+                        <li>Docker</li>
+                        <li>Jenkins</li>
+                        <li>画面自動テスト(Selenium, Appium)</li>
+                      </ul>
+                      <h5 class="mb-2">正直わからん</h5>
+                      <p>
+                        「何かで使ったことがあるぐらいだから、正直わからん」
+                      </p>
+                      <ul class="wow animate__animated animate__fadeIn">
+                        <li>
+                          Kubernetes, SQL, DB系, Flask, AWS(Dynamo, lambda,
+                          gatewayでFaaSを作成),
+                          アジャイル開発、スクラム(理論勢),
+                          ゲームプログラミング, C#, ソフトウェア工学（静的解析）
+                        </li>
+                      </ul>
+                      <h5 class="mb-2">何もわからん</h5>
+                      <p>
+                        「興味があって個人で勉強するくらいじゃ、何もわからん」
+                      </p>
+                      <ul class="wow animate__animated animate__fadeIn">
+                        <li>
+                          自然言語処理, 機械学習（ガチでわからん）, Haskell,
+                          Vue.js, C, C++
+                        </li>
+                      </ul>
                     </div>
-                  </a>
+                  </div>
                 </div>
-                <div class="mt-1 py-2">
-                  <p class="lead">
-                    入社一年目に、会社の忘年会のために用意した余興用アプリです。
-                    Heroku で公開するにあたって、マイナーチェンジを行いました。
-                    主に見栄え・CSS 的な箇所、トップページ、しおりページ、
-                    ストーリー・コント・世界観（笑）の作成を担当しました。
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-5 col-12 order-first order-sm-last">
-                <a
-                  href="https://bouyearfestival.herokuapp.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <div
+                  class="col-12 col-lg-6 bg-lightgray order-first order-lg-last"
                 >
-                  <img
-                    class="img-fluid"
-                    alt="bouyearfestival.png"
-                    src="assets/bouyearfestival.png"
-                /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 px-0 text-center overflow-hidden">
-            <div
-              class="
-                row
-                tiles-product--black
-                p-3 p-sm-5
-                my-2
-                m-sm-2
-                tiles-product
-                wow
-                animate__animated animate__fadeInLeft
-              "
-            >
-              <div class="col-sm-5 col-12">
-                <a
-                  href="https://yuichisemura.github.io/fourteenagerlab/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    class="img-fluid"
-                    alt="14l-favicon.png"
-                    src="./assets/14l-favicon.png"
-                /></a>
-              </div>
-              <div class="col-sm-7 col-12">
-                <h2 class="display-5 pt-1">FOURTEENAGER Lab.</h2>
-                <p class="lead">
-                  About: 当たり障りしかないポートフォリオサイト（建設中）
-                </p>
-                <div class="my-3">
-                  <a
-                    class="learn-more linkbutton-black my-1 mx-3"
-                    href="https://yuichisemura.github.io/fourteenagerlab/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Link</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
-                    </div> </a
-                  ><a
-                    class="learn-more linkbutton-black my-1 mx-3"
-                    href="https://github.com/YuichiSemura/fourteenagerlab/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Repository</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
+                  <div class="el_skl_words">
+                    <div class="el_skl_words_rect1">
+                      <div class="mincho bl_bio_wrapper_words">
+                        <p>
+                          『やっぱり君は、予防線を張るんだね』<br />
+                          「それが大人ってものじゃないかな」<br />
+                          『ま、大人は嘘つきだからね』<br />
+                          「嘘もスキルの１つなんだよ」<br />
+                        </p>
+                      </div>
                     </div>
-                  </a>
-                </div>
-                <div class="mt-1 py-2">
-                  <p class="lead">
-                    まだまだ建設中です。何かしらの当たり障りを感じていただけると幸いです（？）。
-                  </p>
+                    <div class="el_skl_words_rect2"></div>
+                    <div class="el_skl_words_tri1 bl_bio_wrapper_title">
+                      <div>
+                        <div></div>
+                      </div>
+                      <div class="mincho__bold bl_bio_wrapper_title">
+                        <p>Skills</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="col-12 px-0 text-center overflow-hidden">
-            <div
-              class="
-                row
-                tiles-product--white
-                p-3 p-sm-5
-                my-2
-                m-sm-2
-                tiles-product
-                wow
-                animate__animated animate__fadeInRight
-              "
-            >
-              <div class="col-sm-7 col-12 order-last order-sm-first">
-                <h2 class="display-5 pt-1">ランチの候補がルーレット</h2>
-                <p class="lead">About: 陳麻婆豆腐に行きましょう。</p>
-                <div class="my-3">
-                  <a
-                    class="learn-more linkbutton-white my-1 mx-3"
-                    href="https://yuichisemura.github.io/lunchNoCohoGaRoulette/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Link</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
-                    </div> </a
-                  ><a
-                    class="learn-more linkbutton-white my-1 mx-3"
-                    href="https://github.com/YuichiSemura/lunchNoCohoGaRoulette"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Repository</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
+        <!-- keywords -->
+        <div class="bl_bio_wrapper bg-light p-0 m-0">
+          <div class="bl_bio_wrapper_sizing">
+            <div>
+              <div class="row">
+                <div class="col-12 col-lg-6 bg-lightgray p-0">
+                  <div class="el_kw_words">
+                    <canvas id="el_kw_words_canvas" />
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 bg-light">
+                  <div class="el_kw_sentences bl_bio_wrapper_sentences">
+                    <div class="el_kw_sentences_content">
+                      <h5 class="mb-2">関連するキーワード</h5>
+                      <ul class="mb-4 wow animate__animated animate__fadeIn">
+                        <li>ルービックキューブ</li>
+                        <li>アニメ、ラノベ</li>
+                        <li>ゲーム（スプラ、シャドバ、DBDなど）</li>
+                        <li>陸上競技（中高6年間）</li>
+                        <li>日能研でバイト</li>
+                        <li>ココイチは家</li>
+                        <li>飲酒</li>
+                        <li>韓国ドラマ</li>
+                        <li>婚活</li>
+                        <li>東方Project</li>
+                        <li>音ゲー（BEMANI）</li>
+                        <li>正規表現、ANTLR</li>
+                      </ul>
+                      <h5 class="mb-2">座右の銘</h5>
+                      <ul class="mb-4 wow animate__animated animate__fadeIn">
+                        <li>
+                          後4ラミエル6ベイリオン撤退されました。シャドバやめます。
+                        </li>
+                        <li>一期一会</li>
+                      </ul>
                     </div>
-                  </a>
-                </div>
-                <div class="mt-1 py-2">
-                  <p class="lead">
-                    「ランチ何にしようかな～」と悩んだときに使えるルーレットです。
-                    three.js という 3D
-                    でごちゃごちゃ動かせるライブラリを使っています。 URL
-                    でランチリストを共有できたりして便利です。
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-5 col-12 order-first order-sm-last">
-                <a
-                  href="https://yuichisemura.github.io/lunchNoCohoGaRoulette/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img class="img-fluid" alt="lunch.png" src="assets/lunch.png"
-                /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 px-0 text-center overflow-hidden">
-            <div
-              class="
-                row
-                tiles-product--black
-                p-3 p-sm-5
-                my-2
-                m-sm-2
-                tiles-product
-                wow
-                animate__animated animate__fadeInLeft
-              "
-            >
-              <div class="col-sm-5 col-12">
-                <a
-                  href="https://yuichisemura.github.io/sambadejaneiro/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img class="img-fluid" alt="samba.png" src="assets/samba.png"
-                /></a>
-              </div>
-              <div class="col-sm-7 col-12">
-                <h2 class="display-5 pt-1">sambadejaneiro</h2>
-                <p class="lead">About: サンバを踊るCSSです。</p>
-                <div class="my-3">
-                  <a
-                    class="learn-more linkbutton-black my-1 mx-3"
-                    href="https://yuichisemura.github.io/sambadejaneiro/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Link</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
-                    </div> </a
-                  ><a
-                    class="learn-more linkbutton-black my-1 mx-3"
-                    href="https://github.com/YuichiSemura/sambadejaneiro"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Repository</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
-                    </div> </a
-                  ><a
-                    class="learn-more linkbutton-black my-1 mx-3"
-                    href="https://qiita.com/ychNext9/items/0a56da4793e4c06b5d30"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Qiita</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
-                    </div>
-                  </a>
-                </div>
-                <div class="mt-1 py-2">
-                  <p class="lead">
-                    サンバを踊るだけのCSSです。Qiita も書きました。
-                    今は踊るのを見るだけなので、ゲーム機能を付けたいですね。
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="col-12 px-0 text-center overflow-hidden">
-            <div
-              class="
-                row
-                tiles-product--white
-                p-3 p-sm-5
-                my-2
-                m-sm-2
-                tiles-product
-                wow
-                animate__animated animate__fadeInRight
-              "
-            >
-              <div class="col-sm-7 col-12 order-last order-sm-first">
-                <h2 class="display-5 pt-1">JKTWR BATTLE!!</h2>
-                <p class="lead">About: あ、パクリとかじゃないですね。</p>
-                <div class="my-3">
-                  <a
-                    class="learn-more linkbutton-white my-1 mx-3"
-                    href="https://yuichisemura.github.io/jktwrbattle/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Link</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
-                    </div> </a
-                  ><a
-                    class="learn-more linkbutton-white my-1 mx-3"
-                    href="https://github.com/YuichiSemura/jktwrbattle"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Repository</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
+        <!-- Links -->
+        <div class="bl_bio_wrapper bg-light p-0 m-0">
+          <div class="bl_bio_wrapper_sizing">
+            <div>
+              <div class="row">
+                <div class="col-12 col-lg-6 bg-light order-last order-lg-first">
+                  <div class="el_link_sentences bl_bio_wrapper_sentences">
+                    <div class="el_link_sentences_content">
+                      <h5 class="mb-2">SNS</h5>
+                      <ul class="mb-4 wow animate__animated animate__fadeIn">
+                        <li>Coming soon...</li>
+                      </ul>
                     </div>
-                  </a>
+                  </div>
                 </div>
-                <div class="mt-1 py-2">
-                  <p class="lead">
-                    JavaScript でゲームが作りたかった！
-                    未完成ですが、「あ、こいつやってんな……」感がそこそこ出てます。
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-5 col-12 order-first order-sm-last">
-                <a
-                  href="https://yuichisemura.github.io/jktwrbattle/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <div
+                  class="
+                    col-12 col-lg-6
+                    bg-superlightorange
+                    order-first order-lg-last
+                    p-0
+                  "
                 >
-                  <img
-                    class="img-fluid"
-                    alt="jktwr.png"
-                    src="./assets/jktwr.png"
-                /></a>
+                  <div class="el_link_words">
+                    <div class="el_link_words_rect1"></div>
+                    <div class="el_link_words_circle3">
+                      <div class="mincho bl_bio_wrapper_words">
+                        <p>
+                          「運命を信じないからこそ、<br />誰かを大切に出来るのかも」
+                        </p>
+                      </div>
+                    </div>
+                    <div class="el_link_words_circle4">
+                      <div class="mincho bl_bio_wrapper_words">
+                        <p>『誰だって話せば<br />分かりあえるはずなんだ』</p>
+                      </div>
+                    </div>
+                    <div class="el_link_words_circle2">
+                      <div class="mincho bl_bio_wrapper_words">
+                        <p>「初志貫徹、だろ」</p>
+                      </div>
+                    </div>
+                    <div class="el_link_words_circle1">
+                      <div class="mincho__bold bl_bio_wrapper_title">
+                        <p>Links</p>
+                      </div>
+                    </div>
+                    <div class="el_link_words_rect2"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -551,12 +414,13 @@
     </div>
     <!-- footer -->
 
-    <div class="footer nav-orange mt-2">
-      <div class="container justify-content-center" style="text-align: center">
+    <div class="footer bg-orange">
+      <div class="container justify-content-center text-center">
         <h6 class="m-0 p-3">Copyright © 2020-2021 Yuichi Semura.</h6>
       </div>
     </div>
   </body>
 
+  <link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css" />
   <script src="./dist/main.js"></script>
 </html>

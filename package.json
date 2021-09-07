@@ -8,6 +8,8 @@
     "@popperjs/core": "^2.9.2",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.0.1",
+    "particles.js": "^2.0.0",
+    "particlesjs": "^2.2.3",
     "webpack-dev-server": "^3.11.2",
     "wowjs": "^1.1.3"
   },
