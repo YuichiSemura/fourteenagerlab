@@ -60,7 +60,7 @@ const scrollEventIndex = function () {
   });
 };
 
-// index.html
+// biography.html
 const scrollEventBiography = function () {
   // navbarのcolor
   // navtitle の opacity

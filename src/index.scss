@@ -27,7 +27,7 @@
   -ms-transform: $transform;
 }
 
-$blue: rgba(45, 80, 97, 0.774);
+$blue: rgba(29, 72, 94, 0.774);
 $lightgray: #dddddd;
 $gray: rgba(143, 143, 143, 0.774);
 $orange: rgba(255, 157, 0, 0.664);
@@ -1086,5 +1086,96 @@ $loadertranslate: -50%;
     left: -90%;
     width: 130%;
     height: 2%;
+  }
+}
+
+// index.html
+.bl_ind {
+  &_wrapper {
+    position: relative;
+    &_sizing {
+      width: 100%;
+    }
+
+    &__bggray {
+      background-color: rgba(113, 113, 113, 0.85);
+    }
+
+    &__bgblue {
+      background-color: rgba(44, 80, 95, 0.85);
+    }
+  }
+}
+
+.el_ind_prd {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  outline: none;
+  transition: all 0.3s;
+  animation: bounceIn;
+  animation-duration: 1s;
+
+  &:hover {
+    background: #555;
+  }
+
+  & img {
+    transition-duration: 0.5s;
+    filter: grayscale(80%);
+  }
+  &:hover img {
+    filter: grayscale(0%);
+  }
+
+  & span {
+    display: block;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    /*線の形状*/
+    width: 20px;
+    height: 3px;
+    background: #aaa;
+    transition: all 0.1s linear;
+  }
+
+  & span::before,
+  & span::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    background: #aaa;
+    transition: all 0.1s linear;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    width: 100%;
+  }
+  &:hover span::before,
+  &:hover span::after {
+    height: 100%;
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+  &::after {
+    right: 0;
+    bottom: 0;
+  }
+  & span::before {
+    left: 0;
+    top: 0;
+  }
+  & span::after {
+    right: 0;
+    bottom: 0;
   }
 }
