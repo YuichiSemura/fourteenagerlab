@@ -408,6 +408,12 @@ $superlightorange: #f0e7d9;
       color: rgb(255, 255, 255) !important;
     }
   }
+  & img {
+    height: calc(1.325rem + 0.9vw);
+    filter: brightness(300%);
+    margin-top: -10px;
+    margin-right: 0.2vw;
+  }
 }
 
 .navbar-toggler__index {
@@ -428,14 +434,6 @@ body {
 
 .row {
   margin: 0;
-}
-
-.hp_p5 {
-  padding: 5px;
-}
-
-.hp_p10 {
-  padding: 10px;
 }
 
 .footer {
@@ -1178,4 +1176,16 @@ $loadertranslate: -50%;
     right: 0;
     bottom: 0;
   }
+}
+
+.bl_ind_wrapper__prd {
+  background-size: cover;
+  background-position: center center;
+  background-image: url(./assets/slider-2.jpg);
+}
+
+.bl_ind_wrapper__labmem {
+  background-size: cover;
+  background-position: center center;
+  background-image: url(./assets/slider-1.jpg);
 }
