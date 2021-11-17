@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "@popperjs/core": "^2.9.2",
+    "@popperjs/core": "^2.10.2",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.0.1",
     "particles.js": "^2.0.0",
