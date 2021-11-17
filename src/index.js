@@ -1,4 +1,5 @@
 // Bootstrapのスタイルシート側の機能を読み込む
+import "@popperjs/core";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // BootstrapのJavaScript側の機能を読み込む
