@@ -46,10 +46,13 @@
         visibility: hidden;
         position: fixed;
       }
+      body {
+        background-color: rgb(50, 105, 120);
+      }
     </style>
   </head>
 
-  <body style="background-color: rgb(50, 105, 120)">
+  <body>
     <!-- ローディング画面 -->
     <div id="loader" class="el_loader">
       <div id="loader_spinner" class="el_loader_spinner"></div>
@@ -78,7 +81,7 @@
             ><img
               src="./assets/mark.png"
               alt="mark"
-              class="img-fluid"
+              class="img-fluid img_mark"
             />FOURTEENAGER LAB.</a
           >
         </h2>
@@ -219,27 +222,48 @@
         <div class="container-lg p-0">
           <div class="d-none d-lg-block row pt-5"></div>
           <div class="row pt-3">
-            <div class="col-lg-6 p-3 d-flex justify-content-center align-items-center">
+            <div
+              class="
+                col-lg-6
+                p-3
+                d-flex
+                justify-content-center
+                align-items-center
+              "
+            >
               <div>
                 <div class="d-block text-center">
                   <img
                     src="./assets/検索用の虫眼鏡アイコン素材.png"
                     alt="frasco"
-                    class="img-fluid"
-                    style="width: 25%; filter: brightness(400%)"
+                    class="img-fluid img_ind_icon"
+                    style="width: 25%"
                   />
                 </div>
                 <div class="d-block text-center pt-3">
                   <h2 class="text-white">What is this page?</h2>
-                  <p class="text-white">-知識欲を満たすたびに、彼女を思い出す。-</p>
+                  <p class="text-white">
+                    -知識欲を満たすたびに、彼女を思い出す。-
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 p-3 d-flex align-items-center justify-content-center">
-              <p class="text-white">YuichiSemura が Web 系技術勉強を趣味で行う一環として、手始めに自己紹介・ポートフォリオページを作成することにした。
+            <div
+              class="
+                col-lg-6
+                p-3
+                d-flex
+                align-items-center
+                justify-content-center
+              "
+            >
+              <p class="text-white">
+                YuichiSemura が Web
+                系技術勉強を趣味で行う一環として、手始めに自己紹介・ポートフォリオページを作成することにした。
                 どこかに落ちているようなテンプレートを使って、見たことのあるものを作っても面白くない。
                 本ページのオリジナル要素として、大昔に匿名で書いていたブログで使っていた「中二病的設定」を流用して、ベースとして組み込んでいる。
-                「ある表裏一体のような2人が所属する、中二病にまつわる理論の構築と実践を行う研究所」という謎の設定を用いて、このFOURTEENAGER Lab.というページは構築されている。
+                「ある表裏一体のような2人が所属する、中二病にまつわる理論の構築と実践を行う研究所」という謎の設定を用いて、このFOURTEENAGER
+                Lab.というページは構築されている。
                 しかし、実態はめちゃくちゃ適当な設定であり、それっぽい言葉を並べているだけである。実体などないのである。適当だからこそ、オリジナルなのである。
                 Bootstrapを用いてレスポンシブなデザインを心がけている。2021年11月現在も開発中であり、今後も気が向いた時にコンテンツを更新していく所存である。
               </p>
@@ -254,15 +278,18 @@
           </div>
           <div class="row py-3">
             <div class="col-6 col-lg-2 p-1">
-              <div class="row d-flex justify-content-center c-tooltip" data-tooltip="要するにこのページです。">
-                <div class="p-3 el_ind_prd">
+              <div
+                class="row d-flex justify-content-center c-tooltip"
+                data-tooltip="要するにこのページです。"
+              >
+                <div class="p-3 el_select_effect">
                   <span>
                     <div class="col-12 text-center">
                       <img
                         src="./assets/mark.png"
-                        alt="frasco"
-                        class="img-fluid"
-                        style="width: 70%; filter: brightness(400%)"
+                        alt="mark"
+                        class="img-fluid img_ind_icon"
+                        style="width: 70%"
                       />
                     </div>
                     <div class="col-12 pt-4">
@@ -273,15 +300,18 @@
               </div>
             </div>
             <div class="col-6 col-lg-2 p-1">
-              <div class="row d-flex justify-content-center c-tooltip" data-tooltip="僕の自己紹介です。">
-                <div class="p-3 el_ind_prd">
+              <div
+                class="row d-flex justify-content-center c-tooltip"
+                data-tooltip="僕の自己紹介です。"
+              >
+                <div class="p-3 el_select_effect">
                   <span>
                     <div class="col-12 text-center">
                       <img
                         src="./assets/シナプスのフリーアイコン2.png"
                         alt="frasco"
-                        class="img-fluid"
-                        style="width: 70%; filter: brightness(400%)"
+                        class="img-fluid img_ind_icon"
+                        style="width: 70%"
                       />
                     </div>
                     <div class="col-12 pt-4">
@@ -292,15 +322,18 @@
               </div>
             </div>
             <div class="col-6 col-lg-2 p-1">
-              <div class="row d-flex justify-content-center c-tooltip" data-tooltip="作ったコンテンツの紹介です。">
-                <div class="p-3 el_ind_prd">
+              <div
+                class="row d-flex justify-content-center c-tooltip"
+                data-tooltip="作ったコンテンツの紹介です。"
+              >
+                <div class="p-3 el_select_effect">
                   <span>
                     <div class="col-12 text-center">
                       <img
                         src="./assets/スパナのアイコン素材.png"
                         alt="frasco"
-                        class="img-fluid"
-                        style="width: 70%; filter: brightness(400%)"
+                        class="img-fluid img_ind_icon"
+                        style="width: 70%"
                       />
                     </div>
                     <div class="col-12 pt-4">
@@ -311,15 +344,18 @@
               </div>
             </div>
             <div class="col-6 col-lg-2 p-1">
-              <div class="row d-flex justify-content-center c-tooltip" data-tooltip="世界観強めのページになる予定です。">
-                <div class="p-3 el_ind_prd">
+              <div
+                class="row d-flex justify-content-center c-tooltip"
+                data-tooltip="世界観強めのページになる予定です。"
+              >
+                <div class="p-3 el_select_effect">
                   <span>
                     <div class="col-12 text-center">
                       <img
                         src="./assets/薬のフリーアイコン10.png"
                         alt="frasco"
-                        class="img-fluid"
-                        style="width: 70%; filter: brightness(400%)"
+                        class="img-fluid img_ind_icon"
+                        style="width: 70%"
                       />
                     </div>
                     <div class="col-12 pt-4">
@@ -330,15 +366,18 @@
               </div>
             </div>
             <div class="col-6 col-lg-2 p-1">
-              <div class="row d-flex justify-content-center c-tooltip" data-tooltip="ブログも更新する予定です。">
-                <div class="p-3 el_ind_prd">
+              <div
+                class="row d-flex justify-content-center c-tooltip"
+                data-tooltip="ブログも更新する予定です。"
+              >
+                <div class="p-3 el_select_effect">
                   <span>
                     <div class="col-12 text-center">
                       <img
                         src="./assets/カレンダーのフリーアイコン16.png"
                         alt="frasco"
-                        class="img-fluid"
-                        style="width: 70%; filter: brightness(400%)"
+                        class="img-fluid img_ind_icon"
+                        style="width: 70%"
                       />
                     </div>
                     <div class="col-12 pt-4">
@@ -349,22 +388,25 @@
               </div>
             </div>
             <div class="col-6 col-lg-2 p-1">
-              <div class="row d-flex justify-content-center c-tooltip" data-tooltip="いつか連絡フォームも用意します…">
-                <div class="p-3 el_ind_prd">
+              <div
+                class="row d-flex justify-content-center c-tooltip"
+                data-tooltip="いつか連絡フォームも用意します…"
+              >
+                <div class="p-3 el_select_effect">
                   <span>
                     <div class="col-12 text-center">
                       <img
                         src="./assets/紙飛行機アイコン.png"
                         alt="frasco"
-                        class="img-fluid"
-                        style="width: 70%; filter: brightness(400%)"
+                        class="img-fluid img_ind_icon"
+                        style="width: 70%"
                       />
                     </div>
                     <div class="col-12 pt-4">
                       <h5 class="text-white text-center">Contact</h5>
                     </div>
-                  </div>
-                </span>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -377,57 +419,109 @@
     <div class="bl_ind_wrapper p-0 m-0 bl_ind_wrapper__news">
       <div class="bl_ind_wrapper__bgblue bl_ind_wrapper_sizing">
         <div class="row">
-          <div class="d-none col-12 col-lg-4 text-center d-lg-flex align-items-center justify-content-center">
+          <div
+            class="
+              d-none
+              col-12 col-lg-4
+              text-center
+              d-lg-flex
+              align-items-center
+              justify-content-center
+            "
+          >
             <div class="p-3">
               <img
-              src="./assets/新聞のフリーアイコン.png"
-              alt="news"
-              class="img-fluid"
-              style="width: 50%; filter: brightness(400%)"
-            />
+                src="./assets/新聞のフリーアイコン.png"
+                alt="news"
+                class="img-fluid img_ind_icon"
+                style="width: 50%"
+              />
               <h2 class="text-white">News/Twitter</h2>
               <p class="text-white">-その時までは、大切だったんだけどね。-</p>
             </div>
           </div>
-          <div class="col-12 col-lg-8 text-center el_twitter_right_wrapper">
+          <div class="col-12 col-lg-8 text-center bl_ind_news_wrapper">
             <div class="py-4 row">
               <div class="d-none d-lg-block row pt-5"></div>
               <div class="col-12 col-lg-10 offset-lg-1">
                 <div class="row">
                   <div class="d-block col-12 d-lg-none pb-2">
                     <h2 class="text-white">News/Twitter</h2>
-                    <p class="text-white">-その時までは、大切だったんだけどね。-</p>
+                    <p class="text-white">
+                      -その時までは、大切だったんだけどね。-
+                    </p>
                   </div>
-                  <div class="d-none col-12 d-lg-block"><h5 class="text-white">最新の5件</h5></div>
-                  <div class="d-block col-12 d-lg-none"><h5 class="text-white text-start">最新の5件</h5></div>
-                </div>
-                <div class="row el_twitter_row text-white">
-                  <div class="col-12 col-lg-2 px-2 pt-2 d-flex align-items-center"><h5 class="text-end">2021/11/16</h5></div>
-                  <div class="col-12 col-lg-10 text-left p-2"><p class="text-start">肌の乾燥がとても気になってきたので、うるおいクリームと加湿器を買いました。多分加湿器は意味ないです。頑張っていきましょう。</p>
+                  <div class="d-none col-12 d-lg-block">
+                    <h5 class="text-white">最新の5件</h5>
                   </div>
-                </div>
-                <div class="row el_twitter_row text-white">
-                  <div class="col-12 col-lg-2 px-2 pt-2 d-flex align-items-center"><h5 class="text-end">2021/11/13</h5></div>
-                  <div class="col-12 col-lg-10 text-left p-2"><p class="text-start">「君の名前の横顔」というタイトルの本を読みました。とても幸せな気持ちになりました。読書家としての尊厳を取り戻しました。</p>
+                  <div class="d-block col-12 d-lg-none">
+                    <h5 class="text-white text-start">最新の5件</h5>
                   </div>
                 </div>
-                <div class="row el_twitter_row text-white">
-                  <div class="col-12 col-lg-2 px-2 pt-2 d-flex align-items-center"><h5 class="text-end">2021/11/05</h5></div>
-                  <div class="col-12 col-lg-10 text-left p-2"><p class="text-start">フレッシュネス・バーガーに初めて行きました。美味しいですが、高かったです。でも店舗に他の客がいないことのほうが気になりました。まあ時間帯によっては人は入るのかな〜とか考えていました。</p>
+                <div class="row bl_ind_news_row text-white">
+                  <div
+                    class="col-12 col-lg-2 px-2 pt-2 d-flex align-items-center"
+                  >
+                    <h5 class="text-end">2021/11/16</h5>
+                  </div>
+                  <div class="col-12 col-lg-10 text-left p-2">
+                    <p class="text-start">
+                      肌の乾燥がとても気になってきたので、うるおいクリームと加湿器を買いました。多分加湿器は意味ないです。頑張っていきましょう。
+                    </p>
                   </div>
                 </div>
-                <div class="row el_twitter_row text-white">
-                  <div class="col-12 col-lg-2 px-2 pt-2 d-flex align-items-center"><h5 class="text-end">2021/11/03</h5></div>
-                  <div class="col-12 col-lg-10 text-left p-2"><p class="text-start">祝日だったので「久しぶりにカレーでも食べに行くか」と思い立ち、神田に行きましたが行きたいカレー屋が全部閉まっていました。祝日ですからね。</p>
+                <div class="row bl_ind_news_row text-white">
+                  <div
+                    class="col-12 col-lg-2 px-2 pt-2 d-flex align-items-center"
+                  >
+                    <h5 class="text-end">2021/11/13</h5>
+                  </div>
+                  <div class="col-12 col-lg-10 text-left p-2">
+                    <p class="text-start">
+                      「君の名前の横顔」というタイトルの本を読みました。とても幸せな気持ちになりました。読書家としての尊厳を取り戻しました。
+                    </p>
                   </div>
                 </div>
-                <div class="row el_twitter_row text-white">
-                  <div class="col-12 col-lg-2 px-2 pt-2 d-flex align-items-center"><h5 class="text-end">2021/11/01</h5></div>
-                  <div class="col-12 col-lg-10 text-left p-2"><p class="text-start">一月に一回しかラーメン屋に行ってはいけないという自分ルールがあるのですが、11月は初日に行きました。家系で一ヶ月分の塩分を取りました。最高です。</p>
+                <div class="row bl_ind_news_row text-white">
+                  <div
+                    class="col-12 col-lg-2 px-2 pt-2 d-flex align-items-center"
+                  >
+                    <h5 class="text-end">2021/11/05</h5>
+                  </div>
+                  <div class="col-12 col-lg-10 text-left p-2">
+                    <p class="text-start">
+                      フレッシュネス・バーガーに初めて行きました。美味しいですが、高かったです。でも店舗に他の客がいないことのほうが気になりました。まあ時間帯によっては人は入るのかな〜とか考えていました。
+                    </p>
                   </div>
                 </div>
-                <div class="row el_twitter_row">
-                  <div class="col-12 col-lg-2 p-2 d-flex align-items-center p-1"></div>
+                <div class="row bl_ind_news_row text-white">
+                  <div
+                    class="col-12 col-lg-2 px-2 pt-2 d-flex align-items-center"
+                  >
+                    <h5 class="text-end">2021/11/03</h5>
+                  </div>
+                  <div class="col-12 col-lg-10 text-left p-2">
+                    <p class="text-start">
+                      祝日だったので「久しぶりにカレーでも食べに行くか」と思い立ち、神田に行きましたが行きたいカレー屋が全部閉まっていました。祝日ですからね。
+                    </p>
+                  </div>
+                </div>
+                <div class="row bl_ind_news_row text-white">
+                  <div
+                    class="col-12 col-lg-2 px-2 pt-2 d-flex align-items-center"
+                  >
+                    <h5 class="text-end">2021/11/01</h5>
+                  </div>
+                  <div class="col-12 col-lg-10 text-left p-2">
+                    <p class="text-start">
+                      一月に一回しかラーメン屋に行ってはいけないという自分ルールがあるのですが、11月は初日に行きました。家系で一ヶ月分の塩分を取りました。最高です。
+                    </p>
+                  </div>
+                </div>
+                <div class="row bl_ind_news_row">
+                  <div
+                    class="col-12 col-lg-2 p-2 d-flex align-items-center p-1"
+                  ></div>
                 </div>
               </div>
               <div class="d-none d-lg-block row pt-5"></div>
@@ -441,10 +535,12 @@
     <div class="bl_ind_wrapper p-0 m-0 bl_ind_wrapper__labmem">
       <div class="bl_ind_wrapper__bggray bl_ind_wrapper_sizing">
         <div class="d-none d-lg-block row pt-3"></div>
+        <!-- オレンジの線 -->
         <div class="row p-0">
           <div class="col-12 p-2"></div>
-          <div class="col-7 offset-5 p-1" style="background-color: #d08000;"></div>
+          <div class="col-7 offset-5 p-1 bl_ind_labmem_rect1"></div>
         </div>
+
         <div class="container-lg p-0">
           <div class="row p-1 py-4 d-flex justify-content-center">
             <div class="col-12 order-2 col-lg-4 order-lg-1 mb-2">
@@ -473,20 +569,22 @@
                   <img
                     src="./assets/フラスコのフリーアイコン4.png"
                     alt="frasco"
-                    class="img-fluid"
-                    style="width: 30%; filter: brightness(400%)"
+                    class="img-fluid img_ind_icon"
+                    style="width: 30%"
                   />
                 </div>
                 <div class="col-12 py-4">
                   <h3 class="text-white text-center">Lab Member</h3>
-                  <p class="text-white text-center">- 「大人だから」で済ませるのは、簡単だ。 -</p>
+                  <p class="text-white text-center">
+                    - 「大人だから」で済ませるのは、簡単だ。 -
+                  </p>
                 </div>
                 <div class="col-12 text-center mt-3 mb-2 d-none d-lg-block">
                   <img
                     src="./assets/mark.png"
                     alt="mark"
-                    class="img-fluid"
-                    style="width: 60%; filter: brightness(100%)"
+                    class="img-fluid img_mark"
+                    style="width: 50%"
                   />
                 </div>
               </div>
@@ -512,9 +610,10 @@
             </div>
           </div>
         </div>
-        
+
+        <!-- 青い線 -->
         <div class="row p-0">
-          <div class="col-8 p-2" style="background-color: #326978;"></div>
+          <div class="col-8 p-2 bl_ind_labmem_rect2"></div>
           <div class="col-12 p-2"></div>
         </div>
         <div class="d-none d-lg-block row pt-3"></div>
@@ -529,11 +628,16 @@
           <div class="row p-1">
             <div class="col-12 text-center pt-3 pb-1">
               <h2 class="text-white">Products</h2>
-              <p class="text-white">-偏見を大切にするからこそ、抗えるんだよ。-</p>
+              <p class="text-white">
+                -偏見を大切にするからこそ、抗えるんだよ。-
+              </p>
             </div>
 
-            <div class="col-12 col-lg-4 mb-2 c-tooltip" data-tooltip="要するにこのページです。">
-              <div class="p-3 el_ind_prd">
+            <div
+              class="col-12 col-lg-4 mb-2 c-tooltip"
+              data-tooltip="要するにこのページです。"
+            >
+              <div class="p-3 el_ind_prd el_select_effect">
                 <span>
                   <a
                     href="https://yuichisemura.github.io/fourteenagerlab/"
@@ -549,8 +653,11 @@
                 </span>
               </div>
             </div>
-            <div class="col-12 col-lg-4 mb-2 c-tooltip" data-tooltip="謎解きアプリです。">
-              <div class="p-3 el_ind_prd">
+            <div
+              class="col-12 col-lg-4 mb-2 c-tooltip"
+              data-tooltip="謎解きアプリです。"
+            >
+              <div class="p-3 el_ind_prd el_select_effect">
                 <span>
                   <a
                     href="https://bouyearfestival.herokuapp.com/"
@@ -566,8 +673,11 @@
                 </span>
               </div>
             </div>
-            <div class="col-12 col-lg-4 mb-2 c-tooltip" data-tooltip="3Dのルーレットです。">
-              <div class="p-3 el_ind_prd">
+            <div
+              class="col-12 col-lg-4 mb-2 c-tooltip"
+              data-tooltip="3Dのルーレットです。"
+            >
+              <div class="p-3 el_ind_prd el_select_effect">
                 <span>
                   <a
                     href="https://yuichisemura.github.io/lunchNoCohoGaRoulette/"
@@ -607,72 +717,88 @@
 
     <!-- Blog -->
     <div class="bl_ind_wrapper p-0 m-0 bl_ind_wrapper__blog">
-      <div class="bl_ind_wrapper__bggray bl_ind_wrapper_sizing">
+      <div class="bl_ind_wrapper__bgblog bl_ind_wrapper_sizing">
         <div class="container-lg p-0">
           <div class="d-none d-lg-block row pt-3"></div>
-            <div class="row p-1">
-              <div class="col-12 text-center">
-                <div class="pt-3">
-                  <h2 class="text-white">Blog</h2>
-                  <p class="text-white text-center">- note でも書いてろ -</p>
-                </div>
+          <div class="row p-1">
+            <div class="col-12 text-center">
+              <div class="pt-3">
+                <h2 class="text-white">Blog</h2>
+                <p class="text-white text-center">- note でも書いてろ -</p>
               </div>
             </div>
-            <div class="row p-1">
-              <div class="col-lg-8 text-center">
-                <div class="d-block m-2 p-2" style="border: 2px solid #CCC;">
+          </div>
+          <div class="row p-1">
+            <div class="col-lg-8 text-center p-0">
+              <div class="d-none d-lg-block p-1 text-white">
+                <h4>最新記事</h4>
+              </div>
+              <div class="row m-2 p-2 bl_ind_blog_content">
+                <div class="col-12 col-lg-8 offset-lg-2">
                   <img
                     src="./assets/slider-1.jpg"
                     alt="photo"
-                    class="img-fluid"
-                    style="width: 60%; filter: contrast(70%) brightness(140%)"
+                    class="img-fluid img_ind_blog"
                   />
-                  <div class="py-3 px-5">
-                    <h3 class="text-white text-start">This is Title...</h3>
-                    <p class="text-white text-start">Content Summary Hoge Hoge</p>
-                  </div>
                 </div>
-              </div>
-              <div class="col-lg-4 text-center">
-                <div class="d-block m-2 p-2" style="border: 2px solid #CCC;">
-                  <div class="py-2 px-5">
-                    <h3 class="text-white text-start">This is Title...</h3>
-                    <p class="text-white text-start">Content Summary Hoge Hoge</p>
+                <div class="col-12 col-lg-10 offset-lg-1">
+                  <div class="py-2 px-2">
+                    <h3 class="text-white text-start">風邪を引きました。</h3>
+                    <p class="text-white text-start">
+                      心の中には天使と悪魔が居るぞ～っていう構図は、なにかのたとえ話によく使われるものでございますが、その始まりは…
+                    </p>
                   </div>
-                </div>
-                <div class="d-block m-2 p-2" style="border: 2px solid #CCC;">
-                  <div class="py-2 px-5">
-                    <h3 class="text-white text-start">This is Title...</h3>
-                    <p class="text-white text-start">Content Summary Hoge Hoge</p>
-                  </div>
-                </div>
-                <div class="d-block m-2 p-2" style="border: 2px solid #CCC;">
-                  <div class="py-2 px-5">
-                    <h3 class="text-white text-start">This is Title...</h3>
-                    <p class="text-white text-start">Content Summary Hoge Hoge</p>
-                  </div>
-                </div>
-                <div class="m-3 text-center">
-                  <a
-                    class="learn-more linkbutton-black"
-                    href="./products.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p class="button-text">Coming Soon</p>
-                    <div class="circle">
-                      <span class="icon arrow"></span>
-                    </div>
-                  </a>
                 </div>
               </div>
             </div>
+            <div class="col-lg-4 text-center">
+              <div class="d-none d-lg-block p-1 text-white">
+                <h4>人気記事</h4>
+              </div>
+              <div class="d-none d-lg-block m-2 p-2 bl_ind_blog_content">
+                <div class="py-2 px-3">
+                  <h3 class="text-white text-start">ブログ2個目</h3>
+                  <p class="text-white text-start">
+                    YOYO! しろくなりゆくやまぎわYeah
+                  </p>
+                </div>
+              </div>
+              <div class="d-none d-lg-block m-2 p-2 bl_ind_blog_content">
+                <div class="py-2 px-3">
+                  <h3 class="text-white text-start">ブログ三個目</h3>
+                  <p class="text-white text-start">
+                    Hoge Hoge Yeah Yeah Hoge Yeah Yeah
+                  </p>
+                </div>
+              </div>
+              <div class="d-none d-lg-block m-2 p-2 bl_ind_blog_content">
+                <div class="py-2 px-3">
+                  <h3 class="text-white text-start">This is Title...</h3>
+                  <p class="text-white text-start">Content Summary Hoge Hoge</p>
+                </div>
+              </div>
+              <div class="m-3 text-center">
+                <a
+                  class="learn-more linkbutton-black"
+                  href="./products.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <p class="button-text">その他記事</p>
+                  <div class="circle">
+                    <span class="icon arrow"></span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
           <div class="d-none d-lg-block row pt-5"></div>
         </div>
       </div>
     </div>
 
-    <div class="footer bg-blue">
+    <!-- footer -->
+    <div class="footer bg-darkblue">
       <div class="container justify-content-center text-center">
         <h6 class="m-0 p-3">Copyright © 2020-2021 Yuichi Semura.</h6>
       </div>

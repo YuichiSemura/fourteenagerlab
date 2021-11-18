@@ -28,7 +28,7 @@
     <meta property="og:locale" content="ja_JP" />
     <title>Prescription - FOURTEENAGER Lab.</title>
     <style>
-      #loading {
+      .el_loader {
         width: 100vw;
         height: 100vh;
         z-index: 10000;
@@ -41,66 +41,53 @@
         align-items: center;
         justify-content: center;
       }
-      .loaded {
+      .el_loader.el_loader_spinner__loaded {
         opacity: 0;
         visibility: hidden;
         position: fixed;
       }
+      body {
+        background-color: rgb(50, 105, 120) !important;
+      }
     </style>
+  </head>
 
+  <body>
+    <!-- ローディング画面 -->
+    <div id="loader" class="el_loader">
+      <div id="loader_spinner" class="el_loader_spinner"></div>
+    </div>
     <script type="text/javascript">
       window.onload = function () {
         console.log("onload");
-        const spinner = document.getElementById("loading");
-        spinner.classList.add("loaded");
+        const spinner = document.getElementById("loader");
+        spinner.classList.add("el_loader_spinner__loaded");
       };
     </script>
-  </head>
 
-  <body style="background-color: rgb(50, 105, 120)">
-    <!-- ローディング画面 -->
-    <div
-      id="loading"
-      style="
-        width: 100vw;
-        height: 100vh;
-        z-index: 100;
-        margin: 0;
-        padding: 0;
-        position: fixed;
-        top: 0;
-        background-color: rgb(50, 105, 120);
-        transition: 1s;
-      "
-    >
-      <div class="loader">Loading...</div>
-    </div>
-
-    <div id="top" class="p-0">
+    <!-- header (navbar) -->
+    <div id="header_wrapper" class="p-0">
       <nav
-        id="navbar-prescription"
         class="
-          navbar
-          nav-blue
-          navbar-expand-md navbar-dark
+          navbar navbar__index navbar__transparent navbar-expand-md navbar-dark
           mb-1
           py-2
           fixed-top
           animate__animated animate__flipInX
         "
       >
-        <h2
-          id="nav-title-prescription"
-          class="nav-title text-azure text-left opacity-0"
-        >
-          <img src="./assets/mark.png" alt="mark" class="img-fluid" /><a
-            href="./index.html"
-            >FOURTEENAGER LAB.</a
+        <h2 class="nav_title nav_title__index text-azure text-left opacity-0">
+          <a href="./index.html"
+            ><img
+              src="./assets/mark.png"
+              alt="mark"
+              class="img-fluid img_mark"
+            />FOURTEENAGER LAB.</a
           >
         </h2>
         <button
           id="nav-toggle"
-          class="navbar-toggler"
+          class="navbar-toggler navbar-toggler__index"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbar-14l"
@@ -115,29 +102,29 @@
           id="navbar-14l"
         >
           <ul class="navbar-nav flex-row flex-wrap">
-            <li class="nav-item col-6 col-md-auto active">
+            <li class="nav-item nav-item_style col-6 col-md-auto active">
               <a class="nav-link text-white text-center" href="./index.html"
                 >Home</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="./biography.html"
                 >Biography</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="./products.html"
                 >Products</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a
                 class="nav-link text-white text-center"
                 href="./prescription.html"
                 >Prescription</a
               >
             </li>
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item nav-item_style col-6 col-md-auto">
               <a class="nav-link text-white text-center" href="#"
                 >Contact<i class="fas fa-paper-plane d-inline"></i
               ></a>
@@ -145,192 +132,198 @@
           </ul>
         </div>
       </nav>
+
+      <!-- background -->
+      <div class="heroHeader p-0 m-0">
+        <div class="heroHeader_img">
+          <div class="heroHeader_img_blue">
+            <div class="rain">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+
+            <div class="dropdiv">
+              <div class="d-flex justify-content-center align-items-top">
+                <div class="d-block">
+                  <div class="dos drop"></div>
+                  <div class="dos wave">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="heroHeader_words">
+            <div class="heroHeader_words_topMargin"></div>
+            <div
+              class="
+                heroHeader_words_top
+                d-flex
+                justify-content-center
+                align-items-center
+              "
+            >
+              <div class="d-block">
+                <div class="heroHeader_words_presents">
+                  <div class="mincho__bold text-center">
+                    - YuichiSemura Presents -
+                  </div>
+                </div>
+                <div class="heroHeader_words_title">
+                  <div class="mincho__bold text-center text-azure">
+                    FOURTEENAGER Lab.
+                  </div>
+                </div>
+                <div class="heroHeader_words_phrase">
+                  <div class="mincho__bold text-center">
+                    それは、青春を患った大人のための処方箋。
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="
+                heroHeader_words_bottom
+                d-flex
+                justify-content-center
+                align-items-end
+              "
+            >
+              <div class="el_scrollIcon">
+                <a href="#"
+                  ><span></span>
+                  <h5>Scroll</h5></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- carousel -->
     <div class="container-lg">
-      <div style="height: 54px"></div>
-      <div
-        id="carousel-top"
-        class="
-          carousel
-          slide
-          carousel-fade
-          mx-auto
-          wow
-          my-2
-          animate__animated animate__fadeIn
-        "
-        data-interval="4000"
-        data-pause="false"
-        data-ride="carousel"
-      >
-        <ol class="carousel-indicators">
-          <li
-            data-bs-target="#carousel-top"
-            data-bs-slide-to="0"
-            class="active"
-          ></li>
-          <li data-bs-target="#carousel-top" data-bs-slide-to="1"></li>
-          <li data-bs-target="#carousel-top" data-bs-slide-to="2"></li>
-          <li data-bs-target="#carousel-top" data-bs-slide-to="3"></li>
-          <li data-bs-target="#carousel-top" data-bs-slide-to="4"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="./assets/slider-1.jpg"
-              alt="img1"
-              class="carousel_img img-fluid"
-            />
-            <div class="carousel-caption mincho d-none d-md-block">
-              <h5>早く大人になりたがる人間と、</h5>
-              <h5>もう大人になってしまった人間。</h5>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./assets/slider-2.jpg"
-              alt="img2"
-              class="carousel_img img-fluid"
-            />
-            <div class="carousel-caption mincho d-none d-md-block">
-              <h5>そんな彼らを見ていると、</h5>
-              <h5>自分自身が怖くなるんだ。</h5>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./assets/slider-3.jpg"
-              alt="img3"
-              class="carousel_img img-fluid"
-            />
-            <div class="carousel-caption mincho d-none d-md-block">
-              <h5>一生ガキのままで居たいとか考える僕は、</h5>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./assets/slider-4.jpg"
-              alt="img4"
-              class="carousel_img img-fluid"
-            />
-            <div class="carousel-caption mincho d-none d-md-block">
-              <h5>どこかで道を踏み外してしまったのだろうか。</h5>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./assets/slider-5.jpg"
-              alt="img5"
-              class="carousel_img img-fluid"
-            />
-            <div class="carousel-caption mincho d-none d-md-block">
-              <h5>今でも、あの時のまま。僕はずっとここにいるよ。</h5>
-            </div>
-          </div>
-        </div>
-        <a
-          class="carousel-control-prev"
-          href="#carousel-top"
-          role="button"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carousel-top"
-          role="button"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </a>
-      </div>
-      <div
-        class="
-          bl_labMember
-          row
-          mincho
-          hp_p10
-          wow
-          animate__animated animate__fadeIn
-          m-2
-        "
-      >
-        <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-4 hp_p5">
-          <div
-            class="
-              bl_labMember_tiles bl_labMember_tiles__sem
-              wow
-              animate__animated animate__fadeIn
-            "
-          >
-            <div class="row hp_p5">
-              <div class="col-12 hp_p5 text-center">
-                <img src="./assets/sem.jpg" alt="sem" class="img-fluid" />
-              </div>
-              <div class="col-12 hp_p5">
-                <div class="row profile">
-                  <div class="justify-content-center">
-                    <h4 class="text-center text-azure">瀬村 雄一</h4>
-                  </div>
-                  <div class="">
-                    <p>
-                      　FOURTEENAGER
-                      LAB.の研究員であると同時に、中二病の患者。二六歳。本人曰く、中二病を治療するための「処方箋」を求めて研究を続けている痛い奴。文化祭の話に弱い。口癖は「アース」。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="bl_pre_wrapper col-lg-8 offset-2">
         <div
+          id="carousel-top"
           class="
-            offset-sm-2
-            col-sm-8
-            offset-md-0
-            col-md-4
-            justify-content-center
+            carousel
+            slide
+            carousel-fade
+            mx-auto
+            wow
+            my-2
+            animate__animated animate__fadeIn
           "
+          data-interval="4000"
+          data-pause="false"
+          data-ride="carousel"
         >
-          <h4 class="text-center text-azure">研究員紹介</h4>
-        </div>
-        <div class="offset-sm-2 col-sm-8 offset-md-0 col-md-4 hp_p5">
-          <div
-            class="
-              bl_labMember_tiles bl_labMember_tiles__new
-              wow
-              animate__animated animate__fadeIn
-            "
-          >
-            <div class="row hp_p5">
-              <div class="col-12 hp_p5 text-center">
-                <img src="./assets/jktwr.png" alt="new" class="img-fluid" />
+          <ol class="carousel-indicators">
+            <li
+              data-bs-target="#carousel-top"
+              data-bs-slide-to="0"
+              class="active"
+            ></li>
+            <li data-bs-target="#carousel-top" data-bs-slide-to="1"></li>
+            <li data-bs-target="#carousel-top" data-bs-slide-to="2"></li>
+            <li data-bs-target="#carousel-top" data-bs-slide-to="3"></li>
+            <li data-bs-target="#carousel-top" data-bs-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="./assets/slider-1.jpg"
+                alt="img1"
+                class="img_carousel img-fluid"
+              />
+              <div class="carousel-caption mincho d-none d-md-block">
+                <h5>早く大人になりたがる人間と、</h5>
+                <h5>もう大人になってしまった人間。</h5>
               </div>
-              <div class="col-12 hp_p5">
-                <div class="row profile">
-                  <div class="justify-content-center">
-                    <h4 class="text-center text-azure">新居 九重</h4>
-                  </div>
-                  <div class="">
-                    <p>
-                      　同じく、研究員兼患者。というか同一人物。自己愛の強いクソオタク。刺さる属性はCV:佐倉綾音と後輩キャラ。両方の属性が共存すると好きが爆発する。口癖は「殺してくれ」。
-                    </p>
-                  </div>
-                </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/slider-2.jpg"
+                alt="img2"
+                class="img_carousel img-fluid"
+              />
+              <div class="carousel-caption mincho d-none d-md-block">
+                <h5>そんな彼らを見ていると、</h5>
+                <h5>自分自身が怖くなるんだ。</h5>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/slider-3.jpg"
+                alt="img3"
+                class="img_carousel img-fluid"
+              />
+              <div class="carousel-caption mincho d-none d-md-block">
+                <h5>一生ガキのままで居たいとか考える僕は、</h5>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/slider-4.jpg"
+                alt="img4"
+                class="img_carousel img-fluid"
+              />
+              <div class="carousel-caption mincho d-none d-md-block">
+                <h5>どこかで道を踏み外してしまったのだろうか。</h5>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/slider-5.jpg"
+                alt="img5"
+                class="img_carousel img-fluid"
+              />
+              <div class="carousel-caption mincho d-none d-md-block">
+                <h5>今でも、あの時のまま。僕はずっとここにいるよ。</h5>
               </div>
             </div>
           </div>
+          <a
+            class="carousel-control-prev"
+            href="#carousel-top"
+            role="button"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carousel-top"
+            role="button"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
         </div>
       </div>
     </div>
 
-    <div class="footer background-blue mt-2">
-      <div class="container justify-content-center" style="text-align: center">
+    <!-- footer -->
+    <div class="footer bg-darkblue">
+      <div class="container justify-content-center text-center">
         <h6 class="m-0 p-3">Copyright © 2020-2021 Yuichi Semura.</h6>
       </div>
     </div>
