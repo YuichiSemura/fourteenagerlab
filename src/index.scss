@@ -27,7 +27,8 @@
   -ms-transform: $transform;
 }
 
-$blue: rgba(29, 72, 94, 0.774);
+$indblue: rgba(29, 72, 94, 0.774);
+$blue: rgb(50, 105, 120);
 $lightgray: #dddddd;
 $gray: rgba(143, 143, 143, 0.774);
 $orange: rgba(255, 157, 0, 0.664);
@@ -69,7 +70,7 @@ $superlightorange: #f0e7d9;
       height: 100%;
       width: 100%;
       z-index: -20;
-      background-color: $blue;
+      background-color: $indblue;
     }
     &_gray {
       height: 100%;
@@ -95,14 +96,6 @@ $superlightorange: #f0e7d9;
     &_top {
       top: 14%;
       height: 72%;
-      // & > div {
-      //   border: solid 0.8px rgba(255, 255, 255, 0.3);
-      //   background-color: #ffffff1e;
-      //   transition: all 1s ease-in-out;
-      //   &:hover {
-      //     background-color: #0000001e;
-      //   }
-      // }
     }
 
     &_bottom {
@@ -280,19 +273,19 @@ $superlightorange: #f0e7d9;
     animation-name: rubberBand;
     animation-duration: 1s;
   }
-}
 
-.navbar__transparent {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.navbar__blue {
-  background-color: rgba(0, 130, 153, 0.8);
-}
-.navbar__orange {
-  background-color: rgba(255, 157, 0, 0.85);
-}
-.navbar__index {
-  animation-delay: 3s;
+  &__transparent {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  &__blue {
+    background-color: rgba(0, 130, 153, 0.8);
+  }
+  &__orange {
+    background-color: rgba(255, 157, 0, 0.85);
+  }
+  &__index {
+    animation-delay: 3s;
+  }
 }
 
 .nav-item_style {
@@ -330,71 +323,39 @@ $superlightorange: #f0e7d9;
   width: 100%;
 }
 
-.bl_labMember {
-  background-color: rgba(0, 0, 0, 0.281);
-
-  &_tiles {
-    animation-delay: 0.5s;
-    &__sem {
-      background-color: rgba(204, 108, 0, 0.4);
-    }
-    &__new {
-      background-color: rgba(0, 142, 198, 0.4);
-    }
-    &__new2 {
-      background-color: rgba(206, 206, 206, 0.4);
-    }
-    &__new3 {
-      background-color: rgb(204, 0, 0);
-    }
-    &__new4 {
-      background-color: rgb(149, 0, 204);
-    }
-    &__new5 {
-      background-color: rgb(0, 204, 54);
-    }
-    p {
-      color: rgb(223, 223, 223);
-    }
-  }
-}
-
 .bl_product {
   animation-delay: 0.5s;
   img {
     width: 100%;
     max-width: 320px;
   }
-}
-
-.bl_product__white {
-  background-color: rgba(255, 255, 255, 0.75);
-  color: rgb(0, 0, 0);
-  a {
-    &:link,
-    &:visited,
-    &:focus,
-    &:hover,
-    &:active {
-      color: rgb(0, 31, 99) !important;
+  &__white {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: rgb(0, 0, 0);
+    a {
+      &:link,
+      &:visited,
+      &:focus,
+      &:hover,
+      &:active {
+        color: rgb(0, 31, 99) !important;
+      }
+    }
+  }
+  &__black {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: rgb(255, 255, 255);
+    a {
+      &:link,
+      &:visited,
+      &:focus,
+      &:hover,
+      &:active {
+        color: rgb(147, 255, 255) !important;
+      }
     }
   }
 }
-
-.bl_product__black {
-  background-color: rgba(0, 0, 0, 0.75);
-  color: rgb(255, 255, 255);
-  a {
-    &:link,
-    &:visited,
-    &:focus,
-    &:hover,
-    &:active {
-      color: rgb(147, 255, 255) !important;
-    }
-  }
-}
-
 .nav_title {
   margin: 0 auto 0 10;
   transition-duration: 1s;
@@ -827,10 +788,8 @@ $loadertranslate: -50%;
       font-weight: 600;
     }
   }
-}
 
-@media (max-width: 992px) {
-  .bl_bio_wrapper {
+  @media (max-width: 992px) {
     &_sizing {
       & > div {
         padding-top: 180%;
@@ -842,10 +801,7 @@ $loadertranslate: -50%;
       }
     }
   }
-}
-
-@media (min-width: 992px) {
-  .bl_bio_wrapper {
+  @media (min-width: 992px) {
     &_sizing {
       & > div {
         padding-top: 45%;
@@ -1102,10 +1058,73 @@ $loadertranslate: -50%;
     &__bgblue {
       background-color: rgba(44, 80, 95, 0.85);
     }
+    &__bgblog {
+      background-color: rgba(129, 129, 129, 0.911);
+    }
+
+    &__blog {
+      background-size: cover;
+      background-position: center center;
+      background-image: url(./assets/slider-5.jpg);
+    }
+    &__what {
+      background-size: cover;
+      background-position: center center;
+      background-image: url(./assets/slider-4.jpg);
+    }
+
+    &__news {
+      background-size: cover;
+      background-position: center center;
+      background-image: url(./assets/slider-3.jpg);
+    }
+
+    &__prd {
+      background-size: cover;
+      background-position: center center;
+      background-image: url(./assets/slider-2.jpg);
+    }
+
+    &__labmem {
+      background-size: cover;
+      background-position: center center;
+      background-image: url(./assets/slider-1.jpg);
+      &_rect {
+        &1 {
+          background-color: #d08000;
+        }
+        &2 {
+          background-color: #326978;
+        }
+      }
+    }
+  }
+
+  &_blog_content {
+    border: 2px solid #ccc;
+  }
+
+  &_prd {
+    & img {
+      transition-duration: 0.5s;
+      filter: grayscale(80%);
+    }
+    &:hover img {
+      filter: grayscale(0%);
+    }
+  }
+
+  &_news_row {
+    border: solid $lightgray;
+    border-width: 2px 0px 0px 0px;
+  }
+
+  &_news_wrapper {
+    background-color: rgba(188, 225, 255, 0.582);
   }
 }
 
-.el_ind_prd {
+.el_select_effect {
   position: relative;
   display: inline-block;
   text-decoration: none;
@@ -1116,14 +1135,6 @@ $loadertranslate: -50%;
 
   &:hover {
     background: #555;
-  }
-
-  & img {
-    transition-duration: 0.5s;
-    filter: grayscale(80%);
-  }
-  &:hover img {
-    filter: grayscale(0%);
   }
 
   & span {
@@ -1178,110 +1189,79 @@ $loadertranslate: -50%;
   }
 }
 
-.bl_ind_wrapper__blog {
-  background-size: cover;
-  background-position: center center;
-  background-image: url(./assets/slider-5.jpg);
-}
-
-.bl_ind_wrapper__what {
-  background-size: cover;
-  background-position: center center;
-  background-image: url(./assets/slider-4.jpg);
-}
-
-.bl_ind_wrapper__news {
-  background-size: cover;
-  background-position: center center;
-  background-image: url(./assets/slider-3.jpg);
-}
-
-.bl_ind_wrapper__prd {
-  background-size: cover;
-  background-position: center center;
-  background-image: url(./assets/slider-2.jpg);
-}
-
-.bl_ind_wrapper__labmem {
-  background-size: cover;
-  background-position: center center;
-  background-image: url(./assets/slider-1.jpg);
-}
-
-.el_twitter_row {
-  border: solid $lightgray;
-  border-width: 2px 0px 0px 0px;
-}
-
-.el_twitter_right_wrapper {
-  background-color: rgba(188, 225, 255, 0.582);
-}
-
-/* マウスオンする要素とツールチップを横並びにする */
+/* マウスオンする要素とツールチップを下に並べる */
 .c-tooltip {
   display: inline-block;
   position: relative;
-}
-
-/* ツールチップ共通の設定 */
-.c-tooltip::before,
-.c-tooltip::after {
-  -webkit-transition: all 0.5s;
-  opacity: 0;
-  position: absolute;
-  transition: all 0.4s;
-  visibility: hidden;
-  z-index: 11;
-}
-
-/* ツールチップ吹き出しのひげ */
-.c-tooltip::before {
-  -webkit-transform: translateX(-50%) translateY(100%);
-  border-color: transparent transparent #5f6368 transparent;
-  border-style: solid;
-  border-width: 0 7px 15px 7px;
-  content: "";
-  height: 0;
-  left: 50%;
-  top: calc(100% - 15px);
-  transform: translateX(-50%) translateY(100%);
-  width: 0;
-}
-
-/* ツールチップ吹き出しの本体 */
-.c-tooltip::after {
-  -webkit-transform: translateX(-50%) translateY(100%);
-  background: #5f6368;
-  border-radius: 3px;
-  color: #fff;
-  content: attr(data-tooltip); /* ここでdata-tooltipの内容を呼び出しているよ */
-  display: block;
-  font-weight: 600;
-  left: 50%;
-  padding: 5px 10px;
-  bottom: -8px;
-  transform: translateX(-50%) translateY(100%);
-  white-space: nowrap;
-
-  @media (min-width: 992px) {
-    font-size: 20px;
+  /* ツールチップ共通の設定 */
+  &::before,
+  &::after {
+    -webkit-transition: all 0.5s;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.4s;
+    visibility: hidden;
+    z-index: 11;
   }
-  @media (max-width: 992px) {
-    font-size: 10px;
+  /* ツールチップ吹き出しのひげ */
+  &::before {
+    -webkit-transform: translateX(-50%) translateY(100%);
+    border-color: transparent transparent #5f6368 transparent;
+    border-style: solid;
+    border-width: 0 7px 15px 7px;
+    content: "";
+    height: 0;
+    left: 50%;
+    top: calc(100% - 15px);
+    transform: translateX(-50%) translateY(100%);
+    width: 0;
+  }
+  /* ツールチップ吹き出しの本体 */
+  &::after {
+    -webkit-transform: translateX(-50%) translateY(100%);
+    background: #5f6368;
+    border-radius: 3px;
+    color: #fff;
+    content: attr(
+      data-tooltip
+    ); /* ここでdata-tooltipの内容を呼び出しているよ */
+    display: block;
+    font-weight: 600;
+    left: 50%;
+    padding: 5px 10px;
+    bottom: -8px;
+    transform: translateX(-50%) translateY(100%);
+    white-space: nowrap;
+
+    @media (min-width: 992px) {
+      font-size: 16px;
+    }
+    @media (max-width: 992px) {
+      font-size: 10px;
+    }
+  }
+  /* マウスオンしたときのカーソルの設定 */
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover::before {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:hover::after {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
-/* マウスオンしたときのカーソルの設定 */
-.c-tooltip:hover {
-  cursor: pointer;
+.img_ind_icon {
+  filter: brightness(400%);
 }
 
-.c-tooltip:hover::before {
-  opacity: 1;
-  visibility: visible;
+.img_ind_blog {
+  filter: contrast(80%) brightness(130%);
 }
 
-.c-tooltip:hover::after {
-  opacity: 1;
-  visibility: visible;
+.img_mark {
+  filter: brightness(150%);
 }
