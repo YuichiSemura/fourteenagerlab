@@ -29,6 +29,7 @@
 
 $indblue: rgba(29, 72, 94, 0.774);
 $blue: rgb(50, 105, 120);
+$darkblue: #15576b;
 $lightgray: #dddddd;
 $gray: rgba(143, 143, 143, 0.774);
 $orange: rgba(255, 157, 0, 0.664);
@@ -36,6 +37,10 @@ $superlightorange: #f0e7d9;
 
 .bg-blue {
   background-color: $blue;
+}
+
+.bg-darkblue {
+  background-color: $darkblue;
 }
 
 .bg-lightgray {
@@ -317,10 +322,6 @@ $superlightorange: #f0e7d9;
     font-family: "Mercellus";
     font-weight: 600;
   }
-}
-
-.carousel_img {
-  width: 100%;
 }
 
 .bl_product {
@@ -1264,4 +1265,14 @@ $loadertranslate: -50%;
 
 .img_mark {
   filter: brightness(150%);
+}
+
+.img_carousel {
+  width: 100%;
+  filter: contrast(80%) brightness(130%);
+}
+
+// prescription
+.bl_pre_wrapper {
+  background-color: $blue;
 }
