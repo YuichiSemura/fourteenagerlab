@@ -1,6 +1,6 @@
 # FOURTEENAGER Lab.
 
-![favicon](./assets/14l-favicon.png)
+![favicon](./src/assets/14l-favicon.png)
 
 GitHub Pages で公開中。
 
