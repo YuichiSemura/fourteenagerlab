@@ -1,4 +1,5 @@
 @use "sass:math";
+@import "~bootstrap/scss/bootstrap";
 
 @mixin animation($animation-name) {
   -webkit-animation: $animation-name;
@@ -69,7 +70,7 @@ $superlightorange: #f0e7d9;
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(./assets/back.jpg);
+    background-image: url(../assets/back.jpg);
     z-index: -30;
     &_blue {
       height: 100%;
@@ -199,7 +200,7 @@ $superlightorange: #f0e7d9;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-image: url(./assets/back.jpg);
+  background-image: url(../assets/back.jpg);
   z-index: -30;
 }
 
@@ -307,11 +308,11 @@ $superlightorange: #f0e7d9;
 }
 
 .mincho {
-  font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN",
-    "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
+  font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo,
+    serif;
   &__bold {
-    font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN",
-      "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
+    font-family: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", HGS明朝E, メイリオ,
+      Meiryo, serif;
     font-weight: 600;
   }
 }
@@ -412,11 +413,7 @@ p {
 $white: #fff;
 $black: #000000;
 
-@mixin transition(
-  $property: all,
-  $duration: 0.45s,
-  $ease: cubic-bezier(0.65, 0, 0.076, 1)
-) {
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, 0.076, 1)) {
   transition: $property $duration $ease;
 }
 
@@ -599,16 +596,7 @@ $loadertranslate: -50%;
 
 // 水滴表現
 
-@mixin dropdiv(
-  $top,
-  $dropTime,
-  $waveTime,
-  $dropR,
-  $dropM,
-  $waveTop,
-  $waveWidth,
-  $waveHeight
-) {
+@mixin dropdiv($top, $dropTime, $waveTime, $dropR, $dropM, $waveTop, $waveWidth, $waveHeight) {
   .dropdiv {
     position: absolute;
     width: 100%;
@@ -1066,30 +1054,30 @@ $loadertranslate: -50%;
     &__blog {
       background-size: cover;
       background-position: center center;
-      background-image: url(./assets/slider-5.jpg);
+      background-image: url(../assets/slider-5.jpg);
     }
     &__what {
       background-size: cover;
       background-position: center center;
-      background-image: url(./assets/slider-4.jpg);
+      background-image: url(../assets/slider-4.jpg);
     }
 
     &__news {
       background-size: cover;
       background-position: center center;
-      background-image: url(./assets/slider-3.jpg);
+      background-image: url(../assets/slider-3.jpg);
     }
 
     &__prd {
       background-size: cover;
       background-position: center center;
-      background-image: url(./assets/slider-2.jpg);
+      background-image: url(../assets/slider-2.jpg);
     }
 
     &__labmem {
       background-size: cover;
       background-position: center center;
-      background-image: url(./assets/slider-1.jpg);
+      background-image: url(../assets/slider-1.jpg);
       &_rect {
         &1 {
           background-color: #d08000;
@@ -1221,9 +1209,7 @@ $loadertranslate: -50%;
     background: #5f6368;
     border-radius: 3px;
     color: #fff;
-    content: attr(
-      data-tooltip
-    ); /* ここでdata-tooltipの内容を呼び出しているよ */
+    content: attr(data-tooltip); /* ここでdata-tooltipの内容を呼び出しているよ */
     display: block;
     font-weight: 600;
     left: 50%;
