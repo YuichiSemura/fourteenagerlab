@@ -3,6 +3,7 @@ const { defineConfig } = require('vite');
 
 export default defineConfig({
   root: resolve(__dirname, 'src'),
+  base: '/fourteenagerlab',
   resolve: {
     alias: {
       '~bootstrap': resolve(__dirname, 'node_modules/bootstrap'),
