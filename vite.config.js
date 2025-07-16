@@ -1,21 +1,21 @@
-const { resolve } = require('path');
-const { defineConfig } = require('vite');
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  root: resolve(__dirname, 'src'),
+  root: 'src',
   base: '/fourteenagerlab',
   resolve: {
     alias: {
-      '~bootstrap': resolve(__dirname, 'node_modules/bootstrap'),
+      '~bootstrap': resolve(process.cwd(), 'node_modules/bootstrap'),
     },
   },
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, '/index.html'),
-        products: resolve(__dirname, '/products.html'),
-        biography: resolve(__dirname, '/biography.html'),
-        prescription: resolve(__dirname, '/prescription.html'),
+        main: resolve('src', 'index.html'),
+        products: resolve('src', 'products.html'),
+        biography: resolve('src', 'biography.html'),
+        prescription: resolve('src', 'prescription.html'),
       },
     },
   },

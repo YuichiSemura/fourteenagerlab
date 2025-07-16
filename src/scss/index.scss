@@ -1,5 +1,5 @@
 @use "sass:math";
-@import "~bootstrap/scss/bootstrap";
+@use "~bootstrap/scss/bootstrap";
 
 @mixin animation($animation-name) {
   -webkit-animation: $animation-name;
@@ -730,24 +730,24 @@ $loadertranslate: -50%;
 
   &_title p {
     display: inline-block;
+    color: white;
     @media (min-width: 992px) {
       font-size: 3vw;
     }
     @media (max-width: 992px) {
       font-size: 6vw;
     }
-    color: white;
   }
 
   &_words p {
     display: inline-block;
+    color: white;
     @media (min-width: 992px) {
       font-size: 1vw;
     }
     @media (max-width: 992px) {
       font-size: 2vw;
     }
-    color: white;
   }
 
   &_sentences {
@@ -755,13 +755,13 @@ $loadertranslate: -50%;
     p,
     code,
     li {
+      color: rgb(43, 43, 43);
       @media (min-width: 992px) {
         font-size: 1.1vw;
       }
       @media (max-width: 992px) {
         font-size: 2.2vw;
       }
-      color: rgb(43, 43, 43);
       font-family: "Noto Sans JP";
     }
 

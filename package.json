@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "2020/03/29 始動",
   "main": "index.js",
+  "type": "module",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@popperjs/core": "^2.10.2",
@@ -17,7 +18,7 @@
     "eslint-config-prettier": "^8.6.0",
     "prettier": "^2.8.1",
     "sass": "^1.35.2",
-    "vite": "^4.0.4"
+    "vite": "^7.0.4"
   },
   "scripts": {
     "serve": "vite preview",
@@ -34,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/YuichiSemura/fourteenagerlab/issues"
   },
-  "homepage": "https://github.com/YuichiSemura/fourteenagerlab#readme"
+  "homepage": "https://github.com/YuichiSemura/fourteenagerlab#readme",
+  "optionalDependencies": {
+    "@rollup/rollup-darwin-arm64": "latest"
+  }
 }
