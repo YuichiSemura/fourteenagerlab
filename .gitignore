@@ -2,4 +2,3 @@ node_modules
 package-lock.json
 src/dist
 .DS_Store
-/prescriptions
