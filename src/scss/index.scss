@@ -1,5 +1,13 @@
 @use "sass:math";
-@use "~bootstrap/scss/bootstrap";
+@use "sass:color";
+
+// Bootstrap variables customization
+$enable-deprecation-messages: false;
+
+// Bootstrap import with modern syntax
+@use "~bootstrap/scss/bootstrap" with (
+  $enable-deprecation-messages: false
+);
 
 @mixin animation($animation-name) {
   -webkit-animation: $animation-name;
@@ -42,6 +50,10 @@ $superlightorange: #f0e7d9;
 
 .bg-darkblue {
   background-color: $darkblue;
+}
+
+.bg-light-opacity {
+  background-color: rgba($lightgray, 0.45);
 }
 
 .bg-lightgray {
@@ -162,7 +174,9 @@ $superlightorange: #f0e7d9;
   }
 
   &_particles {
-    background-color: #fff;
+    /* Keep particles container transparent so the page background (orange) remains visible
+       when the particle canvas fades in (was previously white which replaced the orange). */
+    background-color: transparent;
     canvas {
       top: 0;
       left: 0;
@@ -756,25 +770,27 @@ $loadertranslate: -50%;
     code,
     li {
       color: rgb(43, 43, 43);
+      font-family: "Noto Sans JP";
+      
       @media (min-width: 992px) {
         font-size: 1.1vw;
       }
       @media (max-width: 992px) {
         font-size: 2.2vw;
       }
-      font-family: "Noto Sans JP";
     }
 
     h5 {
+      color: rgb(43, 43, 43);
+      font-family: "Noto Sans JP";
+      font-weight: 600;
+      
       @media (min-width: 992px) {
         font-size: 1.3vw;
       }
       @media (max-width: 992px) {
         font-size: 2.6vw;
       }
-      color: rgb(43, 43, 43);
-      font-family: "Noto Sans JP";
-      font-weight: 600;
     }
   }
 
@@ -908,6 +924,8 @@ $loadertranslate: -50%;
     & > div:nth-child(1) {
       transform: rotate(40deg);
       & > div {
+        transform: scaleX(2.5);
+        
         @media (min-width: 992px) {
           border-top: 11vw solid transparent;
           border-right: 11vw solid #c4c4c4;
@@ -918,7 +936,6 @@ $loadertranslate: -50%;
           border-right: 22vw solid #c4c4c4;
           border-bottom: 22vw solid transparent;
         }
-        transform: scaleX(2.5);
       }
     }
     & > div:nth-child(2) {

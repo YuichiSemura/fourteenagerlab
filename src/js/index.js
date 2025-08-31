@@ -11,7 +11,8 @@ import 'animate.css/animate.min.css';
 import '../scss/index.scss';
 
 // biography
-import 'particles.js';
+import { tsParticles } from '@tsparticles/engine';
+import { loadLinksPreset } from '@tsparticles/preset-links';
 
 // const { WOW } = require("wowjs");
 // window.WOW = require("wowjs");
@@ -91,12 +92,18 @@ const scrollEventBiography = function () {
 
 // biography.html
 const particleJson = {
+  background: {
+    color: {
+      // use transparent so the particle canvas does not cover the page/footer background
+      value: 'transparent',
+    },
+  },
   particles: {
     number: {
-      value: 40,
+      value: 80,
       density: {
         enable: true,
-        value_area: 800,
+        value_area: 600,
       },
     },
     color: {
@@ -146,7 +153,7 @@ const particleJson = {
     },
     move: {
       enable: true,
-      speed: 6,
+      speed: 2,
       direction: 'none',
       random: false,
       straight: false,
@@ -252,6 +259,18 @@ const drawTextRotate = function (ctx, text, r, l, t) {
 window.onload = function () {
   const spinner = document.getElementById('loader');
   spinner.classList.add('el_loader_spinner__loaded');
+  if (pageName === 'biography.html') {
+    (async () => {
+      await loadLinksPreset(tsParticles);
+      await tsParticles.load({
+        id: 'heroHeader_particles',
+        options: {
+          ...particleJson,
+          preset: 'links',
+        },
+      });
+    })();
+  }
 };
 
 // pageごとの設定
@@ -260,7 +279,6 @@ const pageName = pathName.substring(pathName.lastIndexOf('/') + 1);
 if (pageName === 'index.html' || pageName.length == 0) {
   scrollEventIndex();
 } else if (pageName === 'biography.html') {
-  particlesJS('heroHeader_particles', particleJson);
   // canvas の設定
   setInterval(drawBioKeywords, 250);
   scrollEventBiography();
