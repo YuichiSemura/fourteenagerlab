@@ -1,5 +1,13 @@
 @use "sass:math";
-@import "~bootstrap/scss/bootstrap";
+@use "sass:color";
+
+// Bootstrap variables customization
+$enable-deprecation-messages: false;
+
+// Bootstrap import with modern syntax
+@use "~bootstrap/scss/bootstrap" with (
+  $enable-deprecation-messages: false
+);
 
 @mixin animation($animation-name) {
   -webkit-animation: $animation-name;
@@ -28,11 +36,12 @@
   -ms-transform: $transform;
 }
 
-$indblue: rgba(29, 72, 94, 0.774);
-$blue: rgb(50, 105, 120);
-$darkblue: #15576b;
-$lightgray: #dddddd;
-$gray: rgba(143, 143, 143, 0.774);
+$indblue: rgba(15, 40, 55, 0.95);
+$blue: rgb(25, 65, 80);
+$darkblue: #0a2833;
+$lightgray: #c2c3ce;
+$gray: #4a4a4a;
+$darkgray: rgba(90, 90, 90, 0.9);
 $orange: rgba(255, 157, 0, 0.664);
 $superlightorange: #f0e7d9;
 
@@ -44,12 +53,16 @@ $superlightorange: #f0e7d9;
   background-color: $darkblue;
 }
 
+.bg-light-opacity {
+  background-color: rgba($gray, 0.55);
+}
+
 .bg-lightgray {
-  background-color: $lightgray;
+  background-color: rgba($lightgray, 0.75);
 }
 
 .bg-gray {
-  background-color: $gray;
+  background-color: $darkgray;
 }
 
 .bg-orange {
@@ -76,6 +89,7 @@ $superlightorange: #f0e7d9;
       height: 100%;
       width: 100%;
       z-index: -20;
+      opacity: 0.85;
       background-color: $indblue;
     }
     &_gray {
@@ -162,7 +176,9 @@ $superlightorange: #f0e7d9;
   }
 
   &_particles {
-    background-color: #fff;
+    /* Keep particles container transparent so the page background (orange) remains visible
+       when the particle canvas fades in (was previously white which replaced the orange). */
+    background-color: transparent;
     canvas {
       top: 0;
       left: 0;
@@ -284,10 +300,10 @@ $superlightorange: #f0e7d9;
     background-color: rgba(255, 255, 255, 0.1);
   }
   &__blue {
-    background-color: rgba(0, 130, 153, 0.8);
+    background-color: rgba(0, 91, 107, 0.8);
   }
   &__orange {
-    background-color: rgba(255, 157, 0, 0.85);
+    background-color: rgba(145, 89, 0, 0.8);
   }
   &__index {
     animation-delay: 3s;
@@ -304,7 +320,7 @@ $superlightorange: #f0e7d9;
 }
 
 .text-azure {
-  color: azure !important;
+  color: #ffffff !important;
 }
 
 .mincho {
@@ -360,7 +376,9 @@ $superlightorange: #f0e7d9;
 }
 .nav_title {
   margin: 0 auto 0 10;
-  transition-duration: 1s;
+  transition: opacity 1s;
+  font-size: calc(1.1rem + 0.6vw);
+  
   a {
     text-decoration: none;
     &:link,
@@ -372,7 +390,7 @@ $superlightorange: #f0e7d9;
     }
   }
   & img {
-    height: calc(1.325rem + 0.9vw);
+    height: calc(1.125rem + 0.7vw);
     filter: brightness(300%);
     margin-top: -10px;
     margin-right: 0.2vw;
@@ -730,24 +748,24 @@ $loadertranslate: -50%;
 
   &_title p {
     display: inline-block;
+    color: white;
     @media (min-width: 992px) {
       font-size: 3vw;
     }
     @media (max-width: 992px) {
       font-size: 6vw;
     }
-    color: white;
   }
 
   &_words p {
     display: inline-block;
+    color: white;
     @media (min-width: 992px) {
       font-size: 1vw;
     }
     @media (max-width: 992px) {
       font-size: 2vw;
     }
-    color: white;
   }
 
   &_sentences {
@@ -755,26 +773,44 @@ $loadertranslate: -50%;
     p,
     code,
     li {
+      color: #f0f0f0;
+      font-family: "Noto Sans JP";
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      
+      @media (min-width: 992px) {
+        font-size: 0.9vw;
+      }
+      @media (max-width: 992px) {
+        font-size: 1.8vw;
+      }
+    }
+
+    h5 {
+      color: #f0f0f0;
+      font-family: "Noto Sans JP";
+      font-weight: 600;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      
       @media (min-width: 992px) {
         font-size: 1.1vw;
       }
       @media (max-width: 992px) {
         font-size: 2.2vw;
       }
-      color: rgb(43, 43, 43);
-      font-family: "Noto Sans JP";
     }
 
-    h5 {
-      @media (min-width: 992px) {
-        font-size: 1.3vw;
-      }
-      @media (max-width: 992px) {
-        font-size: 2.6vw;
-      }
-      color: rgb(43, 43, 43);
+    h6 {
+      color: #f0f0f0;
       font-family: "Noto Sans JP";
       font-weight: 600;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      
+      @media (min-width: 992px) {
+        font-size: 0.9vw;
+      }
+      @media (max-width: 992px) {
+        font-size: 1.8vw;
+      }
     }
   }
 
@@ -908,6 +944,8 @@ $loadertranslate: -50%;
     & > div:nth-child(1) {
       transform: rotate(40deg);
       & > div {
+        transform: scaleX(2.5);
+        
         @media (min-width: 992px) {
           border-top: 11vw solid transparent;
           border-right: 11vw solid #c4c4c4;
@@ -918,7 +956,6 @@ $loadertranslate: -50%;
           border-right: 22vw solid #c4c4c4;
           border-bottom: 22vw solid transparent;
         }
-        transform: scaleX(2.5);
       }
     }
     & > div:nth-child(2) {
@@ -1041,14 +1078,14 @@ $loadertranslate: -50%;
     }
 
     &__bggray {
-      background-color: rgba(134, 134, 134, 0.85);
+      background-color: rgba(40, 40, 40, 0.75);
     }
 
     &__bgblue {
-      background-color: rgba(44, 80, 95, 0.85);
+      background-color: rgba(15, 35, 45, 0.75);
     }
     &__bgblog {
-      background-color: rgba(129, 129, 129, 0.911);
+      background-color: rgba(25, 25, 25, 0.75);
     }
 
     &__blog {
@@ -1104,12 +1141,12 @@ $loadertranslate: -50%;
   }
 
   &_news_row {
-    border: solid $lightgray;
+    border: solid $gray;
     border-width: 2px 0px 0px 0px;
   }
 
   &_news_wrapper {
-    background-color: rgba(188, 225, 255, 0.582);
+    background-color: rgba(188, 225, 255, 0.4);
   }
 }
 

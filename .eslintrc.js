@@ -1,13 +1,2 @@
-module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  extends: 'prettier',
-  overrides: [],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  rules: {},
-};
+// This file is deprecated. Configuration moved to eslint.config.js
+module.exports = {};

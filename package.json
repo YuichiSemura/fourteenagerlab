@@ -1,23 +1,28 @@
 {
   "name": "fourteenagerlab",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "2020/03/29 始動",
   "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@popperjs/core": "^2.10.2",
+    "@tsparticles/engine": "latest",
+    "@tsparticles/preset-links": "latest",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.0.1",
-    "particles.js": "^2.0.0",
-    "particlesjs": "^2.2.3",
     "wowjs": "^1.1.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.34.0",
     "eslint": ">=5.16.0",
     "eslint-config-prettier": "^8.6.0",
     "prettier": "^2.8.1",
-    "sass": "^1.35.2",
-    "vite": "^4.0.4"
+    "sass": "^1.80.0",
+    "vite": "^5.4.0"
   },
   "scripts": {
     "serve": "vite preview",
@@ -34,5 +39,8 @@
   "bugs": {
     "url": "https://github.com/YuichiSemura/fourteenagerlab/issues"
   },
-  "homepage": "https://github.com/YuichiSemura/fourteenagerlab#readme"
+  "homepage": "https://github.com/YuichiSemura/fourteenagerlab#readme",
+  "optionalDependencies": {
+    "@rollup/rollup-darwin-arm64": "latest"
+  }
 }
