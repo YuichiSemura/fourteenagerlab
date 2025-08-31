@@ -39,8 +39,9 @@ $enable-deprecation-messages: false;
 $indblue: rgba(15, 40, 55, 0.95);
 $blue: rgb(25, 65, 80);
 $darkblue: #0a2833;
-$lightgray: #4a4a4a;
-$gray: rgba(90, 90, 90, 0.9);
+$lightgray: #c2c3ce;
+$gray: #4a4a4a;
+$darkgray: rgba(90, 90, 90, 0.9);
 $orange: rgba(255, 157, 0, 0.664);
 $superlightorange: #f0e7d9;
 
@@ -53,15 +54,15 @@ $superlightorange: #f0e7d9;
 }
 
 .bg-light-opacity {
-  background-color: rgba($lightgray, 0.45);
+  background-color: rgba($gray, 0.55);
 }
 
 .bg-lightgray {
-  background-color: $lightgray;
+  background-color: rgba($lightgray, 0.75);
 }
 
 .bg-gray {
-  background-color: $gray;
+  background-color: $darkgray;
 }
 
 .bg-orange {
@@ -299,10 +300,10 @@ $superlightorange: #f0e7d9;
     background-color: rgba(255, 255, 255, 0.1);
   }
   &__blue {
-    background-color: rgba(0, 130, 153, 0.8);
+    background-color: rgba(0, 91, 107, 0.8);
   }
   &__orange {
-    background-color: rgba(255, 157, 0, 0.85);
+    background-color: rgba(145, 89, 0, 0.8);
   }
   &__index {
     animation-delay: 3s;
@@ -375,7 +376,9 @@ $superlightorange: #f0e7d9;
 }
 .nav_title {
   margin: 0 auto 0 10;
-  transition-duration: 1s;
+  transition: opacity 1s;
+  font-size: calc(1.1rem + 0.6vw);
+  
   a {
     text-decoration: none;
     &:link,
@@ -387,7 +390,7 @@ $superlightorange: #f0e7d9;
     }
   }
   & img {
-    height: calc(1.325rem + 0.9vw);
+    height: calc(1.125rem + 0.7vw);
     filter: brightness(300%);
     margin-top: -10px;
     margin-right: 0.2vw;
@@ -770,8 +773,23 @@ $loadertranslate: -50%;
     p,
     code,
     li {
-      color: rgb(43, 43, 43);
+      color: #f0f0f0;
       font-family: "Noto Sans JP";
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      
+      @media (min-width: 992px) {
+        font-size: 0.9vw;
+      }
+      @media (max-width: 992px) {
+        font-size: 1.8vw;
+      }
+    }
+
+    h5 {
+      color: #f0f0f0;
+      font-family: "Noto Sans JP";
+      font-weight: 600;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
       
       @media (min-width: 992px) {
         font-size: 1.1vw;
@@ -781,16 +799,17 @@ $loadertranslate: -50%;
       }
     }
 
-    h5 {
-      color: rgb(43, 43, 43);
+    h6 {
+      color: #f0f0f0;
       font-family: "Noto Sans JP";
       font-weight: 600;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
       
       @media (min-width: 992px) {
-        font-size: 1.3vw;
+        font-size: 0.9vw;
       }
       @media (max-width: 992px) {
-        font-size: 2.6vw;
+        font-size: 1.8vw;
       }
     }
   }
@@ -1122,7 +1141,7 @@ $loadertranslate: -50%;
   }
 
   &_news_row {
-    border: solid $lightgray;
+    border: solid $gray;
     border-width: 2px 0px 0px 0px;
   }
 

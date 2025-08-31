@@ -223,7 +223,7 @@ const drawBioKeywords = function () {
     drawRectRotate(ctx, -80, w * -0.1, h * 0.7, w * 0.0625, h * 1.3);
 
     ctx.font = 'bold ' + Math.round(w * 0.072) + "px '游明朝'";
-    ctx.fillStyle = '#6B6B6B';
+    ctx.fillStyle = '#fffafaff';
     drawTextRotate(ctx, 'Keywords', 0, w * 0.25, h * 0.6);
 
     ctx.font = Math.round(w * 0.03) + "px '游明朝'";
