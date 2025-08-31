@@ -36,11 +36,11 @@ $enable-deprecation-messages: false;
   -ms-transform: $transform;
 }
 
-$indblue: rgba(29, 72, 94, 0.774);
-$blue: rgb(50, 105, 120);
-$darkblue: #15576b;
-$lightgray: #dddddd;
-$gray: rgba(143, 143, 143, 0.774);
+$indblue: rgba(15, 40, 55, 0.95);
+$blue: rgb(25, 65, 80);
+$darkblue: #0a2833;
+$lightgray: #4a4a4a;
+$gray: rgba(90, 90, 90, 0.9);
 $orange: rgba(255, 157, 0, 0.664);
 $superlightorange: #f0e7d9;
 
@@ -88,6 +88,7 @@ $superlightorange: #f0e7d9;
       height: 100%;
       width: 100%;
       z-index: -20;
+      opacity: 0.85;
       background-color: $indblue;
     }
     &_gray {
@@ -318,7 +319,7 @@ $superlightorange: #f0e7d9;
 }
 
 .text-azure {
-  color: azure !important;
+  color: #ffffff !important;
 }
 
 .mincho {
@@ -1058,14 +1059,14 @@ $loadertranslate: -50%;
     }
 
     &__bggray {
-      background-color: rgba(134, 134, 134, 0.85);
+      background-color: rgba(40, 40, 40, 0.75);
     }
 
     &__bgblue {
-      background-color: rgba(44, 80, 95, 0.85);
+      background-color: rgba(15, 35, 45, 0.75);
     }
     &__bgblog {
-      background-color: rgba(129, 129, 129, 0.911);
+      background-color: rgba(25, 25, 25, 0.75);
     }
 
     &__blog {
@@ -1126,7 +1127,7 @@ $loadertranslate: -50%;
   }
 
   &_news_wrapper {
-    background-color: rgba(188, 225, 255, 0.582);
+    background-color: rgba(188, 225, 255, 0.4);
   }
 }
 
