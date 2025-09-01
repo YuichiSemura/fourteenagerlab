@@ -19,7 +19,7 @@ import { loadLinksPreset } from '@tsparticles/preset-links';
 AOS.init({
   duration: 1200,
   once: true,
-  offset: 50
+  offset: 50,
 });
 
 window.isTransparentOfNavbar = true;
@@ -96,7 +96,7 @@ const scrollEventBiography = function () {
       }
       const body = document.getElementById('body');
       if (body != null) {
-        body.style.backgroundColor = 'rgba(145, 89, 0)';
+        body.style.backgroundColor = 'rgb(145, 89, 0)';
       }
       window.isTransparentOfNavbar = false;
     }
@@ -272,7 +272,7 @@ const drawTextRotate = function (ctx, text, r, l, t) {
 window.onload = function () {
   const spinner = document.getElementById('loader');
   spinner.classList.add('el_loader_spinner__loaded');
-  if (pageName === 'biography.html') {
+  if (pageName === 'biography.html' || pageName === 'products.html') {
     (async () => {
       await loadLinksPreset(tsParticles);
       await tsParticles.load({
