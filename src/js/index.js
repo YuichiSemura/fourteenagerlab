@@ -8,21 +8,20 @@ import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import 'animate.css/animate.min.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import '../scss/index.scss';
 
 // biography
 import { tsParticles } from '@tsparticles/engine';
 import { loadLinksPreset } from '@tsparticles/preset-links';
 
-// const { WOW } = require("wowjs");
-// window.WOW = require("wowjs");
-// console.log(WOW);
-// const wow = new WOW({
-//   boxClass: "wow", // default
-//   animateClass: "animated", // default
-//   offset: 0, // アニメーションをスタートさせる距離
-// });
-// wow.init();
+// Initialize AOS
+AOS.init({
+  duration: 1200,
+  once: true,
+  offset: 50
+});
 
 window.isTransparentOfNavbar = true;
 
