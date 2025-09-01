@@ -43,6 +43,10 @@ const scrollEventIndex = function () {
         if (navTitle != null) {
           navTitle.classList.add('opacity-0');
         }
+        const body = document.getElementById('body');
+        if (body != null) {
+          body.style.backgroundColor = 'rgb(90, 90, 90)';
+        }
       }
       window.isTransparentOfNavbar = true;
     } else if (window.pageYOffset >= threshold) {
@@ -56,6 +60,10 @@ const scrollEventIndex = function () {
         if (navTitle != null) {
           navTitle.classList.remove('opacity-0');
         }
+        const body = document.getElementById('body');
+        if (body != null) {
+          body.style.backgroundColor = 'rgb(0, 72, 92)';
+        }
       }
       window.isTransparentOfNavbar = false;
     }
@@ -68,22 +76,29 @@ const scrollEventBiography = function () {
   // navtitle の opacity
   window.addEventListener('scroll', function () {
     const threshold = window.innerHeight * 0.65;
-    if (window.pageYOffset < threshold) {
-      if (!window.isTransparentOfNavbar) {
-        const navbar = document.querySelector('.navbar__bio');
-        if (navbar != null) {
-          navbar.classList.add('navbar__transparent');
-          navbar.classList.remove('navbar__orange');
-        }
+    if (window.pageYOffset < threshold && !window.isTransparentOfNavbar) {
+      const navbar = document.querySelector('.navbar__bio');
+      if (navbar != null) {
+        navbar.classList.add('navbar__transparent');
+        navbar.classList.remove('navbar__orange');
+      }
+      const body = document.getElementById('body');
+      if (body != null) {
+        body.style.backgroundColor = 'rgb(90, 90, 90)';
       }
       window.isTransparentOfNavbar = true;
-    } else if (window.pageYOffset >= threshold) {
-      if (window.isTransparentOfNavbar) {
-        const navbar = document.querySelector('.navbar__bio');
-        if (navbar != null) {
-          navbar.classList.add('navbar__orange');
-          navbar.classList.remove('navbar__transparent');
-        }
+    } else if (
+      window.pageYOffset >= threshold &&
+      window.isTransparentOfNavbar
+    ) {
+      const navbar = document.querySelector('.navbar__bio');
+      if (navbar != null) {
+        navbar.classList.add('navbar__orange');
+        navbar.classList.remove('navbar__transparent');
+      }
+      const body = document.getElementById('body');
+      if (body != null) {
+        body.style.backgroundColor = 'rgba(145, 89, 0)';
       }
       window.isTransparentOfNavbar = false;
     }
