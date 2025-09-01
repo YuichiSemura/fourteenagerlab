@@ -22,8 +22,6 @@ GitHub Pages で公開中。
 
 - products ページの内容、デザイン変更
 - prescriptions ページの作成
-- コンタクトの作成
-- フォームの作成
 - next.js + vercel.app などのホスティングサービスへ移行
 
 ## 開発コンセプト
