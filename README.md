@@ -14,13 +14,12 @@ GitHub Pages で公開中。
 - 2021/08/17 Figma にてデザインプロトタイプを作成開始
 - 2021/12/07 Home, Biography, Products がだいたい完成。
 - 2025/09/01 内容更新、デザインのブラッシュアップ
-  - wowjs, particlejsを代替ライブラリに変更した
-  - Home と Biography の内容を更新
+  - wowjs, particlejs を代替ライブラリに変更した
+  - Home と Biography と Products の内容を更新
   - 色味をシックに、コントラスト高めに変更
 
 ### 今後の予定
 
-- products ページの内容、デザイン変更
 - prescriptions ページの作成
 - next.js + vercel.app などのホスティングサービスへ移行
 
@@ -35,6 +34,8 @@ GitHub Pages で公開中。
 
 ## 環境と技術
 
+- 開発
+  - VSCode + Claude Code, GitHub Copilot
 - ライブラリ
   - Vite（バンドル、開発サーバー）
   - Bootstrap（flex、padding、marginなどがメイン）
