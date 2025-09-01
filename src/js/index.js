@@ -7,22 +7,20 @@ import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
-import 'animate.css/animate.min.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import '../scss/index.scss';
 
 // biography
 import { tsParticles } from '@tsparticles/engine';
 import { loadLinksPreset } from '@tsparticles/preset-links';
 
-// const { WOW } = require("wowjs");
-// window.WOW = require("wowjs");
-// console.log(WOW);
-// const wow = new WOW({
-//   boxClass: "wow", // default
-//   animateClass: "animated", // default
-//   offset: 0, // アニメーションをスタートさせる距離
-// });
-// wow.init();
+// Initialize AOS
+AOS.init({
+  duration: 1200,
+  once: true,
+  offset: 50
+});
 
 window.isTransparentOfNavbar = true;
 
@@ -43,6 +41,10 @@ const scrollEventIndex = function () {
         if (navTitle != null) {
           navTitle.classList.add('opacity-0');
         }
+        const body = document.getElementById('body');
+        if (body != null) {
+          body.style.backgroundColor = 'rgb(90, 90, 90)';
+        }
       }
       window.isTransparentOfNavbar = true;
     } else if (window.pageYOffset >= threshold) {
@@ -56,6 +58,10 @@ const scrollEventIndex = function () {
         if (navTitle != null) {
           navTitle.classList.remove('opacity-0');
         }
+        const body = document.getElementById('body');
+        if (body != null) {
+          body.style.backgroundColor = 'rgb(0, 72, 92)';
+        }
       }
       window.isTransparentOfNavbar = false;
     }
@@ -68,22 +74,29 @@ const scrollEventBiography = function () {
   // navtitle の opacity
   window.addEventListener('scroll', function () {
     const threshold = window.innerHeight * 0.65;
-    if (window.pageYOffset < threshold) {
-      if (!window.isTransparentOfNavbar) {
-        const navbar = document.querySelector('.navbar__bio');
-        if (navbar != null) {
-          navbar.classList.add('navbar__transparent');
-          navbar.classList.remove('navbar__orange');
-        }
+    if (window.pageYOffset < threshold && !window.isTransparentOfNavbar) {
+      const navbar = document.querySelector('.navbar__bio');
+      if (navbar != null) {
+        navbar.classList.add('navbar__transparent');
+        navbar.classList.remove('navbar__orange');
+      }
+      const body = document.getElementById('body');
+      if (body != null) {
+        body.style.backgroundColor = 'rgb(90, 90, 90)';
       }
       window.isTransparentOfNavbar = true;
-    } else if (window.pageYOffset >= threshold) {
-      if (window.isTransparentOfNavbar) {
-        const navbar = document.querySelector('.navbar__bio');
-        if (navbar != null) {
-          navbar.classList.add('navbar__orange');
-          navbar.classList.remove('navbar__transparent');
-        }
+    } else if (
+      window.pageYOffset >= threshold &&
+      window.isTransparentOfNavbar
+    ) {
+      const navbar = document.querySelector('.navbar__bio');
+      if (navbar != null) {
+        navbar.classList.add('navbar__orange');
+        navbar.classList.remove('navbar__transparent');
+      }
+      const body = document.getElementById('body');
+      if (body != null) {
+        body.style.backgroundColor = 'rgba(145, 89, 0)';
       }
       window.isTransparentOfNavbar = false;
     }
