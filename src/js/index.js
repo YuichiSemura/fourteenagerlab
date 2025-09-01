@@ -7,7 +7,6 @@ import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
-import 'animate.css/animate.min.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../scss/index.scss';
