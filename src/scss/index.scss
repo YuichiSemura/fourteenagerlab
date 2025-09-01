@@ -74,8 +74,8 @@ $superlightorange: #f0e7d9;
 }
 
 /* Global text shadow for all text elements */
-h1, h2, h3, h4, h5, h6, p, span, li, div {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+.index, .biography {
+  text-shadow: 2px 2px 4px rgba(36, 36, 36, 0.75);
 }
 
 .heroHeader {
