@@ -24,7 +24,7 @@
   },
   "scripts": {
     "serve": "vite preview",
-    "build": "vite build",
+    "build": "vite build && cp sitemap.xml src/dist/",
     "preview": "vite preview",
     "lint": "eslint src --fix"
   },

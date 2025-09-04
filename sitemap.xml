@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Generated sitemap for fourteenagerlab
+       Note: _config.yml did not specify `url` or `baseurl`. If your site has a canonical
+       URL, update the <loc> entries to use it. -->
+  <url>
+    <loc>https://yuichisemura.github.io/fourteenagerlab/</loc>
+    <lastmod>2025-09-01T20:57:22+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://yuichisemura.github.io/fourteenagerlab/biography.html</loc>
+    <lastmod>2025-09-01T20:57:22+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://yuichisemura.github.io/fourteenagerlab/prescription.html</loc>
+    <lastmod>2025-09-01T20:57:22+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://yuichisemura.github.io/fourteenagerlab/products.html</loc>
+    <lastmod>2025-09-01T20:57:22+09:00</lastmod>
+  </url>
+</urlset>
