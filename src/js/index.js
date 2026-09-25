@@ -228,7 +228,7 @@ const drawTextRotate = function (ctx, text, r, l, t) {
 window.onload = function () {
   const spinner = document.getElementById('loader');
   spinner.classList.add('el_loader_spinner__loaded');
-  if (pageName === 'biography.html' || pageName === 'products.html') {
+  if (pageName === 'biography.html') {
     (async () => {
       await loadLinksPreset(tsParticles);
       await tsParticles.load({

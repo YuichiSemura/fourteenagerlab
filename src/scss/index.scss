@@ -41,7 +41,6 @@ $blue: rgb(25, 65, 80);
 $darkblue: #0a2833;
 $lightgray: #c2c3ce;
 $gray: #4a4a4a;
-$darkgray: rgba(90, 90, 90);
 $orange: rgba(255, 157, 0, 0.664);
 $superlightorange: #f0e7d9;
 
@@ -59,14 +58,6 @@ $superlightorange: #f0e7d9;
 
 .bg-lightgray {
   background-color: rgba($lightgray, 0.75);
-}
-
-.bg-gray {
-  background-color: $darkgray;
-}
-
-.bg-orange {
-  background-color: rgba(145, 89, 0, 0.8);
 }
 
 .bg-superlightorange {
@@ -213,29 +204,6 @@ $superlightorange: #f0e7d9;
 }
 
 
-.el_bgImg {
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-image: url(../assets/back.jpg);
-  z-index: -30;
-}
-
-.el_bgImg_cover {
-  top: 0;
-  left: 0;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  z-index: -20;
-}
-
 .el_scrollIcon {
   position: block;
   z-index: 10;
@@ -354,68 +322,6 @@ $superlightorange: #f0e7d9;
   }
 }
 
-.bl_product {
-  animation-delay: 0.5s;
-  img {
-    width: 100%;
-    max-width: 240px;
-  }
-  &__white {
-    background-color: rgba(200, 200, 200, 0.75);
-    color: rgb(0, 0, 0);
-    a {
-      &:link,
-      &:visited,
-      &:focus,
-      &:hover,
-      &:active {
-        color: rgb(0, 31, 99) !important;
-      }
-    }
-    // Text shadow for better contrast on light backgrounds (exclude button text)
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    a {
-      /* subtle dark shadow for black text on light background */
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-      /* keep line-height/spacing unaffected */
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-  }
-  &__black {
-    background-color: rgba(55, 55, 55, 0.75);
-    color: rgb(255, 255, 255);
-    a {
-      &:link,
-      &:visited,
-      &:focus,
-      &:hover,
-      &:active {
-        color: rgb(147, 255, 255) !important;
-      }
-    }
-    // Text shadow for better contrast on dark backgrounds (exclude button text)
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    a {
-      /* soft dark drop + faint light halo to make white text pop */
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.65), 0 0 4px rgba(255, 255, 255, 0.04);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-  }
-}
 .nav_title {
   margin: 0 auto 0 10;
   transition: opacity 1s;
@@ -469,113 +375,6 @@ p {
 
 // ボタン
 @import url("https://fonts.googleapis.com/css?family=Mukta:700");
-
-$white: #fff;
-$black: #000000;
-
-@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, 0.076, 1)) {
-  transition: $property $duration $ease;
-}
-
-@mixin linkbutton($black, $white) {
-  position: relative;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  display: inline-block;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
-  &.learn-more {
-    width: 10rem;
-    height: 2.5rem;
-    .circle {
-      @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0;
-      width: 100%;
-      height: 2.5rem;
-      background: $black;
-      border-radius: 1.625rem;
-      .icon {
-        @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        background: $white;
-        &.arrow {
-          @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
-          right: 1.5rem;
-          width: 1.125rem;
-          height: 0.125rem;
-          background: none;
-          &::before {
-            position: absolute;
-            content: "";
-            top: -0.25rem;
-            right: 0.0625rem;
-            width: 0.625rem;
-            height: 0.625rem;
-            border-top: 0.125rem solid $white;
-            border-right: 0.125rem solid $white;
-            transform: rotate(45deg);
-          }
-        }
-      }
-    }
-    .button-text {
-      @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* center text both vertically and horizontally */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* reserve horizontal space on the right for the circular icon area */
-  padding: 0 1.85rem 0 0;
-  margin: 0;
-  color: $white;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 2;
-  /* ensure buttons never get a text-shadow */
-  text-shadow: none !important;
-    }
-  }
-  &:hover,
-  &:focus {
-    .circle {
-      width: 3rem;
-      .icon {
-        &.arrow {
-          background: $white;
-          transform: translate(0.625rem, 0);
-        }
-      }
-    }
-    .button-text {
-      color: $black;
-    }
-  }
-}
-
-.linkbutton-white {
-  @include linkbutton(#000, #fff);
-}
-
-.linkbutton-black {
-  @include linkbutton(#fff, #000);
-}
 
 // 雨
 .rain {

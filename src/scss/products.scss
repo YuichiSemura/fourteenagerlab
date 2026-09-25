@@ -1,0 +1,177 @@
+// Products ページ（鏡面世界）専用のスタイル。
+// 他のページと共通の部分は _mirror.scss。
+@use 'mirror';
+
+// ヒーローは短め。夜の橋の明かりを水面に映す
+:root {
+  --waterline: 42svh;
+}
+
+.hero {
+  height: 68svh;
+}
+
+.hero_photo,
+.hero_bloom img {
+  object-position: 50% 34%; // 橋の明かりを水面のすぐ上に置く
+}
+
+.hero_photo {
+  filter: grayscale(1) brightness(0.6) contrast(1.15);
+}
+
+// ── 紹介文 ──────────────────────────
+.intro {
+  padding-top: clamp(56px, 9svh, 96px);
+  padding-bottom: clamp(24px, 4svh, 48px);
+  text-align: center;
+  background: linear-gradient(var(--deep), var(--night));
+}
+
+.intro_text {
+  font-size: clamp(14px, 1.2vw, 16px);
+  letter-spacing: 0.12em;
+  line-height: 2.2;
+  color: rgba(239, 216, 171, 0.84);
+  text-wrap: balance;
+  word-break: auto-phrase;
+}
+
+.intro_note {
+  font-size: 13px;
+  color: var(--mist);
+}
+
+.intro_link {
+  margin-top: 28px;
+}
+
+// ── 作ったもの ────────────────────────
+.works {
+  display: grid;
+  gap: clamp(72px, 13svh, 128px);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.work {
+  display: grid;
+  grid-template-columns: minmax(0, 240px) 1fr;
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+
+.work_img {
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.work_img img,
+.work_reflect img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: grayscale(0.85) brightness(0.62) contrast(1.05);
+  transition: filter 0.8s, transform 0.8s;
+}
+
+// 画像の下の水面に、画像が映る
+.work_reflect {
+  aspect-ratio: 1 / 0.4;
+  margin-top: 4px;
+  overflow: hidden;
+  opacity: 0.24;
+  filter: blur(1.6px) url(#ripple-still);
+  -webkit-mask: linear-gradient(#000, transparent);
+  mask: linear-gradient(#000, transparent);
+
+  img {
+    transform: scaleY(-1);
+  }
+}
+
+.work:hover,
+.work:focus-within {
+  .work_img img,
+  .work_reflect img {
+    filter: none;
+  }
+
+  .work_img img {
+    transform: scale(1.03);
+  }
+
+  .work_name {
+    text-shadow: 0 0 18px rgba(255, 214, 150, 0.45);
+  }
+}
+
+.work_note {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: var(--mist);
+}
+
+.work_name {
+  font-family: var(--font-en);
+  font-weight: 400;
+  font-size: clamp(22px, 2.4vw, 30px);
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  transition: text-shadow 0.6s;
+}
+
+.work_about {
+  margin-top: 0.4em;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: var(--mist);
+}
+
+.work_text {
+  max-width: 34em;
+  margin-top: 1.2em;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  line-height: 2.1;
+  color: rgba(239, 216, 171, 0.84);
+}
+
+.work_links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 36px;
+  margin-top: 1.6em;
+
+  .line-link::after {
+    width: 28px;
+  }
+
+  .line-link:hover::after,
+  .line-link:focus-visible::after {
+    width: 48px;
+  }
+}
+
+// ── スマホ ────────────────────────────
+@media (max-width: 767.98px) {
+  :root {
+    --waterline: 38svh;
+  }
+
+  .hero {
+    height: 62svh;
+  }
+
+  .work {
+    grid-template-columns: 1fr;
+  }
+
+  .work_visual {
+    width: min(100%, 240px);
+  }
+}

@@ -43,14 +43,14 @@
       body {
         background-color: #0b0f14;
       }
-      .top-loader {
+      .site-loader {
         position: fixed;
         inset: 0;
         z-index: 100;
         background-color: #0b0f14;
         transition: opacity 1.2s ease, visibility 1.2s;
       }
-      .top-loader.top-loader__done {
+      .site-loader.site-loader__done {
         opacity: 0;
         visibility: hidden;
       }
@@ -58,10 +58,10 @@
   </head>
 
   <body>
-    <div id="loader" class="top-loader" aria-hidden="true"></div>
+    <div id="loader" class="site-loader" aria-hidden="true"></div>
 
     <!-- 水面の揺らぎ -->
-    <svg class="top-filters" aria-hidden="true" focusable="false">
+    <svg class="site-filters" aria-hidden="true" focusable="false">
       <filter id="ripple" x="0" y="0" width="100%" height="100%">
         <feTurbulence
           type="fractalNoise"
@@ -129,19 +129,19 @@
     </svg>
 
     <!-- header (navbar) -->
-    <header class="top-nav">
-      <a class="top-nav_brand" href="./index.html"
+    <header class="site-nav">
+      <a class="site-nav_brand" href="./index.html"
         ><img src="./assets/mark.png" alt="" />Fourteenager Lab.</a
       >
       <button
-        class="top-nav_toggle"
+        class="site-nav_toggle"
         type="button"
         aria-expanded="false"
-        aria-controls="top-menu"
+        aria-controls="site-menu"
       >
         目次
       </button>
-      <nav id="top-menu" class="top-nav_menu" aria-label="サイト内">
+      <nav id="site-menu" class="site-nav_menu" aria-label="サイト内">
         <a href="/fourteenagerlab/biography.html">Biography</a>
         <a href="/fourteenagerlab/products.html">Products</a>
         <a href="/fourteenagerlab/prescription.html">Prescription</a>
@@ -186,7 +186,7 @@
       </section>
 
       <!-- What is this page? -->
-      <section class="top-section about" id="about" aria-labelledby="about-h">
+      <section class="site-section about" id="about" aria-labelledby="about-h">
         <header class="sec-head">
           <h2 class="sec-head_label" id="about-h">What is this page?</h2>
           <p class="sec-head_line" data-focus>
@@ -215,7 +215,7 @@
       </section>
 
       <!-- LabMember -->
-      <section class="top-section members" aria-labelledby="members-h">
+      <section class="site-section members" aria-labelledby="members-h">
         <header class="sec-head">
           <h2 class="sec-head_label" id="members-h">Lab Member</h2>
           <p class="sec-head_line" data-focus>
@@ -246,7 +246,7 @@
       </section>
 
       <!-- Products -->
-      <section class="top-section products" aria-labelledby="products-h">
+      <section class="site-section products" aria-labelledby="products-h">
         <header class="sec-head">
           <h2 class="sec-head_label" id="products-h">Products</h2>
           <p class="sec-head_line" data-focus>
@@ -295,14 +295,18 @@
           </li>
         </ul>
         <p class="products_more">
-          <a href="./products.html" target="_blank" rel="noopener noreferrer"
+          <a
+            class="line-link"
+            href="./products.html"
+            target="_blank"
+            rel="noopener noreferrer"
             >More</a
           >
         </p>
       </section>
 
       <!-- News -->
-      <section class="top-section news" aria-labelledby="news-h">
+      <section class="site-section news" aria-labelledby="news-h">
         <header class="sec-head">
           <h2 class="sec-head_label" id="news-h">News</h2>
           <p class="sec-head_line" data-focus>呟くネタがない</p>
@@ -322,7 +326,7 @@
       </section>
 
       <!-- Site Map -->
-      <section class="top-section sitemap" aria-labelledby="sitemap-h">
+      <section class="site-section sitemap" aria-labelledby="sitemap-h">
         <header class="sec-head">
           <h2 class="sec-head_label" id="sitemap-h">Site Map</h2>
           <p class="sec-head_line" data-focus>鍵</p>
@@ -377,11 +381,11 @@
     </main>
 
     <!-- footer -->
-    <footer class="top-footer">
+    <footer class="site-footer">
       <p>Copyright © 2020-2025 Yuichi Semura.</p>
     </footer>
 
-    <div class="top-grain" aria-hidden="true"></div>
+    <div class="site-grain" aria-hidden="true"></div>
   </body>
 
   <script type="module" src="./js/top.js"></script>
