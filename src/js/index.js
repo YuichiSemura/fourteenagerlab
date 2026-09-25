@@ -24,50 +24,6 @@ AOS.init({
 
 window.isTransparentOfNavbar = true;
 
-// index.html
-const scrollEventIndex = function () {
-  // navbarのcolor
-  // navtitle の opacity
-  window.addEventListener('scroll', function () {
-    const threshold = window.innerHeight * 0.65;
-    if (window.pageYOffset < threshold) {
-      if (!window.isTransparentOfNavbar) {
-        const navbar = document.querySelector('.navbar__index');
-        if (navbar != null) {
-          navbar.classList.add('navbar__transparent');
-          navbar.classList.remove('navbar__blue');
-        }
-        const navTitle = document.querySelector('.nav_title__index');
-        if (navTitle != null) {
-          navTitle.classList.add('opacity-0');
-        }
-        const body = document.getElementById('body');
-        if (body != null) {
-          body.style.backgroundColor = 'rgb(90, 90, 90)';
-        }
-      }
-      window.isTransparentOfNavbar = true;
-    } else if (window.pageYOffset >= threshold) {
-      if (window.isTransparentOfNavbar) {
-        const navbar = document.querySelector('.navbar__index');
-        if (navbar != null) {
-          navbar.classList.add('navbar__blue');
-          navbar.classList.remove('navbar__transparent');
-        }
-        const navTitle = document.querySelector('.nav_title__index');
-        if (navTitle != null) {
-          navTitle.classList.remove('opacity-0');
-        }
-        const body = document.getElementById('body');
-        if (body != null) {
-          body.style.backgroundColor = 'rgb(0, 72, 92)';
-        }
-      }
-      window.isTransparentOfNavbar = false;
-    }
-  });
-};
-
 // biography.html
 const scrollEventBiography = function () {
   // navbarのcolor
@@ -289,9 +245,7 @@ window.onload = function () {
 // pageごとの設定
 const pathName = location.pathname;
 const pageName = pathName.substring(pathName.lastIndexOf('/') + 1);
-if (pageName === 'index.html' || pageName.length == 0) {
-  scrollEventIndex();
-} else if (pageName === 'biography.html') {
+if (pageName === 'biography.html') {
   // canvas の設定
   setInterval(drawBioKeywords, 250);
   scrollEventBiography();
