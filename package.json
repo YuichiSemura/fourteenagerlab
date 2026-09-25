@@ -9,8 +9,6 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "@tsparticles/engine": "latest",
-    "@tsparticles/preset-links": "latest",
     "aos": "^2.3.4",
     "bootstrap": "^5.0.1"
   },

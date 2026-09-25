@@ -18,53 +18,6 @@
   filter: url(#ripple-soft);
 }
 
-.hero_scroll {
-  position: absolute;
-  left: 50%;
-  bottom: 3.5svh;
-  z-index: 3;
-  transform: translateX(-50%);
-  font-family: var(--font-en-sc);
-  font-size: 11px;
-  letter-spacing: 0.4em;
-  line-height: 1;
-  color: var(--mist);
-  text-align: center;
-
-  &::before {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 40px;
-    margin: 0 auto 12px;
-    background: linear-gradient(transparent, rgba(239, 216, 171, 0.6));
-    animation: hero-drip 2.4s ease-in-out infinite;
-  }
-
-  .hero__paused &::before {
-    animation-play-state: paused;
-  }
-}
-
-@keyframes hero-drip {
-  0% {
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-  45% {
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-  55% {
-    transform: scaleY(1);
-    transform-origin: bottom;
-  }
-  100% {
-    transform: scaleY(0);
-    transform-origin: bottom;
-  }
-}
-
 // ── このサイトについて ─────────────────
 .about {
   background: linear-gradient(var(--deep), var(--night) 45%);
@@ -77,43 +30,6 @@
   letter-spacing: 0.12em;
   line-height: 2.2;
   color: rgba(239, 216, 171, 0.84);
-}
-
-.dialog {
-  display: grid;
-  gap: 9svh;
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.dialog_line {
-  justify-self: start;
-  font-size: clamp(17px, 1.9vw, 26px);
-  letter-spacing: 0.2em;
-  line-height: 1.7;
-
-  // 『』は鏡の向こうの声。少し揺れて、少し遅れてついてくる
-  &__mirror {
-    justify-self: end;
-    text-align: right;
-    color: var(--moon);
-    text-shadow: 0 0 18px rgba(166, 191, 204, 0.3);
-    filter: url(#ripple-still);
-    transform: translateY(calc((var(--p, 0.5) - 0.5) * 90px));
-  }
-}
-
-.js .dialog_line__mirror[data-focus]:not(.is-focused) {
-  filter: url(#ripple-still);
-}
-
-.dialog_who {
-  display: block;
-  margin-bottom: 0.4em;
-  font-family: var(--font-en-sc);
-  font-size: 11px;
-  letter-spacing: 0.4em;
-  color: var(--mist);
 }
 
 // ── 研究員（鏡の軸をはさんで二人） ────────
@@ -410,10 +326,6 @@ a.lights_link:focus-visible {
     bottom: 13svh;
   }
 
-  .dialog_line__mirror {
-    transform: none;
-  }
-
   .members_pair {
     grid-template-columns: 1fr;
 
@@ -457,15 +369,5 @@ a.lights_link:focus-visible {
   .news_item {
     grid-template-columns: 1fr;
     gap: 4px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero_scroll::before {
-    animation: none;
-  }
-
-  .dialog_line__mirror {
-    transform: none;
   }
 }

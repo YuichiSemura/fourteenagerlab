@@ -1,5 +1,5 @@
-// 鏡面世界のページ（トップ・Products）に共通の演出。
-// 他のページは index.js（Bootstrap / AOS / tsParticles）を使うが、鏡面世界のページは軽くするためこれだけを使う。
+// 鏡面世界のページ（トップ・Products・Biography）に共通の演出。
+// Prescription は index.js（Bootstrap / AOS）を使うが、鏡面世界のページは軽くするためこれだけを使う。
 
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
 

@@ -39,7 +39,6 @@ GitHub Pages で公開中。
 - ライブラリ
   - Vite（バンドル、開発サーバー）
   - Bootstrap（flex、padding、marginなどがメイン）
-  - tsparticles（biographyページのアニメーション）
   - aos（アニメーション、パララックス効果）
 
 ## コンテンツ

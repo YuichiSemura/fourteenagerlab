@@ -1,4 +1,4 @@
-// 鏡面世界のページ（トップ・Products）に共通のスタイル。
+// 鏡面世界のページ（トップ・Products・Biography）に共通のスタイル。
 // Bootstrap は使わず、各ページの scss から @use して読み込む。
 
 :root {
@@ -405,6 +405,54 @@ ol {
   }
 }
 
+// スクロールの案内（水滴が落ちるように線が伸びる）
+.hero_scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 3.5svh;
+  z-index: 3;
+  transform: translateX(-50%);
+  font-family: var(--font-en-sc);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  line-height: 1;
+  color: var(--mist);
+  text-align: center;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    margin: 0 auto 12px;
+    background: linear-gradient(transparent, rgba(239, 216, 171, 0.6));
+    animation: hero-drip 2.4s ease-in-out infinite;
+  }
+
+  .hero__paused &::before {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes hero-drip {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
 // ── セクション共通 ───────────────────────
 .site-section {
   position: relative;
@@ -430,6 +478,44 @@ ol {
   font-size: clamp(18px, 2.1vw, 26px);
   letter-spacing: 0.24em;
   line-height: 1.8;
+}
+
+// 二人の会話：「」は瀬村（こちら側）、『』は新居（鏡の向こう）
+.dialog {
+  display: grid;
+  gap: 9svh;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.dialog_line {
+  justify-self: start;
+  font-size: clamp(17px, 1.9vw, 26px);
+  letter-spacing: 0.2em;
+  line-height: 1.7;
+
+  // 『』は鏡の向こうの声。少し揺れて、少し遅れてついてくる
+  &__mirror {
+    justify-self: end;
+    text-align: right;
+    color: var(--moon);
+    text-shadow: 0 0 18px rgba(166, 191, 204, 0.3);
+    filter: url(#ripple-still);
+    transform: translateY(calc((var(--p, 0.5) - 0.5) * 90px));
+  }
+}
+
+.js .dialog_line__mirror[data-focus]:not(.is-focused) {
+  filter: url(#ripple-still);
+}
+
+.dialog_who {
+  display: block;
+  margin-bottom: 0.4em;
+  font-family: var(--font-en-sc);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--mist);
 }
 
 // 文字の後ろに線が伸びるリンク（More ― など）
@@ -515,6 +601,10 @@ ol {
     font-size: 12.5px;
     letter-spacing: 0.1em;
   }
+
+  .dialog_line__mirror {
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -524,11 +614,16 @@ ol {
 
   .site-grain,
   .hero_lamp,
+  .hero_scroll::before,
   .is-ready .hero_titles {
     animation: none;
   }
 
   .hero_mirror {
     filter: blur(1.5px);
+  }
+
+  .dialog_line__mirror {
+    transform: none;
   }
 }

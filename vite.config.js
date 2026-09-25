@@ -28,9 +28,6 @@ export default defineConfig({
   define: {
     global: 'globalThis',
   },
-  optimizeDeps: {
-    exclude: ['@tsparticles/engine'],
-  },
   css: {
     preprocessorOptions: {
       scss: {
