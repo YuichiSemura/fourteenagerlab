@@ -1,4 +1,4 @@
-<html>
+<html lang="ja">
   <head>
     <link rel="icon" type="image/x-icon" href="./assets/14l-favicon.png" />
     <meta
@@ -27,295 +27,176 @@
     <meta property="og:site_name" content="FOURTEENAGER Lab." />
     <meta property="og:locale" content="ja_JP" />
     <title>Prescription - FOURTEENAGER Lab.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Zen+Antique+Soft&family=Zen+Old+Mincho:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      .el_loader {
-        width: 100vw;
-        height: 100svh; /* Dynamic viewport height for mobile */
-        z-index: 10000;
-        margin: 0;
-        padding: 0;
-        position: fixed;
-        background-color: rgb(0, 72, 92);
-        transition: 1s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      /* CSS より先に効かせる読み込み画面（読み込み完了で prescription.js が消す） */
+      html,
+      body {
+        background-color: #000;
       }
-      .el_loader.el_loader_spinner__loaded {
+      .loading {
+        position: fixed;
+        inset: 0;
+        z-index: 80;
+        background-color: #000;
+        transition: opacity 1s, visibility 1s;
+      }
+      .loading.loading__done {
         opacity: 0;
         visibility: hidden;
-        position: fixed;
-      }
-      body {
-        background-color: rgb(0, 72, 92) !important;
       }
     </style>
   </head>
 
   <body>
-    <!-- ローディング画面 -->
-    <div id="loader" class="el_loader">
-      <div id="loader_spinner" class="el_loader_spinner"></div>
-    </div>
-    <script type="text/javascript">
-      window.onload = function () {
-        console.log('onload');
-        const spinner = document.getElementById('loader');
-        spinner.classList.add('el_loader_spinner__loaded');
-      };
-    </script>
+    <div class="loading" aria-hidden="true"><p>NOW LOADING</p></div>
 
-    <!-- header (navbar) -->
-    <div id="header_wrapper" class="p-0">
-      <nav
-        class="navbar navbar__index navbar__transparent navbar-expand-md navbar-dark mb-1 py-2 fixed-top animate__animated animate__flipInX"
+    <div class="novel">
+      <!-- 背景（2 枚を重ねて入れ替える） -->
+      <div class="stage" aria-hidden="true">
+        <div class="stage_bg"></div>
+        <div class="stage_bg"></div>
+        <div class="stage_tint"></div>
+      </div>
+
+      <!-- タイトル画面 -->
+      <section class="title" aria-labelledby="title-name">
+        <div class="title_logo">
+          <p class="title_series">Fourteenager Lab.</p>
+          <h1 class="title_name" id="title-name">Prescription</h1>
+          <p class="title_sub">～青春を患った大人のための処方箋～</p>
+        </div>
+        <nav class="title_menu" aria-label="メニュー">
+          <button type="button" data-action="start">はじめから</button>
+          <button type="button" data-action="load">つづきから</button>
+          <button type="button" data-action="config">設定</button>
+          <a href="./index.html">サイトへもどる</a>
+        </nav>
+        <p class="title_copy">© 2020-2025 FOURTEENAGER Lab.</p>
+      </section>
+
+      <!-- 本編 -->
+      <section class="game" aria-label="本編" hidden>
+        <div class="nvl" hidden><div class="nvl_page"></div></div>
+        <div class="adv">
+          <p class="adv_name"></p>
+          <p class="adv_text"></p>
+          <span class="adv_next" aria-hidden="true" hidden>▼</span>
+        </div>
+        <nav class="quick" aria-label="操作">
+          <button type="button" data-action="auto" aria-pressed="false">
+            Auto
+          </button>
+          <button type="button" data-action="skip" aria-pressed="false">
+            Skip
+          </button>
+          <button type="button" data-action="log">Log</button>
+          <button type="button" data-action="save">Save</button>
+          <button type="button" data-action="load">Load</button>
+          <button type="button" data-action="config">Config</button>
+          <button type="button" data-action="title">Title</button>
+        </nav>
+        <p class="novel_live visually-hidden" aria-live="polite"></p>
+        <p class="card" aria-live="polite" hidden></p>
+      </section>
+
+      <!-- 読み返し -->
+      <section
+        class="sheet log"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="log-h"
+        hidden
       >
-        <h2 class="nav_title nav_title__index text-azure text-left opacity-0">
-          <a href="./index.html"
-            ><img
-              src="./assets/mark.png"
-              alt="mark"
-              class="img-fluid img_mark"
+        <header class="sheet_head">
+          <h2 id="log-h">これまでの文章</h2>
+          <button type="button" class="sheet_close" data-action="close">
+            もどる
+          </button>
+        </header>
+        <ol class="log_list"></ol>
+      </section>
+
+      <!-- セーブ・ロード -->
+      <section
+        class="sheet saves"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="saves-h"
+        hidden
+      >
+        <header class="sheet_head">
+          <h2 id="saves-h">ロード</h2>
+          <button type="button" class="sheet_close" data-action="close">
+            もどる
+          </button>
+        </header>
+        <ol class="slots"></ol>
+      </section>
+
+      <!-- 設定 -->
+      <section
+        class="sheet config"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="config-h"
+        hidden
+      >
+        <header class="sheet_head">
+          <h2 id="config-h">設定</h2>
+          <button type="button" class="sheet_close" data-action="close">
+            もどる
+          </button>
+        </header>
+        <div class="config_list">
+          <label class="config_row">
+            <span>文字の速さ</span>
+            <input type="range" name="textSpeed" min="0" max="80" step="4" />
+            <span class="config_hint">右ほど速い（いちばん右は一瞬）</span>
+          </label>
+          <label class="config_row">
+            <span>オートの待ち時間</span>
+            <input
+              type="range"
+              name="autoWait"
+              min="400"
+              max="4000"
+              step="200"
             />
-            FOURTEENAGER LAB.</a
-          >
-        </h2>
-        <button
-          id="nav-toggle"
-          class="navbar-toggler navbar-toggler__index"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbar-14l"
-          aria-controls="navbar-14l"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbar-14l"
-        >
-          <ul class="navbar-nav flex-row flex-wrap">
-            <li class="nav-item nav-item_style col-6 col-md-auto active">
-              <a
-                class="nav-link text-white text-center"
-                href="/fourteenagerlab/index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item nav-item_style col-6 col-md-auto">
-              <a
-                class="nav-link text-white text-center"
-                href="/fourteenagerlab/biography.html"
-                >Biography</a
-              >
-            </li>
-            <li class="nav-item nav-item_style col-6 col-md-auto">
-              <a
-                class="nav-link text-white text-center"
-                href="/fourteenagerlab/products.html"
-                >Products</a
-              >
-            </li>
-            <li class="nav-item nav-item_style col-6 col-md-auto">
-              <a
-                class="nav-link text-white text-center"
-                href="/fourteenagerlab/prescription.html"
-                >Prescription</a
-              >
-            </li>
-            <li class="nav-item nav-item_style col-6 col-md-auto">
-              <a
-                class="nav-link text-white text-center"
-                href="https://forms.gle/hyXefegM1sCDr2D67"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Contact<i class="fas fa-paper-plane d-inline"></i
-              ></a>
-            </li>
-          </ul>
+            <span class="config_hint">右ほどゆっくり</span>
+          </label>
+          <label class="config_row">
+            <span>窓の濃さ</span>
+            <input type="range" name="windowAlpha" min="30" max="95" step="5" />
+            <span class="config_hint">右ほど背景が隠れる</span>
+          </label>
         </div>
-      </nav>
+        <p class="config_keys">
+          クリック・Enter で次へ／右クリック・Esc
+          で窓を隠す／ホイールを上に回すと読み返し／Ctrl
+          を押している間はスキップ
+        </p>
+      </section>
 
-      <!-- background -->
-      <div class="heroHeader p-0 m-0">
-        <div class="heroHeader_img">
-          <div class="heroHeader_img_blue">
-            <div class="rain">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-
-            <div class="dropdiv">
-              <div class="d-flex justify-content-center align-items-top">
-                <div class="d-block">
-                  <div class="dos drop"></div>
-                  <div class="dos wave">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="heroHeader_words">
-            <div class="heroHeader_words_topMargin"></div>
-            <div
-              class="heroHeader_words_top d-flex justify-content-center align-items-center"
-            >
-              <div class="d-block">
-                <div class="heroHeader_words_presents">
-                  <div class="mincho__bold text-center">
-                    - YuichiSemura Presents -
-                  </div>
-                </div>
-                <div class="heroHeader_words_title">
-                  <div class="mincho__bold text-center text-azure">
-                    FOURTEENAGER Lab.
-                  </div>
-                </div>
-                <div class="heroHeader_words_phrase">
-                  <div class="mincho__bold text-center">
-                    それは、青春を患った大人のための処方箋。
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="heroHeader_words_bottom d-flex justify-content-center align-items-end"
-            >
-              <div class="el_scrollIcon">
-                <a href="#"
-                  ><span></span>
-                  <h5>Scroll</h5></a
-                >
-              </div>
-            </div>
+      <!-- 確認 -->
+      <div class="confirm" role="alertdialog" aria-modal="true" hidden>
+        <div class="confirm_box">
+          <p class="confirm_text"></p>
+          <div class="confirm_buttons">
+            <button type="button" data-answer="yes">はい</button>
+            <button type="button" data-answer="no">いいえ</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- carousel -->
-    <div class="container-lg">
-      <div class="bl_pre_wrapper col-lg-8 offset-2">
-        <div
-          id="carousel-top"
-          class="carousel slide carousel-fade mx-auto my-2"
-          data-aos="fade-in"
-          data-interval="4000"
-          data-pause="false"
-          data-ride="carousel"
-        >
-          <ol class="carousel-indicators">
-            <li
-              data-bs-target="#carousel-top"
-              data-bs-slide-to="0"
-              class="active"
-            ></li>
-            <li data-bs-target="#carousel-top" data-bs-slide-to="1"></li>
-            <li data-bs-target="#carousel-top" data-bs-slide-to="2"></li>
-            <li data-bs-target="#carousel-top" data-bs-slide-to="3"></li>
-            <li data-bs-target="#carousel-top" data-bs-slide-to="4"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="./assets/slider-1.jpg"
-                alt="img1"
-                class="img_carousel img-fluid"
-              />
-              <div class="carousel-caption mincho d-none d-md-block">
-                <h5>早く大人になりたがる人間と、</h5>
-                <h5>もう大人になってしまった人間。</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="./assets/slider-2.jpg"
-                alt="img2"
-                class="img_carousel img-fluid"
-              />
-              <div class="carousel-caption mincho d-none d-md-block">
-                <h5>そんな彼らを見ていると、</h5>
-                <h5>自分自身が怖くなるんだ。</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="./assets/slider-3.jpg"
-                alt="img3"
-                class="img_carousel img-fluid"
-              />
-              <div class="carousel-caption mincho d-none d-md-block">
-                <h5>一生ガキのままで居たいとか考える僕は、</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="./assets/slider-4.jpg"
-                alt="img4"
-                class="img_carousel img-fluid"
-              />
-              <div class="carousel-caption mincho d-none d-md-block">
-                <h5>どこかで道を踏み外してしまったのだろうか。</h5>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="./assets/slider-5.jpg"
-                alt="img5"
-                class="img_carousel img-fluid"
-              />
-              <div class="carousel-caption mincho d-none d-md-block">
-                <h5>今でも、あの時のまま。僕はずっとここにいるよ。</h5>
-              </div>
-            </div>
-          </div>
-          <a
-            class="carousel-control-prev"
-            href="#carousel-top"
-            role="button"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </a>
-          <a
-            class="carousel-control-next"
-            href="#carousel-top"
-            role="button"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- footer -->
-    <div class="footer bg-darkblue">
-      <div class="container justify-content-center text-center">
-        <h6 class="m-0 p-3">Copyright © 2020-2025 Yuichi Semura.</h6>
-      </div>
-    </div>
+    <div class="site-grain" aria-hidden="true"></div>
   </body>
 
-  <script type="module" src="./js/index.js"></script>
+  <script type="module" src="./js/prescription.js"></script>
 </html>

@@ -38,8 +38,6 @@ GitHub Pages で公開中。
   - VSCode + Claude Code, GitHub Copilot
 - ライブラリ
   - Vite（バンドル、開発サーバー）
-  - Bootstrap（flex、padding、marginなどがメイン）
-  - aos（アニメーション、パララックス効果）
 
 ## コンテンツ
 
@@ -52,6 +50,7 @@ GitHub Pages で公開中。
   - 作ったものを載せるページ
 - Priscription（構想中）
   - 世界観に関わる本命ページ
+  - 平成のノベルゲーム風（原型）。台本は `src/scenario/prescription.txt` に書く（書き方はファイルの先頭）
   - コンテンツ
     - 画像カルーセル
     - getSemPoem()

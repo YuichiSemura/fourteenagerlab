@@ -1,29 +1,15 @@
 // 鏡面世界のページ（トップ・Products・Biography）に共通の演出。
-// Prescription は index.js（Bootstrap / AOS）を使うが、鏡面世界のページは軽くするためこれだけを使う。
+// 各ページの js から initMirrorPage を呼ぶ（Prescription のノベルゲームは prescription.js）。
+
+import { applyGrain } from './grain.js';
 
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
-
-// フィルムの粒子
-const makeNoise = function () {
-  const size = 160;
-  const canvas = document.createElement('canvas');
-  canvas.width = canvas.height = size;
-  const ctx = canvas.getContext('2d');
-  const image = ctx.createImageData(size, size);
-  for (let i = 0; i < image.data.length; i += 4) {
-    const v = (Math.random() * 255) | 0;
-    image.data[i] = image.data[i + 1] = image.data[i + 2] = v;
-    image.data[i + 3] = 34;
-  }
-  ctx.putImageData(image, 0, 0);
-  return `url(${canvas.toDataURL()})`;
-};
 
 // lamps：ヒーロー写真の中の街灯 [x, y, 光の直径]（画像の幅・高さに対する比率）
 export const initMirrorPage = function ({ lamps = [] } = {}) {
   const root = document.documentElement;
   root.classList.add('js');
-  root.style.setProperty('--noise', makeNoise());
+  applyGrain();
 
   const reduceMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'

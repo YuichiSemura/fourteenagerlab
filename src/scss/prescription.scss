@@ -1,0 +1,740 @@
+// Prescription（平成のノベルゲーム風）専用のスタイル。
+// 色と土台はサイト共通の _base.scss。
+@use 'base';
+
+:root {
+  --novel-text: #ece6d9; // 本文（純白にしない）
+  --novel-dim: #959daa;
+  --glow: 255, 244, 222;
+  --window-alpha: 0.8; // 窓の濃さ（設定で変わる）
+  --font-novel: 'Zen Old Mincho', serif;
+  --font-antique: 'Zen Antique Soft', 'Zen Old Mincho', serif;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+body {
+  font-family: var(--font-novel);
+  color: var(--novel-text);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+// hidden 属性は、要素側の display 指定より優先する
+.novel [hidden] {
+  display: none !important;
+}
+
+// ── NOW LOADING ──
+.loading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 36px 44px;
+
+  p {
+    font-size: 13px;
+    letter-spacing: 0.42em;
+    color: var(--novel-dim);
+    animation: novel-blink 1.1s steps(2) infinite;
+  }
+}
+
+@keyframes novel-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.novel {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+// ── 背景：モノクロ写真を夜の青に染め、明かりだけをにじませる ──
+.stage {
+  position: absolute;
+  inset: 0;
+}
+
+.stage_bg {
+  position: absolute;
+  inset: -3%;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--bg) center / cover no-repeat;
+  }
+
+  // 昼間の写真でも夜に見えるよう暗めに焼き、明るいところだけをにじませる
+  &::before {
+    filter: grayscale(1) brightness(0.46) contrast(1.12);
+  }
+
+  &::after {
+    mix-blend-mode: screen;
+    opacity: 0.36;
+    filter: grayscale(1) brightness(1.1) contrast(2) blur(14px);
+  }
+
+  &.is-shown {
+    opacity: 1;
+  }
+
+  &__instant {
+    transition: none;
+  }
+}
+
+.stage_tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, #203259, #27304d 55%, #171624);
+  mix-blend-mode: color;
+  opacity: 0.78;
+}
+
+// 空と四隅を落として、夜にする
+.stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(5, 7, 12, 0.45), transparent 45%),
+    radial-gradient(120% 95% at 50% 60%, transparent 45%, rgba(5, 7, 12, 0.6));
+}
+
+// タイトル画面では、カメラがゆっくり横に振れる
+.novel__title .stage_bg.is-shown {
+  animation: novel-pan 44s ease-in-out infinite alternate;
+}
+
+@keyframes novel-pan {
+  from {
+    transform: translateX(-2.5%);
+  }
+  to {
+    transform: translateX(2.5%);
+  }
+}
+
+// ── タイトル画面 ──
+.title {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      110% 90% at 32% 46%,
+      transparent 28%,
+      rgba(6, 8, 14, 0.72)
+    );
+  }
+}
+
+.title_logo {
+  position: absolute;
+  left: clamp(24px, 8vw, 128px);
+  top: 44%;
+  transform: translateY(-50%);
+  line-height: 1.4;
+}
+
+.is-ready .title_logo {
+  animation: novel-appear 2.8s 0.4s ease-out backwards;
+}
+
+.title_series {
+  font-family: var(--font-en-sc);
+  font-size: 13px;
+  letter-spacing: 0.44em;
+  color: rgba(236, 230, 217, 0.72);
+}
+
+.title_name {
+  margin: 0.08em 0 0.24em;
+  font-family: var(--font-antique);
+  font-weight: 400;
+  font-size: clamp(46px, 7.4vw, 108px);
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 24px rgba(var(--glow), 0.38),
+    0 0 70px rgba(150, 180, 255, 0.28);
+}
+
+.title_sub {
+  font-family: var(--font-antique);
+  font-size: clamp(15px, 1.45vw, 20px);
+  letter-spacing: 0.14em;
+  color: rgba(236, 230, 217, 0.9);
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes novel-appear {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+  }
+}
+
+.title_menu {
+  position: absolute;
+  right: clamp(20px, 8vw, 130px);
+  bottom: clamp(56px, 13svh, 140px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  > * {
+    position: relative;
+    min-width: 240px;
+    padding: 7px 20px 7px 40px;
+    font-family: var(--font-antique);
+    font-size: clamp(17px, 1.5vw, 21px);
+    letter-spacing: 0.22em;
+    line-height: 1.6;
+    text-align: left;
+    color: rgba(236, 230, 217, 0.8);
+    transition: color 0.3s, background 0.45s, text-shadow 0.45s;
+
+    // カプセル型のカーソル
+    &::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      width: 20px;
+      height: 9px;
+      border-radius: 9px;
+      background: linear-gradient(90deg, var(--lamp) 0 50%, #f1ece2 50%);
+      box-shadow: 0 0 10px rgba(var(--glow), 0.6);
+      transform: translate(-8px, -50%) rotate(-24deg);
+      opacity: 0;
+      transition: 0.35s;
+    }
+
+    &:hover,
+    &:focus-visible {
+      outline: none;
+      color: #fbf7ef;
+      background: linear-gradient(
+        90deg,
+        rgba(var(--glow), 0.17),
+        transparent 90%
+      );
+      text-shadow: 0 0 14px rgba(var(--glow), 0.65);
+
+      &::before {
+        opacity: 1;
+        transform: translate(0, -50%) rotate(-24deg);
+      }
+    }
+  }
+
+  .is-ready & {
+    animation: novel-appear 2s 1.4s ease-out backwards;
+  }
+}
+
+.title_copy {
+  position: absolute;
+  left: clamp(24px, 8vw, 128px);
+  bottom: 22px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--novel-dim);
+}
+
+// ── 本編 ──
+.game {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  cursor: pointer;
+}
+
+// 窓（ADV）
+.adv {
+  position: absolute;
+  left: 50%;
+  bottom: calc(clamp(12px, 3svh, 32px) + 30px);
+  width: min(100% - 24px, 1000px);
+  min-height: 180px;
+  padding: 34px clamp(20px, 3vw, 46px) 30px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(var(--glow), 0.22);
+  border-radius: 3px;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 17, 29, calc(var(--window-alpha) - 0.16)),
+    rgba(9, 11, 19, var(--window-alpha))
+  );
+  box-shadow: inset 0 0 0 4px rgba(9, 11, 19, 0.45),
+    inset 0 0 0 5px rgba(var(--glow), 0.08), 0 20px 60px rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  transition: opacity 0.3s;
+}
+
+// 名札：瀬村は街灯の色、新居は月の色
+[data-speaker='sem'] {
+  --who: var(--lamp);
+}
+
+[data-speaker='koko'] {
+  --who: var(--moon);
+}
+
+.adv_name {
+  position: absolute;
+  left: 26px;
+  top: -18px;
+  padding: 3px 24px 4px;
+  font-family: var(--font-antique);
+  font-size: 17px;
+  letter-spacing: 0.34em;
+  line-height: 1.6;
+  color: var(--who, var(--novel-text));
+  background: rgba(9, 11, 19, 0.92);
+  border: 1px solid rgba(var(--glow), 0.22);
+  border-bottom: 2px solid var(--who, rgba(var(--glow), 0.4));
+
+  &:empty {
+    display: none;
+  }
+}
+
+.adv_text {
+  min-height: 4em;
+  font-size: clamp(16px, 1.65vw, 21px);
+  line-height: 2;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.adv_next,
+.nvl_next {
+  color: rgba(var(--glow), 0.85);
+  animation: novel-bob 0.9s ease-in-out infinite alternate;
+}
+
+.adv_next {
+  position: absolute;
+  right: 28px;
+  bottom: 16px;
+  font-size: 12px;
+}
+
+@keyframes novel-bob {
+  to {
+    transform: translateY(4px);
+  }
+}
+
+// 画面いっぱいの文章（NVL）
+.nvl {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  padding: clamp(64px, 12svh, 120px) clamp(24px, 8vw, 120px) 96px;
+  overflow: hidden;
+  background: rgba(8, 10, 16, calc(var(--window-alpha) - 0.06));
+  transition: opacity 0.3s;
+}
+
+.nvl_page {
+  width: min(100%, 42em);
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 2.1;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.nvl_next {
+  display: inline-block;
+  margin-left: 0.4em;
+  font-size: 0.7em;
+}
+
+// 操作ボタン
+.quick {
+  position: absolute;
+  right: clamp(12px, 3vw, 40px);
+  bottom: clamp(8px, 2svh, 20px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px clamp(10px, 1.6vw, 20px);
+  font-family: var(--font-en-sc);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  transition: opacity 0.3s;
+
+  button {
+    padding: 2px 0;
+    color: #b3bac4;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 14px rgba(0, 0, 0, 0.6);
+    transition: color 0.3s, text-shadow 0.3s;
+
+    &:hover,
+    &:focus-visible,
+    &[aria-pressed='true'] {
+      color: var(--lamp);
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 12px rgba(var(--glow), 0.55);
+    }
+  }
+}
+
+// 右クリックで窓を隠して、背景だけを見る
+.game__hidden {
+  .adv,
+  .nvl,
+  .quick {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+// 章タイトル
+.card {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  font-family: var(--font-antique);
+  font-size: clamp(22px, 2.6vw, 34px);
+  letter-spacing: 0.4em;
+  text-align: center;
+  background: #06070b;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+
+  &.is-shown {
+    opacity: 1;
+  }
+}
+
+// ── シート（読み返し・セーブ／ロード・設定） ──
+.sheet {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 6svh, 64px) clamp(16px, 6vw, 90px);
+  background: rgba(6, 8, 14, 0.94);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.sheet_head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(var(--glow), 0.14);
+
+  h2 {
+    font-family: var(--font-antique);
+    font-weight: 400;
+    font-size: clamp(22px, 2.4vw, 30px);
+    letter-spacing: 0.3em;
+  }
+}
+
+.sheet_close {
+  font-family: var(--font-antique);
+  letter-spacing: 0.2em;
+  color: var(--novel-dim);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--lamp);
+  }
+}
+
+.log_list {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+.log_item {
+  padding: 14px 4px;
+  font-size: 15.5px;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid rgba(var(--glow), 0.08);
+}
+
+.log_name {
+  font-family: var(--font-antique);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--who, var(--novel-dim));
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 12px;
+  align-content: start;
+  overflow-y: auto;
+}
+
+.slot {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 14px;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid rgba(var(--glow), 0.15);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.035), transparent);
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+
+  &:hover:not(:disabled),
+  &:focus-visible {
+    outline: none;
+    border-color: rgba(var(--glow), 0.5);
+    background: linear-gradient(90deg, rgba(var(--glow), 0.1), transparent);
+    box-shadow: 0 0 34px rgba(120, 160, 255, 0.13);
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.55;
+  }
+}
+
+.slot_thumb {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--novel-dim);
+  border: 1px dashed rgba(var(--glow), 0.2);
+  background: center / cover no-repeat;
+
+  &[style] {
+    border: 0;
+    filter: grayscale(1) brightness(0.78) sepia(0.35) hue-rotate(185deg)
+      saturate(1.5);
+  }
+}
+
+.slot_info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.slot_no {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--novel-dim);
+}
+
+.slot_chapter {
+  font-family: var(--font-antique);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+}
+
+.slot_text {
+  overflow: hidden;
+  font-size: 13px;
+  color: var(--novel-dim);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.config_list {
+  display: grid;
+  gap: 26px;
+  width: min(100%, 720px);
+  margin: 24px auto 0;
+}
+
+.config_row {
+  display: grid;
+  grid-template-columns: 10em 1fr;
+  align-items: center;
+  gap: 4px 24px;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+
+  input {
+    width: 100%;
+    accent-color: var(--lamp);
+  }
+}
+
+.config_hint {
+  grid-column: 2;
+  font-size: 12px;
+  color: var(--novel-dim);
+}
+
+.config_keys {
+  width: min(100%, 720px);
+  margin: auto auto 0;
+  padding-top: 32px;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  color: var(--novel-dim);
+}
+
+// ── 確認 ──
+.confirm {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.confirm_box {
+  min-width: min(100%, 360px);
+  padding: 28px 32px 22px;
+  text-align: center;
+  border: 1px solid rgba(var(--glow), 0.25);
+  background: rgba(9, 11, 19, 0.96);
+  box-shadow: inset 0 0 0 4px rgba(9, 11, 19, 0.45),
+    inset 0 0 0 5px rgba(var(--glow), 0.08);
+}
+
+.confirm_text {
+  font-size: 16px;
+  letter-spacing: 0.12em;
+}
+
+.confirm_buttons {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 20px;
+
+  button {
+    padding: 4px 12px;
+    font-family: var(--font-antique);
+    letter-spacing: 0.3em;
+    color: var(--novel-dim);
+
+    &:hover,
+    &:focus-visible {
+      color: var(--lamp);
+      text-shadow: 0 0 12px rgba(var(--glow), 0.55);
+    }
+  }
+}
+
+// ── スマホ ────────────────────────────
+@media (max-width: 767.98px) {
+  .title_logo {
+    top: 32%;
+    left: 20px;
+    right: 20px;
+  }
+
+  .title_menu {
+    left: 16px;
+    right: 16px;
+    bottom: 64px;
+
+    > * {
+      min-width: 0;
+    }
+  }
+
+  .title_copy {
+    left: 20px;
+    bottom: 18px;
+  }
+
+  .adv {
+    bottom: 58px;
+    min-height: 150px;
+    padding: 30px 18px 26px;
+  }
+
+  .adv_text {
+    font-size: 15px;
+  }
+
+  .quick {
+    left: 12px;
+    right: 12px;
+    justify-content: center;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+
+  .slot {
+    grid-template-columns: 92px 1fr;
+  }
+
+  .config_row {
+    grid-template-columns: 1fr;
+
+    .config_hint {
+      grid-column: 1;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading p,
+  .adv_next,
+  .nvl_next,
+  .novel__title .stage_bg.is-shown,
+  .is-ready .title_logo,
+  .is-ready .title_menu {
+    animation: none;
+  }
+
+  .stage_bg,
+  .card {
+    transition: none;
+  }
+}

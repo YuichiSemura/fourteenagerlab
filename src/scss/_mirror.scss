@@ -1,68 +1,9 @@
 // 鏡面世界のページ（トップ・Products・Biography）に共通のスタイル。
 // Bootstrap は使わず、各ページの scss から @use して読み込む。
+@use 'base';
 
 :root {
-  --night: #0b0f14; // 夜
-  --deep: #0f171e; // 水の底
-  --lamp: #efd8ab; // 「」＝瀬村（こちら側の声・街灯の色）
-  --moon: #a6bfcc; // 『』＝新居（鏡の向こうの声・月の色）
-  --mist: #7a858e; // 補助テキスト
-  --line: rgba(239, 216, 171, 0.14);
   --waterline: 60svh; // 水面の高さ
-  --font-en: 'Marcellus', 'Shippori Mincho B1', serif;
-  --font-en-sc: 'Marcellus SC', 'Shippori Mincho B1', serif;
-  --font-ja: 'Shippori Mincho B1', serif;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  background: var(--night);
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-ja);
-  color: var(--lamp);
-  background: var(--night);
-  line-height: 2;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-:focus-visible {
-  outline: 1px solid var(--lamp);
-  outline-offset: 6px;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
 }
 
 // SVG フィルタの置き場（display:none にするとフィルタが効かない）
@@ -71,39 +12,6 @@ ol {
   width: 0;
   height: 0;
   overflow: hidden;
-}
-
-// 画面全体に一枚だけ乗せるフィルムの粒子
-.site-grain {
-  position: fixed;
-  inset: -50%;
-  z-index: 90;
-  pointer-events: none;
-  background-image: var(--noise);
-  opacity: 0.35;
-  mix-blend-mode: overlay;
-  animation: site-grain 1s steps(6) infinite;
-}
-
-@keyframes site-grain {
-  0% {
-    transform: translate(0, 0);
-  }
-  17% {
-    transform: translate(-4%, 2%);
-  }
-  33% {
-    transform: translate(3%, -5%);
-  }
-  50% {
-    transform: translate(-6%, -1%);
-  }
-  67% {
-    transform: translate(5%, 4%);
-  }
-  83% {
-    transform: translate(-2%, 6%);
-  }
 }
 
 // ── ナビ ───────────────────────────────
@@ -608,11 +516,6 @@ ol {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .site-grain,
   .hero_lamp,
   .hero_scroll::before,
   .is-ready .hero_titles {
