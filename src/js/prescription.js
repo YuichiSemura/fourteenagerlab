@@ -86,12 +86,12 @@ let finishTyping = null; // 文字送りの途中なら、全文を出しきる�
 let afterCard = null; // 章タイトルを閉じたあとに続ける処理
 let timer = 0;
 
-// ── 背景 ──
+// ── 背景（none なら消して、黒い画面にする） ──
 let front = 0;
 const setBackground = function (name, instant = false) {
   if (!name || name === state.bg) return;
   const url = bgUrl(name);
-  if (!url) {
+  if (!url && name !== 'none') {
     console.warn(`台本：背景「${name}」が src/assets に見つかりません`);
     return;
   }
@@ -100,8 +100,8 @@ const setBackground = function (name, instant = false) {
   layers.forEach((layer) =>
     layer.classList.toggle('stage_bg__instant', instant)
   );
-  layers[front].style.setProperty('--bg', `url(${url})`);
-  layers[front].classList.add('is-shown');
+  if (url) layers[front].style.setProperty('--bg', `url(${url})`);
+  layers[front].classList.toggle('is-shown', Boolean(url));
   layers[1 - front].classList.remove('is-shown');
 };
 
@@ -117,6 +117,29 @@ const setMode = function (mode) {
   nvl.hidden = state.mode !== 'nvl';
   adv.hidden = state.mode !== 'adv';
   clearWindow();
+};
+
+// ── NVL の段落（画面に入りきらないときは、ページを改めてから足す） ──
+const nextMark = function () {
+  const mark = document.createElement('span');
+  mark.className = 'nvl_next';
+  mark.setAttribute('aria-hidden', 'true');
+  mark.textContent = '▼';
+  return mark;
+};
+const addParagraph = function (text) {
+  nvlPage.querySelector('.nvl_next')?.remove();
+  const p = document.createElement('p');
+  p.append(text, nextMark()); // ▼ の分も含めて高さを測る
+  nvlPage.append(p);
+  if (
+    nvlPage.children.length > 1 &&
+    nvlPage.scrollHeight > nvlPage.clientHeight + 1
+  ) {
+    nvlPage.replaceChildren(p);
+  }
+  p.textContent = text;
+  return p;
 };
 
 // ── 文字送り ──
@@ -148,12 +171,17 @@ const typeText = function (el, text, done) {
   frame = window.requestAnimationFrame(tick);
 };
 
-// オート・スキップのときは、文を出し終えたら自動で次へ
+// オート・スキップのときは、文を出し終えたら自動で次へ。章タイトルは、いつも自動で閉じる
 const scheduleNext = function () {
   window.clearTimeout(timer);
-  if (!state.waiting || isSheetOpen()) return;
-  if (state.skip) timer = window.setTimeout(next, 60);
-  else if (state.auto) {
+  if (isSheetOpen()) return;
+  if (afterCard) {
+    timer = window.setTimeout(closeCard, state.skip ? 500 : 2400);
+  } else if (!state.waiting) {
+    return;
+  } else if (state.skip) {
+    timer = window.setTimeout(next, 60);
+  } else if (state.auto) {
     const length = steps[state.current]?.text.length ?? 0;
     timer = window.setTimeout(next, config.autoWait + length * 40);
   }
@@ -167,9 +195,7 @@ const showText = function (step, index) {
 
   let target = advText;
   if (state.mode === 'nvl') {
-    nvlPage.querySelector('.nvl_next')?.remove();
-    target = document.createElement('p');
-    nvlPage.append(target);
+    target = addParagraph(step.text);
   } else {
     advName.textContent = step.speaker;
     advName.dataset.speaker = speakerKey(step.speaker);
@@ -178,27 +204,19 @@ const showText = function (step, index) {
 
   typeText(target, step.text, () => {
     state.waiting = true;
-    if (state.mode === 'nvl') {
-      const mark = document.createElement('span');
-      mark.className = 'nvl_next';
-      mark.setAttribute('aria-hidden', 'true');
-      mark.textContent = '▼';
-      target.append(mark);
-    } else {
-      advNext.hidden = false;
-    }
+    if (state.mode === 'nvl') target.append(nextMark());
+    else advNext.hidden = false;
     scheduleNext();
   });
 };
 
-// ── 章タイトル（「― おわり ―」にも使う） ──
+// ── 章タイトル（「― つづく ―」にも使う） ──
 const showCard = function (text, then) {
   card.textContent = text;
   card.hidden = false;
   window.requestAnimationFrame(() => card.classList.add('is-shown'));
   afterCard = then;
-  window.clearTimeout(timer);
-  timer = window.setTimeout(closeCard, state.skip ? 500 : 2400);
+  scheduleNext();
 };
 const closeCard = function () {
   window.clearTimeout(timer);
@@ -240,7 +258,7 @@ const run = function () {
   }
   setAuto(false);
   setSkip(false);
-  showCard('― おわり ―', goTitle);
+  showCard('― つづく ―', goTitle);
 };
 
 const next = function () {
@@ -281,11 +299,7 @@ const resumeAt = function (index) {
   steps.slice(0, index).forEach((step) => {
     if (step.type === 'text') {
       state.log.push({ speaker: step.speaker, text: step.text });
-      if (state.mode === 'nvl') {
-        const p = document.createElement('p');
-        p.textContent = step.text;
-        nvlPage.append(p);
-      }
+      if (state.mode === 'nvl') addParagraph(step.text);
     } else if (step.type === 'chapter') {
       state.chapter = step.title;
     } else if (step.type !== 'end') {
@@ -413,7 +427,7 @@ const renderSlot = function (data, i, mode) {
   thumb.className = 'slot_thumb';
   if (data && bgUrl(data.bg)) {
     thumb.style.backgroundImage = `url(${bgUrl(data.bg)})`;
-  } else {
+  } else if (!data) {
     thumb.textContent = 'NO DATA';
   }
   const info = document.createElement('span');

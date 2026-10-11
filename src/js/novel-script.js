@@ -7,13 +7,15 @@
 //   { type: 'page' }                 … 空行。NVL では改ページ
 //   { type: 'bg' | 'mode' | 'end' …, args, line } … @ で始まる命令
 
-// 「名前「台詞」」「名前『台詞』」の形。名前が長いものは地の文として扱う
-const SPEECH = /^(.{1,12}?)([「『].*[」』])$/;
+// 「名前「台詞」」「名前『台詞』」の形。名前は行頭から 12 文字まで。
+// 空白・句読点・かっこを含むものは名前ではなく、地の文として扱う
+const SPEECH = /^([^\s「『」』、。]{1,12})([「『].*[」』])$/;
 
 export const parseScript = function (source) {
   const steps = [];
   source.split(/\r?\n/).forEach((raw, i) => {
-    const line = raw.trim();
+    // 行頭の全角スペース（段落の字下げ）は本文の一部なので残す
+    const line = raw.replace(/^[ \t]+|\s+$/g, '');
     if (line.startsWith(';')) return;
     if (line === '') {
       steps.push({ type: 'page' });

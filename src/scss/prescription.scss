@@ -371,6 +371,9 @@ button {
 
 .nvl_page {
   width: min(100%, 42em);
+  // 1 段落だけで画面を超えるときは、スクロールで読めるようにしておく
+  overflow-y: auto;
+  scrollbar-width: none;
   font-size: clamp(16px, 1.6vw, 20px);
   line-height: 2.1;
   letter-spacing: 0.1em;
@@ -434,6 +437,9 @@ button {
   font-size: clamp(22px, 2.6vw, 34px);
   letter-spacing: 0.4em;
   text-align: center;
+  // 長い見出しは、文節の切れ目で、行の長さをそろえて折り返す
+  text-wrap: balance;
+  word-break: auto-phrase;
   background: #06070b;
   opacity: 0;
   transition: opacity 0.8s ease;
