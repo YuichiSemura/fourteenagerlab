@@ -4,11 +4,6 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   root: 'src',
   base: '/fourteenagerlab',
-  resolve: {
-    alias: {
-      '~bootstrap': resolve(process.cwd(), 'node_modules/bootstrap'),
-    },
-  },
   build: {
     rollupOptions: {
       input: {
@@ -27,9 +22,6 @@ export default defineConfig({
   },
   define: {
     global: 'globalThis',
-  },
-  optimizeDeps: {
-    exclude: ['@tsparticles/engine'],
   },
   css: {
     preprocessorOptions: {

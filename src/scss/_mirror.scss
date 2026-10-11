@@ -1,0 +1,532 @@
+// 鏡面世界のページ（トップ・Products・Biography）に共通のスタイル。
+// Bootstrap は使わず、各ページの scss から @use して読み込む。
+@use 'base';
+
+:root {
+  --waterline: 60svh; // 水面の高さ
+}
+
+// SVG フィルタの置き場（display:none にするとフィルタが効かない）
+.site-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+// ── ナビ ───────────────────────────────
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(16px, 3.4vw, 48px);
+  font-family: var(--font-en-sc);
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  line-height: 1.6;
+  color: rgba(239, 216, 171, 0.76);
+  background: linear-gradient(
+    rgba(11, 15, 20, 0.8),
+    rgba(11, 15, 20, 0.35) 60%,
+    transparent
+  );
+  transition: background-color 0.6s;
+
+  &__solid {
+    background: rgba(11, 15, 20, 0.72);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+}
+
+.site-nav_brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+
+  img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+  }
+}
+
+.site-nav_menu {
+  display: flex;
+  gap: clamp(14px, 2.4vw, 32px);
+
+  a {
+    transition: color 0.4s, text-shadow 0.4s;
+
+    &:hover,
+    &:focus-visible,
+    &[aria-current='page'] {
+      color: var(--lamp);
+      text-shadow: 0 0 14px rgba(255, 214, 150, 0.45);
+    }
+  }
+}
+
+.site-nav_toggle {
+  display: none;
+  padding: 6px 0 6px 12px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+}
+
+// ── 水面の上と、鏡の向こう ──────────────
+.hero {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--night);
+}
+
+.hero_above {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--waterline);
+  overflow: hidden;
+}
+
+.hero_world {
+  position: absolute;
+  inset: 0;
+  transform: translateY(var(--py, 0px));
+
+  // 夜の青を重ねて、上を沈める
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        180deg,
+        rgba(11, 15, 20, 0.75),
+        rgba(11, 15, 20, 0.1) 45%,
+        rgba(20, 34, 46, 0.25)
+      ),
+      rgba(70, 100, 130, 0.18);
+  }
+}
+
+// 位置と明るさは写真ごとに各ページの scss で決める
+.hero_photo,
+.hero_bloom img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero_photo {
+  filter: grayscale(1) brightness(0.34) contrast(1.2);
+}
+
+// 写真の中の明かりだけをにじませる
+.hero_bloom {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+  opacity: 0.5;
+
+  img {
+    filter: grayscale(1) brightness(1.3) contrast(1.8) blur(12px);
+  }
+}
+
+.hero_lamp {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    circle,
+    rgba(255, 240, 206, 0.95) 0 5%,
+    rgba(255, 214, 150, 0.55) 14%,
+    rgba(255, 186, 110, 0.16) 36%,
+    transparent 68%
+  );
+  animation: hero-flicker 7s ease-in-out infinite alternate;
+}
+
+@keyframes hero-flicker {
+  50% {
+    opacity: 0.86;
+  }
+}
+
+.hero_titles {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5.5svh;
+  z-index: 2;
+  padding: 0 16px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.is-ready .hero_titles {
+  animation: hero-focus 2.4s 0.3s ease-out backwards;
+}
+
+@keyframes hero-focus {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+.hero_presents {
+  font-family: var(--font-en-sc);
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  color: rgba(239, 216, 171, 0.66);
+}
+
+.hero_title {
+  margin: 0.14em 0 0.18em;
+  font-family: var(--font-en);
+  font-weight: 400;
+  font-size: clamp(34px, 6.6vw, 96px);
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 18px rgba(255, 214, 150, 0.28),
+    0 0 60px rgba(255, 190, 120, 0.16);
+}
+
+.hero_tagline {
+  font-size: clamp(14px, 1.3vw, 17px);
+  letter-spacing: 0.3em;
+  color: rgba(239, 216, 171, 0.86);
+}
+
+.hero_rain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero_drop {
+  position: absolute;
+  top: -120px;
+  width: 1px;
+  background: linear-gradient(transparent, rgba(214, 228, 236, 0.32));
+  animation: hero-fall linear infinite;
+}
+
+@keyframes hero-fall {
+  to {
+    transform: translate3d(-6vw, calc(var(--waterline) + 120px), 0);
+  }
+}
+
+.hero_waterline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--waterline);
+  z-index: 3;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(239, 216, 171, 0.28) 25%,
+    rgba(239, 216, 171, 0.42) 50%,
+    rgba(239, 216, 171, 0.28) 75%,
+    transparent
+  );
+  box-shadow: 0 0 14px rgba(239, 216, 171, 0.2);
+}
+
+.hero_below {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--waterline);
+  bottom: 0;
+  overflow: hidden;
+
+  // 深くなるほど暗く
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(11, 15, 20, 0.1),
+      rgba(15, 23, 30, 0.75) 70%,
+      var(--deep)
+    );
+  }
+}
+
+// 水面より上の世界を上下反転して、揺らしてにじませる
+.hero_mirror {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--waterline);
+  transform: scaleY(-1);
+  filter: url(#ripple);
+  opacity: 0.62;
+}
+
+.hero_rings {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero_ring {
+  position: absolute;
+  border: 1px solid rgba(214, 228, 236, 0.55);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.08);
+  animation: hero-ring 1.9s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+
+@keyframes hero-ring {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+// 画面外では水面の動きを止める
+.hero__paused {
+  .hero_drop,
+  .hero_lamp {
+    animation-play-state: paused;
+  }
+}
+
+// スクロールの案内（水滴が落ちるように線が伸びる）
+.hero_scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 3.5svh;
+  z-index: 3;
+  transform: translateX(-50%);
+  font-family: var(--font-en-sc);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  line-height: 1;
+  color: var(--mist);
+  text-align: center;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    margin: 0 auto 12px;
+    background: linear-gradient(transparent, rgba(239, 216, 171, 0.6));
+    animation: hero-drip 2.4s ease-in-out infinite;
+  }
+
+  .hero__paused &::before {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes hero-drip {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+// ── セクション共通 ───────────────────────
+.site-section {
+  position: relative;
+  padding: clamp(80px, 13svh, 144px) clamp(20px, 6vw, 80px);
+}
+
+// 英語のラベル（見出し）と、その世界での一言
+.sec-head {
+  margin-bottom: clamp(44px, 8svh, 84px);
+  text-align: center;
+}
+
+.sec-head_label {
+  font-family: var(--font-en-sc);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.44em;
+  color: var(--mist);
+}
+
+.sec-head_line {
+  margin-top: 0.8em;
+  font-size: clamp(18px, 2.1vw, 26px);
+  letter-spacing: 0.24em;
+  line-height: 1.8;
+}
+
+// 二人の会話：「」は瀬村（こちら側）、『』は新居（鏡の向こう）
+.dialog {
+  display: grid;
+  gap: 9svh;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.dialog_line {
+  justify-self: start;
+  font-size: clamp(17px, 1.9vw, 26px);
+  letter-spacing: 0.2em;
+  line-height: 1.7;
+
+  // 『』は鏡の向こうの声。少し揺れて、少し遅れてついてくる
+  &__mirror {
+    justify-self: end;
+    text-align: right;
+    color: var(--moon);
+    text-shadow: 0 0 18px rgba(166, 191, 204, 0.3);
+    filter: url(#ripple-still);
+    transform: translateY(calc((var(--p, 0.5) - 0.5) * 90px));
+  }
+}
+
+.js .dialog_line__mirror[data-focus]:not(.is-focused) {
+  filter: url(#ripple-still);
+}
+
+.dialog_who {
+  display: block;
+  margin-bottom: 0.4em;
+  font-family: var(--font-en-sc);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--mist);
+}
+
+// 文字の後ろに線が伸びるリンク（More ― など）
+.line-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1em;
+  font-family: var(--font-en-sc);
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  line-height: 1.6;
+
+  &::after {
+    content: '';
+    width: 48px;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.5s;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    width: 72px;
+  }
+}
+
+// スクロールで近づくと、ピントが合う
+[data-focus] {
+  transition: opacity 1.4s ease, filter 1.4s ease;
+}
+
+.js [data-focus]:not(.is-focused) {
+  opacity: 0;
+  filter: blur(8px);
+}
+
+.site-footer {
+  padding: 0 20px 56px;
+  font-family: var(--font-en);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: var(--mist);
+}
+
+// ── スマホ ────────────────────────────
+@media (max-width: 767.98px) {
+  :root {
+    --waterline: 58svh;
+  }
+
+  .site-nav_toggle {
+    display: block;
+  }
+
+  .site-nav_menu {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    font-size: 18px;
+    background: rgba(11, 15, 20, 0.94);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s, visibility 0.4s;
+  }
+
+  // ナビに backdrop-filter があると、fixed のメニューがナビの中に閉じ込められて画面全体を覆えない
+  .site-nav__open {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .site-nav__open .site-nav_menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .hero_tagline {
+    font-size: 12.5px;
+    letter-spacing: 0.1em;
+  }
+
+  .dialog_line__mirror {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero_lamp,
+  .hero_scroll::before,
+  .is-ready .hero_titles {
+    animation: none;
+  }
+
+  .hero_mirror {
+    filter: blur(1.5px);
+  }
+
+  .dialog_line__mirror {
+    transform: none;
+  }
+}

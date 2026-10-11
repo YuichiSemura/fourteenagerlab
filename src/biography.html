@@ -1,4 +1,4 @@
-<html>
+<html lang="ja">
   <head>
     <link rel="icon" type="image/x-icon" href="./assets/14l-favicon.png" />
     <meta
@@ -27,572 +27,376 @@
     <meta property="og:site_name" content="FOURTEENAGER Lab." />
     <meta property="og:locale" content="ja_JP" />
     <title>Biography - FOURTEENAGER Lab.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Marcellus+SC&family=Shippori+Mincho+B1:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      .el_loader {
-        width: 100vw;
-        height: 100svh; /* Dynamic viewport height for mobile */
-        z-index: 10000;
-        margin: 0;
-        padding: 0;
-        position: fixed;
-        background-color: rgb(90, 90, 90);
-        transition: 1s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      /* CSS より先に効かせる幕（読み込み完了で mirror.js が上げる） */
+      html,
+      body {
+        background-color: #0b0f14;
       }
-      .el_loader.el_loader_spinner__loaded {
+      .site-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background-color: #0b0f14;
+        transition: opacity 1.2s ease, visibility 1.2s;
+      }
+      .site-loader.site-loader__done {
         opacity: 0;
         visibility: hidden;
-        position: fixed;
       }
     </style>
   </head>
 
-  <body style="background-color: rgb(90, 90, 90); transition: all 1s;" id="body" class="biography">
-    <!-- ローディング画面 -->
-    <div id="loader" class="el_loader">
-      <div id="loader_spinner" class="el_loader_spinner"></div>
-    </div>
+  <body>
+    <div id="loader" class="site-loader" aria-hidden="true"></div>
 
-    <!-- ヘッダー -->
-    <div id="header_wrapper" class="containr-fluid p-0">
-      <nav
-        class="
-          navbar navbar__bio navbar__transparent navbar-expand-md
-          fixed-top
-          navbar-dark
-          mb-1
-        "
+    <!-- 水面の揺らぎ -->
+    <svg class="site-filters" aria-hidden="true" focusable="false">
+      <filter id="ripple" x="0" y="0" width="100%" height="100%">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.005 0.085"
+          numOctaves="2"
+          seed="3"
+          result="noise"
+        >
+          <animate
+            attributeName="baseFrequency"
+            dur="12s"
+            values="0.005 0.085;0.006 0.1;0.005 0.085"
+            repeatCount="indefinite"
+          />
+        </feTurbulence>
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="noise"
+          scale="20"
+          xChannelSelector="R"
+          yChannelSelector="G"
+          result="moved"
+        />
+        <feGaussianBlur in="moved" stdDeviation="1 2.2" />
+      </filter>
+      <filter id="ripple-still" x="-5%" y="-20%" width="110%" height="140%">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.01 0.12"
+          numOctaves="1"
+          seed="8"
+          result="noise"
+        />
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="noise"
+          scale="3"
+          xChannelSelector="R"
+          yChannelSelector="G"
+        />
+      </filter>
+    </svg>
+
+    <!-- header (navbar) -->
+    <header class="site-nav">
+      <a class="site-nav_brand" href="./index.html"
+        ><img src="./assets/mark.png" alt="" />Fourteenager Lab.</a
       >
-        <h2 class="nav_title nav_title__bio text-azure text-left">
-          <a href="./index.html"
-            ><img
-              src="./assets/mark.png"
-              alt="mark"
-              class="img-fluid"
-            />
-            FOURTEENAGER LAB.</a
-          >
-        </h2>
-        <button
-          id="nav-toggle"
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbar-14l"
-          aria-controls="navbar-14l"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+      <button
+        class="site-nav_toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+      >
+        目次
+      </button>
+      <nav id="site-menu" class="site-nav_menu" aria-label="サイト内">
+        <a href="/fourteenagerlab/biography.html" aria-current="page"
+          >Biography</a
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbar-14l"
+        <a href="/fourteenagerlab/products.html">Products</a>
+        <a href="/fourteenagerlab/prescription.html">Prescription</a>
+        <a
+          href="https://forms.gle/hyXefegM1sCDr2D67"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Contact</a
         >
-          <ul class="navbar-nav flex-row flex-wrap">
-            <li class="nav-item nav-item_style col-6 col-md-auto active">
-              <a
-                class="nav-link text-white text-center"
-                href="/fourteenagerlab/index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item nav-item_style col-6 col-md-auto">
-              <a
-                class="nav-link text-white text-center"
-                href="/fourteenagerlab/biography.html"
-                >Biography</a
-              >
-            </li>
-            <li class="nav-item nav-item_style col-6 col-md-auto">
-              <a
-                class="nav-link text-white text-center"
-                href="/fourteenagerlab/products.html"
-                >Products</a
-              >
-            </li>
-            <li class="nav-item nav-item_style col-6 col-md-auto">
-              <a
-                class="nav-link text-white text-center"
-                href="/fourteenagerlab/prescription.html"
-                >Prescription</a
-              >
-            </li>
-            <li class="nav-item nav-item_style col-6 col-md-auto">
-              <a class="nav-link text-white text-center" href="https://forms.gle/hyXefegM1sCDr2D67" target="_blank" rel="noopener noreferrer"
-                >Contact<i class="fas fa-paper-plane d-inline"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
       </nav>
-      <!-- background -->
-      <div class="heroHeader p-0 m-0">
-        <div id="heroHeader_particles" class="heroHeader_particles">
-          <!-- ue id="heroHeader_particles"  -->
-          <div class="heroHeader_img_gray"></div>
-          <div class="heroHeader_words">
-            <div class="heroHeader_words_topMargin"></div>
-            <div
-              class="
-                heroHeader_words_top
-                d-flex
-                justify-content-center
-                align-items-center
-              "
-            >
-              <div class="d-block p-5">
-                <div class="heroHeader_words_title">
-                  <div class="mincho__bold text-center text-azure">
-                    Biography
-                  </div>
-                </div>
-                <div class="heroHeader_words_phrase">
-                  <div class="mincho__bold text-center">
-                    「当たり障りのある僕のほうが良かったよ。」
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="
-                heroHeader_words_bottom
-                d-flex
-                justify-content-center
-                align-items-end
-              "
-            >
-              <div class="el_scrollIcon">
-                <a href="#"
-                  ><span></span>
-                  <h5>Scroll</h5></a
-                >
-              </div>
+    </header>
+
+    <main>
+      <!-- 海辺に立つ本人（瀬村）と、水面に映るもう一人（新居） -->
+      <section class="hero" aria-label="Biography">
+        <div class="hero_above">
+          <div class="hero_world">
+            <img
+              class="hero_photo"
+              src="./assets/slider-5.jpg"
+              alt="曇り空の海辺に、ひとりで立つ瀬村"
+              fetchpriority="high"
+            />
+            <div class="hero_titles">
+              <p class="hero_presents">Fourteenager Lab.</p>
+              <h1 class="hero_title">Biography</h1>
+              <p class="hero_tagline">
+                「当たり障りのある僕のほうが良かったよ。」
+              </p>
             </div>
           </div>
+          <div class="hero_rain" aria-hidden="true"></div>
         </div>
-      </div>
-    </div>
+        <div class="hero_waterline" aria-hidden="true"></div>
+        <div class="hero_below" aria-hidden="true">
+          <div class="hero_mirror"></div>
+          <div class="hero_rings"></div>
+        </div>
+        <a class="hero_scroll" href="#profile">Scroll</a>
+      </section>
 
-    <!-- container start -->
-    <div class="p-0">
-      <main>
-        <!-- biography -->
-        <div class="bl_bio_wrapper bg-light-opacity p-0 m-0">
-          <div class="bl_bio_wrapper_sizing">
-            <div>
-              <div class="row">
-                <div class="col-12 col-lg-6 bg-lightgray">
-                  <div class="el_bio_words">
-                    <div
-                      class="
-                        el_bio_words_rect1
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    >
-                      <div class="mincho bl_bio_wrapper_words">
-                        <p>
-                          『こんなページを作ってるくせに、君も意外と書くことがないんだ』<br />
-                          「そこに関しては何の反論もないね」 <br />
-                          『変わらないんだね』
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="
-                        el_bio_words_rect2
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    ></div>
-                    <div
-                      class="
-                        el_bio_words_circle1
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    >
-                      <div class="mincho__bold bl_bio_wrapper_title">
-                        <p>Biography</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-lg-6 bg-light-opacity">
-                  <div class="el_bio_sentences">
-                    <div
-                      class="
-                        el_bio_sentences_rect1
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    ></div>
-                    <div
-                      class="el_bio_sentences_content bl_bio_wrapper_sentences"
-                    >
-                      <h5 class="mb-2">名前</h5>
-                      <ul
-                        class="mb-2 mb-sm-4"
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>瀬村 雄一 (Yuichi Semura)</li>
-                        <li>既婚、2児の父</li>
-                      </ul>
-                      <h5 class="mb-2">略歴</h5>
-                      <ul
-                        class="mb-2 mb-sm-4"
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>2012年3月 兵庫県立長田高等学校 卒業</li>
-                        <li>2017年3月 大阪大学基礎工学部情報科学科 卒業</li>
-                        <li>
-                          2019年3月
-                          大阪大学大学院情報科学研究科コンピュータサイエンス専攻
-                          修了
-                        </li>
-                        <li>2019年4月 日鉄ソリューションズ株式会社</li>
-                        <ul><li>以後、研究員として活動中</li></ul>
-                      </ul>
-                      <h5 class="mb-2">資格・研究テーマ</h5>
-                      <ul
-                        class="mb-2 mb-sm-4"
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>応用情報技術者、データベーススペシャリスト</li>
-                        <li>ソフトウェア工学（コードクローン検出）</li>
-                      </ul>
-                      
-                      <h5 class="mb-2">技術スタック（メイン）</h5>
-                      <h6 class="mb-2">
-                        「何回も使ったことがあるので、何も分からんとはさすがに言い難い」</h6>
-                      <ul
-                        class="mb-2 mb-sm-4"
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>Vue.js（Vuetify）</li>
-                        <li>AWS Lambda（Node.js & Python）、DynamoDB</li>
-                        <li>Java、Spring Boot</li>
-                        <li>Power Automate</li>
-                        <li>Git, GitHub, SQL, Linux, Docker...</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <!-- Profile -->
+      <section class="site-section" id="profile" aria-labelledby="profile-h">
+        <header class="sec-head">
+          <h2 class="sec-head_label" id="profile-h">Profile</h2>
+        </header>
+        <div class="dialog dialog__compact">
+          <p class="dialog_line dialog_line__mirror" data-lag data-focus>
+            <span class="dialog_who">Arai</span
+            >『こんなページを作ってるくせに、君も意外と書くことがないんだ』
+          </p>
+          <p class="dialog_line" data-focus>
+            <span class="dialog_who">Semura</span
+            >「そこに関しては何の反論もないね」
+          </p>
+          <p class="dialog_line dialog_line__mirror" data-lag data-focus>
+            <span class="dialog_who">Arai</span>『変わらないんだね』
+          </p>
+        </div>
+        <dl class="facts">
+          <div class="facts_row" data-focus>
+            <dt>名前</dt>
+            <dd>
+              <ul>
+                <li>瀬村 雄一 (Yuichi Semura)</li>
+                <li>既婚、2児の父</li>
+              </ul>
+            </dd>
           </div>
-        </div>
-
-        <!-- skills -->
-        <div class="bl_bio_wrapper bg-light-opacity p-0 m-0">
-          <div class="bl_bio_wrapper_sizing">
-            <div>
-              <div class="row">
-                <div class="col-12 col-lg-6 bg-light-opacity order-last order-lg-first">
-                  <div class="el_skl_sentences bl_bio_wrapper_sentences">
-                    <div class="el_skl_sentences_content">
-                      <h5 class="mb-2">技術スタック（サブ）</h5>
-                      <p
-                        class=""
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        「仕事でまあまあ使ったことある」
-                      </p>
-                      <ul
-                        class=""
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>
-                          JS, TS, three.js, Leaflet
-                        </li>
-                        <li>CI/CD（Jenkins、GitHub Actions）</li>
-                        <li>画面自動テスト(Selenium, Appium)</li>
-                        <li>GitHub Copilot, Claude Code</li>
-                        <li>ソフトウェア開発論（ウォーターフォール開発、アジャイル開発/スクラム）</li>
-                        <li>プログラミング研修講師運営、社内標準整備...</li>
-                      </ul>
-                      <p
-                        class=""
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        「趣味では色々やってたり、仕事でちょっと検証したことあったり」
-                      </p>
-                      <ul
-                        class=""
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>React(Next.js, MUI, React Query)</li>
-                        <li>TresJS(Vue用のthree.jsラッパー)</li>
-                        <li>
-                          C#, .NET、WPF
-                        </li>
-                        <li>Auth0</li>
-                        <li>Firebase</li>
-                        <li>Discord API</li>
-                      </ul>
-                      <p
-                        class=""
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        「分からない、もうやらない、悲しい」
-                      </p>
-                      
-                      <ul
-                        class=""
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>Haskell</li>
-                        <li>競プロ（AtCoder）</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-12 col-lg-6 bg-lightgray order-first order-lg-last"
-                >
-                  <div class="el_skl_words">
-                    <div
-                      class="
-                        el_skl_words_rect1
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    >
-                      <div class="mincho bl_bio_wrapper_words">
-                        <p>
-                          『やっぱり君は、予防線を張るんだね』<br />
-                          「それが大人ってものじゃないかな」<br />
-                          『ま、大人は嘘つきだからね』<br />
-                          「嘘もスキルの１つなんだよ」<br />
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="
-                        el_skl_words_rect2
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    ></div>
-                    <div
-                      class="
-                        el_skl_words_tri1
-                        bl_bio_wrapper_title
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    >
-                      <div>
-                        <div></div>
-                      </div>
-                      <div class="mincho__bold bl_bio_wrapper_title">
-                        <p>Skills</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- keywords -->
-        <div class="bl_bio_wrapper bg-light-opacity p-0 m-0">
-          <div class="bl_bio_wrapper_sizing">
-            <div>
-              <div class="row">
-                <div class="col-12 col-lg-6 bg-lightgray p-0">
-                  <div
-                    class="el_kw_words"
-                    data-aos="fade-in"
-                    data-aos-delay="400"
+          <div class="facts_row" data-focus>
+            <dt>略歴</dt>
+            <dd>
+              <ol class="timeline">
+                <li>
+                  <span class="timeline_date">2012年3月</span
+                  ><span>兵庫県立長田高等学校 卒業</span>
+                </li>
+                <li>
+                  <span class="timeline_date">2017年3月</span
+                  ><span>大阪大学基礎工学部情報科学科 卒業</span>
+                </li>
+                <li>
+                  <span class="timeline_date">2019年3月</span
+                  ><span
+                    >大阪大学大学院情報科学研究科コンピュータサイエンス専攻
+                    修了</span
                   >
-                    <canvas id="el_kw_words_canvas">
-                  </div>
-                </div>
-                <div class="col-12 col-lg-6 bg-light-opacity">
-                  <div class="el_kw_sentences bl_bio_wrapper_sentences">
-                    <div class="el_kw_sentences_content">
-                      
-                      <h5 class="mb-2">座右の銘</h5>
-                      <ul
-                        class="mb-3"
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>やる気は結果</li>
-                      </ul>
-                      
-                      <h5 class="mb-2">現在の目標</h5>
-                      <ul
-                        class="mb-3"
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>共著でいいので、何か出版したい！</li>
-                      </ul>
-                      <h5 class="mb-2">趣味</h5>
-                      <ul
-                        class="mb-3"
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>プログラミング</li>
-                        <li>noteを書く</li>
-                        <li>ゲーム（スプラ、ポケスリ）</li>
-                        <li>子供の動画撮影、動画編集</li>
-                        <li>料理、ドライブ、プラレールなど諸々</li>
-                      </ul>
-                      <h5 class="mb-2">過去のキーワード</h5>
-                      <ul
-                        class="mb-3"
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <p>ルービックキューブ（avg23秒）、カレー屋巡り、CoCo壱は実家、日能研でバイト、中学受験算数、素因数分解覚える、飲酒（ビールが一番好き、ウイスキーが次）、婚活、マッチングアプリ（本気でやって結婚した！）、アニメ、ラノベ、小説（読書、執筆）、ゲーム（スプラ、シャドバ、DBDなど）、東方Project（原作プレイ、原曲勢）、音ゲー、BEMANI（SDVX、リフレク、弐寺）、正規表現、ANTLR、陸上競技（中高6年間）、筋トレ（ベンチmax90）</p>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                </li>
+                <li>
+                  <span class="timeline_date">2019年4月</span
+                  ><span
+                    >日鉄ソリューションズ株式会社<span class="timeline_note"
+                      >以後、研究員として活動中</span
+                    ></span
+                  >
+                </li>
+              </ol>
+            </dd>
           </div>
-        </div>
+          <div class="facts_row" data-focus>
+            <dt>資格・研究テーマ</dt>
+            <dd>
+              <ul>
+                <li>応用情報技術者、データベーススペシャリスト</li>
+                <li>ソフトウェア工学（コードクローン検出）</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-        <!-- Links -->
-        <div class="bl_bio_wrapper bg-light-opacity p-0 m-0">
-          <div class="bl_bio_wrapper_sizing">
-            <div>
-              <div class="row">
-                <div class="col-12 col-lg-6 bg-light-opacity order-last order-lg-first">
-                  <div class="el_link_sentences bl_bio_wrapper_sentences">
-                    <div class="el_link_sentences_content">
-                      <h5 class="mb-2">SNS</h5>
-                      <ul
-                        class="mb-4"
-                        data-aos="fade-in"
-                        data-aos-offset="150"
-                        data-aos-delay="300"
-                      >
-                        <li>Coming soon...</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="
-                    col-12 col-lg-6
-                    bg-superlightorange
-                    order-first order-lg-last
-                    p-0
-                  "
-                >
-                  <div class="el_link_words">
-                    <div
-                      class="
-                        el_link_words_rect1
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    ></div>
-                    <div
-                      class="
-                        el_link_words_circle3
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    >
-                      <div
-                        class="
-                          mincho
-                          bl_bio_wrapper_words
-                        "
-                        data-aos="fade-in"
-                      data-aos-delay="400"
-                      >
-                        <p>
-                          「運命を信じないからこそ、<br />誰かを大切に出来るのかも」
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="
-                        el_link_words_circle4
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    >
-                      <div class="mincho bl_bio_wrapper_words">
-                        <p>『誰だって話せば<br />分かりあえるはずなんだ』</p>
-                      </div>
-                    </div>
-                    <div
-                      class="
-                        el_link_words_circle2
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    >
-                      <div class="mincho bl_bio_wrapper_words">
-                        <p>「初志貫徹、だろ」</p>
-                      </div>
-                    </div>
-                    <div
-                      class="
-                        el_link_words_circle1
-                      "
-                      data-aos="fade-in"
-                      data-aos-delay="400"
-                    >
-                      <div class="mincho__bold bl_bio_wrapper_title">
-                        <p>Links</p>
-                      </div>
-                    </div>
-                    <div class="el_link_words_rect2"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <!-- Skills -->
+      <section class="site-section" aria-labelledby="skills-h">
+        <header class="sec-head">
+          <h2 class="sec-head_label" id="skills-h">Skills</h2>
+        </header>
+        <div class="dialog dialog__compact">
+          <p class="dialog_line dialog_line__mirror" data-lag data-focus>
+            <span class="dialog_who">Arai</span
+            >『やっぱり君は、予防線を張るんだね』
+          </p>
+          <p class="dialog_line" data-focus>
+            <span class="dialog_who">Semura</span
+            >「それが大人ってものじゃないかな」
+          </p>
+          <p class="dialog_line dialog_line__mirror" data-lag data-focus>
+            <span class="dialog_who">Arai</span>『ま、大人は嘘つきだからね』
+          </p>
+          <p class="dialog_line" data-focus>
+            <span class="dialog_who">Semura</span>「嘘もスキルの１つなんだよ」
+          </p>
+        </div>
+        <div class="tiers">
+          <h3 class="tiers_label">技術スタック（メイン）</h3>
+          <div class="tier" data-depth="1" data-focus>
+            <p class="tier_voice">
+              「何回も使ったことがあるので、何も分からんとはさすがに言い難い」
+            </p>
+            <ul class="tier_items dot-list">
+              <li>Vue.js（Vuetify）</li>
+              <li>AWS Lambda（Node.js &amp; Python）、DynamoDB</li>
+              <li>Java、Spring Boot</li>
+              <li>Power Automate</li>
+              <li>Git, GitHub, SQL, Linux, Docker...</li>
+            </ul>
+          </div>
+          <h3 class="tiers_label">技術スタック（サブ）</h3>
+          <div class="tier" data-depth="2" data-focus>
+            <p class="tier_voice">「仕事でまあまあ使ったことある」</p>
+            <ul class="tier_items dot-list">
+              <li>JS, TS, three.js, Leaflet</li>
+              <li>CI/CD（Jenkins、GitHub Actions）</li>
+              <li>画面自動テスト(Selenium, Appium)</li>
+              <li>GitHub Copilot, Claude Code</li>
+              <li>
+                ソフトウェア開発論（ウォーターフォール開発、アジャイル開発/スクラム）
+              </li>
+              <li>プログラミング研修講師運営、社内標準整備...</li>
+            </ul>
+          </div>
+          <div class="tier" data-depth="3" data-focus>
+            <p class="tier_voice">
+              「趣味では色々やってたり、仕事でちょっと検証したことあったり」
+            </p>
+            <ul class="tier_items dot-list">
+              <li>React(Next.js, MUI, React Query)</li>
+              <li>TresJS(Vue用のthree.jsラッパー)</li>
+              <li>C#, .NET、WPF</li>
+              <li>Auth0</li>
+              <li>Firebase</li>
+              <li>Discord API</li>
+            </ul>
+          </div>
+          <div class="tier" data-depth="4" data-focus>
+            <p class="tier_voice">「分からない、もうやらない、悲しい」</p>
+            <ul class="tier_items dot-list">
+              <li>Haskell</li>
+              <li>競プロ（AtCoder）</li>
+            </ul>
           </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <!-- Keywords -->
+      <section class="site-section keywords" aria-labelledby="keywords-h">
+        <div class="keywords_nums" aria-hidden="true">
+          <span class="keywords_num" data-lag>7776</span>
+          <span class="keywords_num" data-lag>65536</span>
+          <span class="keywords_num" data-lag>1001</span>
+          <span class="keywords_num" data-lag>9</span>
+        </div>
+        <header class="sec-head">
+          <h2 class="sec-head_label" id="keywords-h">Keywords</h2>
+          <p class="sec-head_line" data-focus>「価値観の相違はあるんだよ」</p>
+        </header>
+        <dl class="facts">
+          <div class="facts_row" data-focus>
+            <dt>座右の銘</dt>
+            <dd>やる気は結果</dd>
+          </div>
+          <div class="facts_row" data-focus>
+            <dt>現在の目標</dt>
+            <dd>共著でいいので、何か出版したい！</dd>
+          </div>
+          <div class="facts_row" data-focus>
+            <dt>趣味</dt>
+            <dd>
+              <ul class="dot-list">
+                <li>プログラミング</li>
+                <li>noteを書く</li>
+                <li>ゲーム（スプラ、ポケスリ）</li>
+                <li>子供の動画撮影、動画編集</li>
+                <li>料理、ドライブ、プラレールなど諸々</li>
+              </ul>
+            </dd>
+          </div>
+          <div class="facts_row" data-focus>
+            <dt>過去のキーワード</dt>
+            <dd>
+              <ul class="dot-list">
+                <li>ルービックキューブ（avg23秒）</li>
+                <li>カレー屋巡り</li>
+                <li>CoCo壱は実家</li>
+                <li>日能研でバイト</li>
+                <li>中学受験算数</li>
+                <li>素因数分解覚える</li>
+                <li>飲酒（ビールが一番好き、ウイスキーが次）</li>
+                <li>婚活</li>
+                <li>マッチングアプリ（本気でやって結婚した！）</li>
+                <li>アニメ</li>
+                <li>ラノベ</li>
+                <li>小説（読書、執筆）</li>
+                <li>ゲーム（スプラ、シャドバ、DBDなど）</li>
+                <li>東方Project（原作プレイ、原曲勢）</li>
+                <li>音ゲー</li>
+                <li>BEMANI（SDVX、リフレク、弐寺）</li>
+                <li>正規表現</li>
+                <li>ANTLR</li>
+                <li>陸上競技（中高6年間）</li>
+                <li>筋トレ（ベンチmax90）</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- Links -->
+      <section class="site-section" aria-labelledby="links-h">
+        <header class="sec-head">
+          <h2 class="sec-head_label" id="links-h">Links</h2>
+        </header>
+        <div class="dialog dialog__compact">
+          <p class="dialog_line" data-focus>
+            <span class="dialog_who">Semura</span
+            >「運命を信じないからこそ、誰かを大切に出来るのかも」
+          </p>
+          <p class="dialog_line dialog_line__mirror" data-lag data-focus>
+            <span class="dialog_who">Arai</span
+            >『誰だって話せば分かりあえるはずなんだ』
+          </p>
+          <p class="dialog_line" data-focus>
+            <span class="dialog_who">Semura</span>「初志貫徹、だろ」
+          </p>
+        </div>
+        <dl class="facts">
+          <div class="facts_row" data-focus>
+            <dt>SNS</dt>
+            <dd>Coming soon...</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
     <!-- footer -->
+    <footer class="site-footer">
+      <p>Copyright © 2020-2025 Yuichi Semura.</p>
+    </footer>
 
-    <div class="footer">
-      <div class="container justify-content-center text-center">
-        <h6 class="m-0 p-3">Copyright © 2020-2025 Yuichi Semura.</h6>
-      </div>
-    </div>
+    <div class="site-grain" aria-hidden="true"></div>
   </body>
 
-  <link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css" />
-  <script type="module" src="./js/index.js"></script>
+  <script type="module" src="./js/biography.js"></script>
 </html>

@@ -1,0 +1,373 @@
+// トップページ（鏡面世界）専用のスタイル。
+// 他のページと共通の部分は _mirror.scss。
+@use 'mirror';
+
+.hero_photo {
+  object-position: 50% 46%; // top.js の街灯の位置計算もこの値を読む
+}
+
+.hero_reply {
+  position: absolute;
+  right: clamp(20px, 10vw, 160px);
+  bottom: 12svh;
+  z-index: 3;
+  font-size: clamp(15px, 1.4vw, 19px);
+  letter-spacing: 0.34em;
+  color: var(--moon);
+  text-shadow: 0 0 16px rgba(166, 191, 204, 0.35);
+  filter: url(#ripple-soft);
+}
+
+// ── このサイトについて ─────────────────
+.about {
+  background: linear-gradient(var(--deep), var(--night) 45%);
+}
+
+.about_text {
+  max-width: 34em;
+  margin: 0 auto clamp(72px, 12svh, 128px);
+  font-size: clamp(15px, 1.25vw, 17px);
+  letter-spacing: 0.12em;
+  line-height: 2.2;
+  color: rgba(239, 216, 171, 0.84);
+}
+
+// ── 研究員（鏡の軸をはさんで二人） ────────
+.members_pair {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 9vw, 128px);
+  max-width: 980px;
+  margin: 0 auto;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      transparent,
+      var(--line) 20%,
+      var(--line) 80%,
+      transparent
+    );
+  }
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+
+  &__mirror {
+    align-items: flex-start;
+    text-align: left;
+    color: var(--moon);
+  }
+}
+
+// アバターは元の画像を単色に染めて、夜になじませる
+.member_avatar {
+  position: relative;
+  width: 132px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  isolation: isolate;
+  box-shadow: 0 0 0 1px rgba(239, 216, 171, 0.22),
+    0 0 40px rgba(255, 214, 150, 0.12);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) brightness(0.8) contrast(1.05);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--lamp);
+    mix-blend-mode: color;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: radial-gradient(circle, transparent 52%, rgba(11, 15, 20, 0.6));
+  }
+
+  .member__mirror & {
+    box-shadow: 0 0 0 1px rgba(166, 191, 204, 0.25),
+      0 0 40px rgba(166, 191, 204, 0.12);
+
+    &::before {
+      background: var(--moon);
+    }
+  }
+}
+
+.member_name {
+  margin-top: 22px;
+  font-weight: 400;
+  font-size: clamp(20px, 2vw, 24px);
+  letter-spacing: 0.3em;
+  line-height: 1.6;
+
+  span {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--font-en);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--mist);
+  }
+}
+
+.member_text {
+  max-width: 26em;
+  margin-top: 14px;
+  font-size: 14.5px;
+  letter-spacing: 0.06em;
+  line-height: 2.1;
+  text-align: justify;
+  color: rgba(239, 216, 171, 0.82);
+
+  .member__mirror & {
+    color: rgba(166, 191, 204, 0.86);
+  }
+}
+
+// ── 作ったもの ────────────────────────
+.products_list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.product a {
+  display: block;
+  text-align: center;
+}
+
+.product_img {
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px var(--line);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.85) brightness(0.62) contrast(1.05);
+    transition: filter 0.8s, transform 0.8s;
+  }
+}
+
+.product a:hover img,
+.product a:focus-visible img {
+  filter: none;
+  transform: scale(1.03);
+}
+
+.product_name {
+  display: block;
+  margin-top: 18px;
+  font-family: var(--font-en);
+  font-size: clamp(16px, 1.5vw, 20px);
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  transition: text-shadow 0.6s;
+}
+
+.product a:hover .product_name,
+.product a:focus-visible .product_name {
+  text-shadow: 0 0 18px rgba(255, 214, 150, 0.45);
+}
+
+.product_desc {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--mist);
+}
+
+.products_more {
+  margin-top: clamp(40px, 7svh, 72px);
+  text-align: center;
+}
+
+// ── お知らせ ──────────────────────────
+.news_list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.news_item {
+  display: grid;
+  grid-template-columns: 8.5em 1fr;
+  gap: 1.5em;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+
+  &:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  time {
+    padding-top: 0.15em;
+    font-family: var(--font-en);
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    color: var(--mist);
+  }
+
+  p {
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    color: rgba(239, 216, 171, 0.86);
+  }
+}
+
+// ── サイトマップ：それぞれの灯りが水面に映る ──
+.lights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(36px, 5svh, 56px) clamp(16px, 2.4vw, 36px);
+  max-width: 1120px;
+  margin: 0 auto;
+  --word: clamp(20px, 2vw, 28px);
+}
+
+.lights_item {
+  width: 12em;
+  text-align: center;
+}
+
+.lights_link {
+  position: relative;
+  display: block;
+}
+
+.lights_word,
+.lights_reflect {
+  display: block;
+  font-family: var(--font-en);
+  font-size: var(--word);
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+}
+
+.lights_word {
+  color: rgba(239, 216, 171, 0.88);
+  transition: color 0.6s, text-shadow 0.6s;
+}
+
+.lights_reflect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1.2em;
+  height: 1.2em;
+  color: var(--moon);
+  opacity: 0.26;
+  transform: scaleY(-1);
+  filter: blur(1.4px) url(#ripple-still);
+  -webkit-mask: linear-gradient(to bottom, transparent 10%, #000 95%);
+  mask: linear-gradient(to bottom, transparent 10%, #000 95%);
+  pointer-events: none;
+  transition: opacity 0.6s;
+}
+
+a.lights_link:hover,
+a.lights_link:focus-visible {
+  .lights_word {
+    color: var(--lamp);
+    text-shadow: 0 0 20px rgba(255, 214, 150, 0.45);
+  }
+
+  .lights_reflect {
+    opacity: 0.5;
+  }
+}
+
+.lights_desc {
+  display: block;
+  margin-top: calc(var(--word) * 1.1);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  line-height: 1.9;
+  color: var(--mist);
+  text-wrap: balance;
+  word-break: auto-phrase;
+}
+
+.lights_item__soon .lights_word {
+  color: rgba(239, 216, 171, 0.4);
+}
+
+// ── スマホ ────────────────────────────
+@media (max-width: 767.98px) {
+  .hero_reply {
+    right: 20px;
+    bottom: 13svh;
+  }
+
+  .members_pair {
+    grid-template-columns: 1fr;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .member,
+  .member__mirror {
+    align-items: center;
+    text-align: center;
+  }
+
+  .products_list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product a {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    align-items: center;
+    gap: 0 18px;
+    text-align: left;
+  }
+
+  .product_img {
+    grid-row: span 2;
+  }
+
+  .product_name {
+    margin-top: 0;
+    align-self: end;
+  }
+
+  .product_desc {
+    align-self: start;
+  }
+
+  .news_item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
