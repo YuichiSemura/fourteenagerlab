@@ -1,5 +1,4 @@
 node_modules
 prescriptions
-package-lock.json
 src/dist
 .DS_Store
