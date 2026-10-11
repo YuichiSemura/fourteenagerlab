@@ -5,7 +5,7 @@ export default defineConfig({
   root: 'src',
   base: '/fourteenagerlab',
   build: {
-    rollupOptions: {
+    rolldownOptions: {
       input: {
         main: resolve('src', 'index.html'),
         products: resolve('src', 'products.html'),
@@ -14,11 +14,11 @@ export default defineConfig({
       },
     },
     target: 'esnext',
-    minify: 'esbuild',
+    // esnext のままだと Lightning CSS が -webkit-backdrop-filter を削除し、iOS 17 以前の Safari でぼかしが消える
+    cssTarget: ['chrome107', 'edge107', 'firefox104', 'safari16'],
   },
   server: {
     port: 8080,
-    hot: true,
   },
   define: {
     global: 'globalThis',
@@ -26,8 +26,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler',
-        silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions'],
+        silenceDeprecations: ['import', 'global-builtin', 'color-functions'],
         quietDeps: true,
       },
     },
